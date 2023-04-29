@@ -62,7 +62,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'qinyunke';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="prev" title="My Jupyter Notebook" href="ojbk.html" />
+    <link rel="prev" title="Notebooks with MyST Markdown" href="markdown-notebooks.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="None"/>
   </head>
@@ -157,7 +157,6 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="markdown.html">Markdown Files</a></li>
 <li class="toctree-l1"><a class="reference internal" href="notebooks.html">Content with notebooks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="markdown-notebooks.html">Notebooks with MyST Markdown</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ojbk.html">My Jupyter Notebook</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">青云客与云歌</a></li>
 </ul>
 
@@ -213,6 +212,24 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
+      <li><a href="https://mybinder.org/v2/git/https%3A//github.com/cosoff/zsptAI/main/master?urlpath=tree/docs/qinyunke.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onBinder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
       <li>
 <button onclick="initThebeSBT()"
   class="btn btn-sm btn-launch-thebe dropdown-item"
@@ -244,7 +261,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/cosoff/zsptAI" target="_blank"
+      <li><a href="https://github.com/cosoff/zsptAI/main" target="_blank"
    class="btn btn-sm btn-source-repository-button dropdown-item"
    title="Source repository"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -261,7 +278,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/cosoff/zsptAI/issues/new?title=Issue%20on%20page%20%2Fqinyunke.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/cosoff/zsptAI/main/issues/new?title=Issue%20on%20page%20%2Fqinyunke.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -389,58 +406,36 @@ document.write(`
 <h1>青云客与云歌<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
-<span class="kn">import</span> <span class="nn">json</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>```{code-cell} ipython
+import requests
+import json
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
-    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
-        <span class="n">text</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;你说的：&quot;</span><span class="p">)</span>
+if __name__ == &#39;__main__&#39;:
+    while True:
+        text = input(&quot;你说的：&quot;)
         
-        <span class="k">if</span> <span class="n">text</span> <span class="o">==</span> <span class="s1">&#39;再见&#39;</span><span class="p">:</span>
-            <span class="nb">print</span><span class="p">()</span>
-            <span class="k">break</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;http://api.qingyunke.com/api.php?key=free&amp;appid=0&amp;msg=</span><span class="si">%s</span><span class="s1">&#39;</span><span class="o">%</span><span class="k">text</span>
-            <span class="n">header</span> <span class="o">=</span> <span class="p">{</span>
-                <span class="s1">&#39;user-agent&#39;</span><span class="p">:</span><span class="s1">&#39;Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.127 Safari/537.36&#39;</span>
-            <span class="p">}</span>
-            <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">header</span><span class="p">)</span>
-            <span class="n">response</span><span class="o">.</span><span class="n">encoding</span> <span class="o">=</span> <span class="s1">&#39;utf-8&#39;</span>
-            <span class="n">text_json</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
-            <span class="n">context</span> <span class="o">=</span> <span class="s2">&quot;菲菲说：</span><span class="si">%s</span><span class="s2">&quot;</span><span class="o">%</span><span class="k">text_json</span>[&#39;content&#39;]
-            <span class="nb">print</span><span class="p">(</span><span class="n">context</span><span class="p">)</span>
+        if text == &#39;再见&#39;:
+            print()
+            break
+        else:
+            url = &#39;http://api.qingyunke.com/api.php?key=free&amp;appid=0&amp;msg=%s&#39;%text
+            header = {
+                &#39;user-agent&#39;:&#39;Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.127 Safari/537.36&#39;
+            }
+            response = requests.get(url, headers = header)
+            response.encoding = &#39;utf-8&#39;
+            text_json = json.loads(response.text)
+            context = &quot;菲菲说：%s&quot;%text_json[&#39;content&#39;]
+            print(context)
+```
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">StdinNotImplementedError</span><span class="g g-Whitespace">                  </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">6</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span>     <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
-<span class="ne">----&gt; </span><span class="mi">6</span>         <span class="n">text</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;你说的：&quot;</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">8</span>         <span class="k">if</span> <span class="n">text</span> <span class="o">==</span> <span class="s1">&#39;再见&#39;</span><span class="p">:</span>
-<span class="g g-Whitespace">      </span><span class="mi">9</span>             <span class="nb">print</span><span class="p">()</span>
-
-<span class="nn">File E:\ANACONDA\lib\site-packages\ipykernel\kernelbase.py:1172,</span> in <span class="ni">Kernel.raw_input</span><span class="nt">(self, prompt)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1165</span> <span class="sd">&quot;&quot;&quot;Forward raw_input to frontends</span>
-<span class="g g-Whitespace">   </span><span class="mi">1166</span><span class="sd"> </span>
-<span class="g g-Whitespace">   </span><span class="mi">1167</span><span class="sd"> Raises</span>
-<span class="g g-Whitespace">   </span><span class="mi">1168</span><span class="sd"> ------</span>
-<span class="g g-Whitespace">   </span><span class="mi">1169</span><span class="sd"> StdinNotImplementedError if active frontend doesn&#39;t support stdin.</span>
-<span class="g g-Whitespace">   </span><span class="mi">1170</span><span class="sd"> &quot;&quot;&quot;</span>
-<span class="g g-Whitespace">   </span><span class="mi">1171</span> <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_allow_stdin</span><span class="p">:</span>
-<span class="ne">-&gt; </span><span class="mi">1172</span>     <span class="k">raise</span> <span class="n">StdinNotImplementedError</span><span class="p">(</span>
-<span class="g g-Whitespace">   </span><span class="mi">1173</span>         <span class="s2">&quot;raw_input was called, but this frontend does not support input requests.&quot;</span>
-<span class="g g-Whitespace">   </span><span class="mi">1174</span>     <span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1175</span> <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_input_request</span><span class="p">(</span>
-<span class="g g-Whitespace">   </span><span class="mi">1176</span>     <span class="nb">str</span><span class="p">(</span><span class="n">prompt</span><span class="p">),</span>
-<span class="g g-Whitespace">   </span><span class="mi">1177</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_parent_ident</span><span class="p">[</span><span class="s2">&quot;shell&quot;</span><span class="p">],</span>
-<span class="g g-Whitespace">   </span><span class="mi">1178</span>     <span class="bp">self</span><span class="o">.</span><span class="n">get_parent</span><span class="p">(</span><span class="s2">&quot;shell&quot;</span><span class="p">),</span>
-<span class="g g-Whitespace">   </span><span class="mi">1179</span>     <span class="n">password</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1180</span> <span class="p">)</span>
-
-<span class="ne">StdinNotImplementedError</span>: raw_input was called, but this frontend does not support input requests.
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>  Cell In[1], line 1
+    ```{code-cell} ipython
+    ^
+SyntaxError: invalid syntax
 </pre></div>
 </div>
 </div>
@@ -479,12 +474,12 @@ document.write(`
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="ojbk.html"
+       href="markdown-notebooks.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">My Jupyter Notebook</p>
+        <p class="prev-next-title">Notebooks with MyST Markdown</p>
       </div>
     </a>
 </div></div>

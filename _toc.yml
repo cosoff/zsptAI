@@ -7,5 +7,4 @@ chapters:
 - file: markdown
 - file: notebooks
 - file: markdown-notebooks
-- file: ojbk.ipynb
-- file: qinyunke.ipynb 
+- file: qinyunke
