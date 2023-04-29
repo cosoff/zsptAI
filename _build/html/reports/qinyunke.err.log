@@ -19,40 +19,34 @@ nbclient.exceptions.CellExecutionError: An error occurred while executing the fo
 ------------------
 import requests
 import json
-import time
-import random
 
-random_str  =  str(time.time()+random.randint(0,100))
-print(random_str)
-
-def xiaoxin(text):
-    res = ''
-    url = "https://testapi.smartyg.com/api/post_gossip"
-    keys = "5f15a18f3f03f7e88020acb1c2f8c93c"
-    result = requests.post(url, json.dumps(
-        {"keys": keys, 
-        "question": text ,
-        "id":"1",
-        "random_str":random_str,"state":False})).text
-    data = json.loads(result)
-    if data["flag"] == "success":
-        res = data["answay"]
-    return res
-
-while True:
-    question = input('我：')
-    answay = xiaoxin(question)
-    print('robot:',answay)
+if __name__ == '__main__':
+    while True:
+        text = input("你说的：")
+        
+        if text == '再见':
+            print()
+            break
+        else:
+            url = 'http://api.qingyunke.com/api.php?key=free&appid=0&msg=%s'%text
+            header = {
+                'user-agent':'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.127 Safari/537.36'
+            }
+            response = requests.get(url, headers = header)
+            response.encoding = 'utf-8'
+            text_json = json.loads(response.text)
+            context = "菲菲说：%s"%text_json['content']
+            print(context)
 ------------------
 
 [1;31m---------------------------------------------------------------------------[0m
 [1;31mStdinNotImplementedError[0m                  Traceback (most recent call last)
-Cell [1;32mIn[1], line 24[0m
-[0;32m     21[0m     [38;5;28;01mreturn[39;00m res
-[0;32m     23[0m [38;5;28;01mwhile[39;00m [38;5;28;01mTrue[39;00m:
-[1;32m---> 24[0m     question [38;5;241m=[39m [38;5;28;43minput[39;49m[43m([49m[38;5;124;43m'[39;49m[38;5;124;43m我：[39;49m[38;5;124;43m'[39;49m[43m)[49m
-[0;32m     25[0m     answay [38;5;241m=[39m xiaoxin(question)
-[0;32m     26[0m     [38;5;28mprint[39m([38;5;124m'[39m[38;5;124mrobot:[39m[38;5;124m'[39m,answay)
+Cell [1;32mIn[1], line 6[0m
+[0;32m      4[0m [38;5;28;01mif[39;00m [38;5;18m__name__[39m [38;5;241m==[39m [38;5;124m'[39m[38;5;124m__main__[39m[38;5;124m'[39m:
+[0;32m      5[0m     [38;5;28;01mwhile[39;00m [38;5;28;01mTrue[39;00m:
+[1;32m----> 6[0m         text [38;5;241m=[39m [38;5;28;43minput[39;49m[43m([49m[38;5;124;43m"[39;49m[38;5;124;43m你说的：[39;49m[38;5;124;43m"[39;49m[43m)[49m
+[0;32m      8[0m         [38;5;28;01mif[39;00m text [38;5;241m==[39m [38;5;124m'[39m[38;5;124m再见[39m[38;5;124m'[39m:
+[0;32m      9[0m             [38;5;28mprint[39m()
 
 File [1;32mE:\ANACONDA\lib\site-packages\ipykernel\kernelbase.py:1172[0m, in [0;36mKernel.raw_input[1;34m(self, prompt)[0m
 [0;32m   1165[0m [38;5;124;03m"""Forward raw_input to frontends[39;00m
