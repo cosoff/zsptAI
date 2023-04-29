@@ -21,7 +21,7 @@ bibtex_bibfiles:
 
 # Information about where the book exists on the web
 repository:
-  url:https://github.com/cosoff/zsptAI   # Online location of your book
+  url:https://github.com/cosoff/zsptAI/blob/main/qinyunke.ipynb   # Online location of your book
 
 
 # Add GitHub buttons to your book
