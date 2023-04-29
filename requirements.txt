@@ -2,6 +2,5 @@ jupyter-book
 matplotlib
 numpy
 requests
-time
 random
 ipywidgets
