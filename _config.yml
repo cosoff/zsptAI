@@ -21,7 +21,7 @@ bibtex_bibfiles:
 
 # Information about where the book exists on the web
 repository:
-  url: https://github.com/cosoff/zsptAI  # Online location of your book
+  url:https://github.com/cosoff/zsptAI   # Online location of your book
 
 
 # Add GitHub buttons to your book
@@ -31,3 +31,4 @@ html:
   use_repository_button: true
 launch_buttons:
   thebe: true
+  binderhub_url: "https://mybinder.org/v2/gh/cosoff/zsptAI/main"
