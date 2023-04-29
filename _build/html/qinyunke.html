@@ -212,7 +212,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://mybinder.org/v2/git/https%3A//github.com/cosoff/zsptAI/main/master?urlpath=tree/docs/qinyunke.ipynb" target="_blank"
+      <li><a href="https://mybinder.org/v2/gh/cosoff/zsptAI/main?urlpath=tree/docs/qinyunke.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch onBinder"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -261,7 +261,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/cosoff/zsptAI/main" target="_blank"
+      <li><a href="https://github.com/cosoff/zsptAI" target="_blank"
    class="btn btn-sm btn-source-repository-button dropdown-item"
    title="Source repository"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -278,7 +278,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/cosoff/zsptAI/main/issues/new?title=Issue%20on%20page%20%2Fqinyunke.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/cosoff/zsptAI/issues/new?title=Issue%20on%20page%20%2Fqinyunke.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -406,38 +406,23 @@ document.write(`
 <h1>青云客与云歌<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>```{code-cell} ipython
-import requests
-import json
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ion</span><span class="p">()</span>
 
-if __name__ == &#39;__main__&#39;:
-    while True:
-        text = input(&quot;你说的：&quot;)
-        
-        if text == &#39;再见&#39;:
-            print()
-            break
-        else:
-            url = &#39;http://api.qingyunke.com/api.php?key=free&amp;appid=0&amp;msg=%s&#39;%text
-            header = {
-                &#39;user-agent&#39;:&#39;Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.127 Safari/537.36&#39;
-            }
-            response = requests.get(url, headers = header)
-            response.encoding = &#39;utf-8&#39;
-            text_json = json.loads(response.text)
-            context = &quot;菲菲说：%s&quot;%text_json[&#39;content&#39;]
-            print(context)
-```
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">500</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">500</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="n">x</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>  Cell In[1], line 1
-    ```{code-cell} ipython
-    ^
-SyntaxError: invalid syntax
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x19af0d3cfd0&gt;
 </pre></div>
 </div>
+<img alt="_images/e0c92df9e93e17f6cb2c281ebcc15b5db06d61b8d67f8952d7ee83c3b56d3cea.png" src="_images/e0c92df9e93e17f6cb2c281ebcc15b5db06d61b8d67f8952d7ee83c3b56d3cea.png" />
 </div>
 </div>
 </div>
@@ -447,7 +432,7 @@ SyntaxError: invalid syntax
         requestKernel: true,
         binderOptions: {
             repo: "cosoff/zsptAI",
-            ref: "master",
+            ref: "main",
         },
         codeMirrorConfig: {
             theme: "abcdef",
