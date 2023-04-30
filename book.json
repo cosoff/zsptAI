@@ -1,0 +1,47 @@
+{
+    "title" : "人工智能技术应用基础",
+    "plugins": [
+        "chapter-fold",
+        "back-to-top-button",
+        "code",
+        "copy-code-button",
+        "-lunr", 
+        "-search", 
+        "-sharing",
+        "search-pro",
+        "advanced-emoji",
+        "klipse",
+        "pageview-count",
+        "insert-logo",
+        "favicon",
+        "hide-element",
+        "theme-comscore",
+        "tbfed-pagefooter",
+        "valine"
+    ],
+    "pluginsConfig": {
+        "insert-logo": {
+          "url": "/images/logo.png",
+          "style": "background: none; max-height: 50px; min-height: 50px"
+        },
+        "favicon":{
+            "shortcut":"/images/favicon.ico",
+            "bookmark":"/images/favicon.ico"
+        },
+        "hide-element": {
+            "elements": [".gitbook-link"]
+        },
+        "valine": {
+            "appId": "Tt5Ec66ks20n0YRrnBbt0aEa-gzGzoHsz",
+            "appKey": "0G70OUQeQuHu7zdI8t2MdB4R",
+            "avatar": "mp",
+            "placeholder":"把你的疑问写下来吧~"
+        },
+        "tbfed-pagefooter": {
+            "copyright":"广州云歌信息科技有限公司 &",
+            "modify_label":"文档修改时间:",
+            "modify_format":"YYYY-MM-DD HH:mm:ss"
+        }
+
+      }
+}

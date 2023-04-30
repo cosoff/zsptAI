@@ -1,0 +1,1057 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>任务四 测试keras-yolo3 实例 · 人工智能技术应用基础</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-chapter-fold/chapter-fold.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-back-to-top-button/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-code/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search-pro/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-advanced-emoji/emoji-website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-pageview-count/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-insert-logo/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-tbfed-pagefooter/footer.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-theme-comscore/test.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="rw5.html" />
+    
+    
+    <link rel="prev" href="rw3.html" />
+    
+
+    
+        <link rel="shortcut icon" href='../../images/favicon.ico' type="image/x-icon">
+    
+    
+        <link rel="bookmark" href='../../images/favicon.ico' type="image/x-icon">
+    
+    
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                    前言
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../../part1/xm1/xm.html">
+            
+                <a href="../../part1/xm1/xm.html">
+            
+                    
+                    第一章 人工智能知识入门
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../../part1/xm1/xm.html">
+            
+                <a href="../../part1/xm1/xm.html">
+            
+                    
+                    项目一 什么是人工智能
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1.1" data-path="../../part1/xm1/rw1.html">
+            
+                <a href="../../part1/xm1/rw1.html">
+            
+                    
+                    任务一 古代的智能观：哲学起源
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.2" data-path="../../part1/xm1/rw2.html">
+            
+                <a href="../../part1/xm1/rw2.html">
+            
+                    
+                    任务二 现代人工智能
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../../part1/xm2/xm.html">
+            
+                <a href="../../part1/xm2/xm.html">
+            
+                    
+                    项目二 人工智能的发展历程
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.2.1" data-path="../../part1/xm2/rw1.html">
+            
+                <a href="../../part1/xm2/rw1.html">
+            
+                    
+                    任务一 现代人工智能
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.2" data-path="../../part1/xm2/rw2.html">
+            
+                <a href="../../part1/xm2/rw2.html">
+            
+                    
+                    任务二 我国人工智能的发展之路
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.3" data-path="../../part1/xm2/rw3.html">
+            
+                <a href="../../part1/xm2/rw3.html">
+            
+                    
+                    任务三 人工智能发展史上的事件
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../../part1/xm3/xm.html">
+            
+                <a href="../../part1/xm3/xm.html">
+            
+                    
+                    项目三 人工智能基础支撑
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.3.1" data-path="../../part1/xm3/rw1.html">
+            
+                <a href="../../part1/xm3/rw1.html">
+            
+                    
+                    任务一 人工智能技术支撑：算力
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.2" data-path="../../part1/xm3/rw2.html">
+            
+                <a href="../../part1/xm3/rw2.html">
+            
+                    
+                    任务二 人工智能技术支撑：算法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.3" data-path="../../part1/xm3/rw3.html">
+            
+                <a href="../../part1/xm3/rw3.html">
+            
+                    
+                    任务三 人工智能技术支撑：数据
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="../../part1/xm4/xm.html">
+            
+                <a href="../../part1/xm4/xm.html">
+            
+                    
+                    项目四 探索人工智能的行业应用
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.4.1" data-path="../../part1/xm4/rw1.html">
+            
+                <a href="../../part1/xm4/rw1.html">
+            
+                    
+                    任务一 智能制造
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4.2" data-path="../../part1/xm4/rw2.html">
+            
+                <a href="../../part1/xm4/rw2.html">
+            
+                    
+                    任务二 智能机器人
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4.3" data-path="../../part1/xm4/rw3.html">
+            
+                <a href="../../part1/xm4/rw3.html">
+            
+                    
+                    任务三 智能家居
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4.4" data-path="../../part1/xm4/rw4.html">
+            
+                <a href="../../part1/xm4/rw4.html">
+            
+                    
+                    任务四 智能安防
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4.5" data-path="../../part1/xm4/rw5.html">
+            
+                <a href="../../part1/xm4/rw5.html">
+            
+                    
+                    任务五 智能医疗
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../xm1/xm.html">
+            
+                <a href="../xm1/xm.html">
+            
+                    
+                    第二章 人工智能技术应用
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../xm1/xm.html">
+            
+                <a href="../xm1/xm.html">
+            
+                    
+                    项目一 智能客服机器人
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1.1" data-path="../xm1/rw1.html">
+            
+                <a href="../xm1/rw1.html">
+            
+                    
+                    任务一 语音数据采集
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.2" data-path="../xm1/rw2.html">
+            
+                <a href="../xm1/rw2.html">
+            
+                    
+                    任务二 语音转文字
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.3" data-path="../xm1/rw3.html">
+            
+                <a href="../xm1/rw3.html">
+            
+                    
+                    任务三 语音合成
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.4" data-path="../xm1/rw4.html">
+            
+                <a href="../xm1/rw4.html">
+            
+                    
+                    任务四 聊天机器人
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.5" data-path="../xm1/rw5.html">
+            
+                <a href="../xm1/rw5.html">
+            
+                    
+                    任务五 校园客服
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="xm.html">
+            
+                <a href="xm.html">
+            
+                    
+                    项目二 植物识别
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.2.1" data-path="rw1.html">
+            
+                <a href="rw1.html">
+            
+                    
+                    任务一 植物图片采集
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.2" data-path="rw2.html">
+            
+                <a href="rw2.html">
+            
+                    
+                    任务二 图像标注
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.3" data-path="rw3.html">
+            
+                <a href="rw3.html">
+            
+                    
+                    任务三 搭建keras-yolo3 环境
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.3.2.4" data-path="rw4.html">
+            
+                <a href="rw4.html">
+            
+                    
+                    任务四 测试keras-yolo3 实例
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.5" data-path="rw5.html">
+            
+                <a href="rw5.html">
+            
+                    
+                    任务五 训练植物识别数据集
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.6" data-path="rw6.html">
+            
+                <a href="rw6.html">
+            
+                    
+                    任务六 小结
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../xm3/xm.html">
+            
+                <a href="../xm3/xm.html">
+            
+                    
+                    项目三 人脸识别
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.3.1" data-path="../xm3/rw1.html">
+            
+                <a href="../xm3/rw1.html">
+            
+                    
+                    任务一 人脸检测
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.2" data-path="../xm3/rw2.html">
+            
+                <a href="../xm3/rw2.html">
+            
+                    
+                    任务二 人脸矫正
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.3" data-path="../xm3/rw3.html">
+            
+                <a href="../xm3/rw3.html">
+            
+                    
+                    任务三 人脸特征提取
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.4" data-path="../xm3/rw4.html">
+            
+                <a href="../xm3/rw4.html">
+            
+                    
+                    任务四 人脸识别
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.5" data-path="../xm3/rw5.html">
+            
+                <a href="../xm3/rw5.html">
+            
+                    
+                    任务五 简易人脸考勤系统
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../../part3/xm1/xm.html">
+            
+                <a href="../../part3/xm1/xm.html">
+            
+                    
+                    第三章 AI安全法律伦理
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../../part3/xm1/xm.html">
+            
+                <a href="../../part3/xm1/xm.html">
+            
+                    
+                    项目一 探究人工智能安全问题
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1.1" data-path="../../part3/xm1/rw1.html">
+            
+                <a href="../../part3/xm1/rw1.html">
+            
+                    
+                    任务一 认识人工智能安全的新型攻击和风险
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.2" data-path="../../part3/xm1/rw2.html">
+            
+                <a href="../../part3/xm1/rw2.html">
+            
+                    
+                    任务二 应对人工智能安全问题
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../../part3/xm2/xm.html">
+            
+                <a href="../../part3/xm2/xm.html">
+            
+                    
+                    项目二 探究人工智能伦理问题
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.2.1" data-path="../../part3/xm2/rw1.html">
+            
+                <a href="../../part3/xm2/rw1.html">
+            
+                    
+                    任务一 探究人工智能中存在的伦理问题
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2.2" data-path="../../part3/xm2/rw2.html">
+            
+                <a href="../../part3/xm2/rw2.html">
+            
+                    
+                    任务二 探究人工智能的伦理道德设计
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../../part3/xm3/xm.html">
+            
+                <a href="../../part3/xm3/xm.html">
+            
+                    
+                    项目三 探究人工智能法律
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.3.1" data-path="../../part3/xm3/rw1.html">
+            
+                <a href="../../part3/xm3/rw1.html">
+            
+                    
+                    任务一 探究人工智能发展带来的法律难题
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.2" data-path="../../part3/xm3/rw2.html">
+            
+                <a href="../../part3/xm3/rw2.html">
+            
+                    
+                    任务一 面对人工智能,法律应该如何应对
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../.." >任务四 测试keras-yolo3 实例</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h2 id="&#x4EFB;&#x52A1;&#x56DB;-&#x6D4B;&#x8BD5;keras-yolov3&#x5B9E;&#x4F8B;">&#x4EFB;&#x52A1;&#x56DB; &#x6D4B;&#x8BD5;keras-yolov3&#x5B9E;&#x4F8B;</h2>
+<h3 id="&#x3010;&#x4EFB;&#x52A1;&#x63CF;&#x8FF0;&#x3011;">&#x3010;&#x4EFB;&#x52A1;&#x63CF;&#x8FF0;&#x3011;</h3>
+<p>&#xA0;&#xA0;&#xA0;&#xA0;YOLO&#x6709;&#x81EA;&#x5DF1;&#x8BAD;&#x7EC3;&#x597D;&#x7684;&#x6570;&#x636E;&#x96C6;&#xFF0C;YOLO&#x7684;&#x68C0;&#x6D4B;&#x7C7B;&#x522B;&#x548C;&#x4F7F;&#x7528;&#x7684;&#x6570;&#x636E;&#x96C6;&#x6709;&#x5173;&#x7CFB;&#x4F8B;&#x5982;&#xFF1A;VOC &#x6570;&#x636E;&#x96C6;&#x68C0;&#x6D4B;21&#x4E2A;&#x7C7B;&#x522B;&#xFF0C;COCO &#x6570;&#x636E;&#x96C6;&#x68C0;&#x6D4B;80&#x4E2A;&#x7C7B;&#x522B;&#xFF0C;&#x800C;&#x4E14;&#x6709;&#x5B98;&#x65B9;&#x8BAD;&#x7EC3;&#x6BD4;&#x8F83;&#x597D;&#x7684;&#x6743;&#x91CD;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x62FF;&#x6765;&#x6D4B;&#x8BD5;&#xFF0C;&#x4EE5;&#x9A8C;&#x8BC1;&#x4EFB;&#x52A1;3&#x642D;&#x5EFA;&#x73AF;&#x5883;&#x662F;&#x5426;&#x6B63;&#x786E;&#x5B8C;&#x6210;&#x3002;</p>
+<h3 id="&#x3010;&#x4EFB;&#x52A1;&#x5B9E;&#x65BD;&#x3011;">&#x3010;&#x4EFB;&#x52A1;&#x5B9E;&#x65BD;&#x3011;</h3>
+<blockquote>
+<p><strong>&#x6B65;&#x9AA4;1</strong> &#x4E0B;&#x8F7D;&#x5B98;&#x65B9;keras-yolov3&#x9879;&#x76EE;&#x6587;&#x4EF6;&#xFF0C;&#x5E76;&#x5728;Pycharm&#x4E2D;&#x6253;&#x5F00;</p>
+</blockquote>
+<p>&#xA0;&#xA0;&#xA0;&#xA0;GitHub&#x4E0B;&#x8F7D;&#x7F51;&#x5740;&#xFF1A;<a href="https://github.com/qqwweee/keras-yolo3.git" target="_blank">qqwweee/keras-yolo3</a>.&#xFF0C;&#x4E0B;&#x8F7D;&#x89E3;&#x538B;&#x4E4B;&#x540E;&#x4F7F;&#x7528;Pycharm&#x6253;&#x5F00;&#x3002;&#xFF08;&#x4E5F;&#x53EF;&#x4EE5;&#x626B;&#x63CF;&#x53F3;&#x65B9;&#x4E8C;&#x7EF4;&#x7801;&#x8FDB;&#x884C;&#x4E0B;&#x8F7D;&#xFF09;</p>
+<p><img src="../../images/second/xm2/rw40.png" alt="dis"></p>
+<ul>
+<li>&#x6211;&#x4EEC;&#x9700;&#x8981;&#x5728;pycharm&#x91CC;&#x9762;&#x8BBE;&#x7F6E;&#x4E4B;&#x524D;&#x5728;anaconda prompt&#x91CC;&#x521B;&#x5EFA;&#x7684;tf_115&#x865A;&#x62DF;&#x73AF;&#x5883;&#xFF0C;&#x56E0;&#x6B64;&#xFF0C;&#x4EE5;&#x4E0B;&#x64CD;&#x4F5C;&#x975E;&#x5E38;&#x5173;&#x952E;&#xFF1A;</li>
+</ul>
+<p><img src="../../images/second/xm2/rw41.png" alt="dis"></p>
+<ul>
+<li>&#x5982;&#x4E0B;&#x56FE;&#x6240;&#x793A;&#xFF0C;&#x70B9;&#x51FB;&#x53F3;&#x4E0B;&#x89D2;&#x201C;Interpreter Settings&#x201D;&#x8FDB;&#x884C;&#x8BBE;&#x7F6E;&#xFF1A;</li>
+</ul>
+<p><img src="../../images/second/xm2/rw42.png" alt="dis"></p>
+<ul>
+<li>&#x5728;Python Interpreter&#xFF0C;&#x70B9;&#x51FB;&#x5012;&#x4E09;&#x89D2;&#x6309;&#x94AE;&#xFF0C;&#x7136;&#x540E;&#x518D;&#x70B9;&#x51FB;Show All...</li>
+</ul>
+<p><img src="../../images/second/xm2/rw43.png" alt="dis"></p>
+<ul>
+<li>&#x6253;&#x5F00;&#x53E6;&#x4E00;&#x4E2A;&#x7A97;&#x53E3;&#xFF0C;&#x70B9;&#x51FB;+&#xFF1A;</li>
+</ul>
+<p><img src="../../images/second/xm2/rw44.png" alt="dis"></p>
+<ul>
+<li>&#x6309;&#x4E0B;&#x56FE;&#x6B65;&#x9AA4;&#x70B9;&#x51FB;&#x64CD;&#x4F5C;&#xFF0C;&#x4FDD;&#x5B58;&#x66F4;&#x6539;&#xFF1A;</li>
+</ul>
+<p><img src="../../images/second/xm2/rw45.png" alt="dis"></p>
+<ul>
+<li>&#x8FD9;&#x6837;&#x5C31;&#x80FD;&#x4FDD;&#x8BC1;&#x6539;&#x9879;&#x76EE;&#x662F;&#x4F7F;&#x7528;&#x6211;&#x4EEC;&#x4E4B;&#x524D;&#x521B;&#x5EFA;&#x7684;tf_115&#x7684;&#x865A;&#x62DF;&#x73AF;&#x5883;&#x3002;</li>
+</ul>
+<blockquote>
+<p><strong>&#x6B65;&#x9AA4;2</strong> &#x4E0B;&#x8F7D;&#x5B98;&#x65B9;&#x6743;&#x91CD;&#xFF0C;&#x5E76;&#x6D4B;&#x8BD5;</p>
+</blockquote>
+<p>&#xA0;&#xA0;&#xA0;&#xA0;&#x4E0B;&#x8F7D;&#x7F51;&#x5740;&#xFF1A; <a href="https://pjreddie.com/media/files/yolov3.weights" target="_blank">yolov3.weights</a>.&#xFF0C;&#x5E76;&#x5C06;&#x6743;&#x91CD;&#x653E;&#x5728;keras-yolo3-master&#x7684;&#x6587;&#x4EF6;&#x5939;&#x4E0B;&#x3002;&#xFF08;&#x4E5F;&#x53EF;&#x4EE5;&#x626B;&#x63CF;&#x53F3;&#x65B9;&#x4E8C;&#x7EF4;&#x7801;&#x8FDB;&#x884C;&#x4E0B;&#x8F7D;&#xFF09;</p>
+<p><img src="../../images/second/xm2/rw46.png" alt="dis">
+<img src="../../images/second/xm2/rw47.png" alt="dis"></p>
+<p>&#xA0;&#xA0;&#xA0;&#xA0;&#x63A5;&#x7740;&#x4F7F;&#x7528; pycharm &#x7EC8;&#x7AEF;&#x8F93;&#x5165;&#x5982;&#x4E0B;&#x547D;&#x4EE4;&#xFF0C;&#x628A; darknet&#x4E0B;&#x7684; yolov3 &#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x8F6C;&#x6362;&#x6210; keras &#x9002;&#x7528;&#x7684; .h5 &#x6587;&#x4EF6;&#xFF0C;&#x8F93;&#x5165;&#x547D;&#x4EE4;&#xFF1A;</p>
+<pre><code class="lang-python">python convert.py yolov3.cfg yolov3.weights model_data/yolo.h5
+</code></pre>
+<p><img src="../../images/second/xm2/rw48.png" alt="dis"></p>
+<blockquote>
+<p><strong>&#x6B65;&#x9AA4;3</strong> &#x6D4B;&#x8BD5;&#x8FD0;&#x884C;yolo.py</p>
+</blockquote>
+<p>&#xA0;&#xA0;&#xA0;&#xA0;&#x8FDB;&#x5165;&#x5230; yolo.py &#x6587;&#x4EF6;&#x4E2D;&#xFF0C;&#x5728;&#x6587;&#x4EF6;&#x7684;&#x6700;&#x540E;&#x52A0;&#x4E0A;&#x4E0B;&#x9762;&#x8FD9;&#x51E0;&#x53E5;&#x4EE3;&#x7801;&#xFF08;&#x9700;&#x8981;&#x81EA;&#x5B9A;&#x4E49;&#x89C6;&#x9891;&#x5730;&#x5740;&#x6216;&#x8005;&#x76F4;&#x63A5;&#x628A;&#x6D4B;&#x8BD5;&#x89C6;&#x9891;&#x653E;&#x5728;&#x9879;&#x76EE;&#x6587;&#x4EF6;&#x5939;&#x6839;&#x76EE;&#x5F55;&#x4E0B;&#xFF09;&#xFF0C;&#x53F3;&#x952E;&#x8FD0;&#x884C;&#xFF0C;&#x770B;&#x89C1;&#x89C6;&#x9891;&#x68C0;&#x6D4B;&#xFF0C;&#x5373;&#x8BF4;&#x660E;&#x8FD0;&#x884C;&#x6210;&#x529F;&#x3002;</p>
+<pre><code class="lang-python">yolo=YOLO()
+detect_video(yolo,<span class="hljs-string">&apos;test.mp4&apos;</span>)
+</code></pre>
+<p><img src="../../images/second/xm2/rw49.png" alt="dis"></p>
+<blockquote>
+<p>&#x672C;&#x4EFB;&#x52A1;&#x5B9E;&#x6218;&#x4EE3;&#x7801;&#x5982;&#x4E0B;,&#x4F4D;&#x4E8E;/xm2/rw3-rw5/keras-yolo3-master/yolo.ipynb &#x540C;&#x5B66;&#x4EEC;&#x6765;&#x8FD0;&#x884C;&#x4E00;&#x4E0B;&#x5427;</p>
+</blockquote>
+<iframe width="800" height="600" src="http://aistudio.smartyg.com:12302/" frameborder="0" loading="lazy" allowfullscreen>
+</iframe>
+
+
+<p><footer class="page-footer"><span class="copyright">&#x5E7F;&#x5DDE;&#x4E91;&#x6B4C;&#x4FE1;&#x606F;&#x79D1;&#x6280;&#x6709;&#x9650;&#x516C;&#x53F8; &amp; all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">&#x6587;&#x6863;&#x4FEE;&#x6539;&#x65F6;&#x95F4;:
+2021-08-24 07:34:08
+</span></footer><hr><div id="vcomments"></div><script src="//unpkg.com/valine/dist/Valine.min.js"></script><script>new Valine({el: "#vcomments",appId: 'Tt5Ec66ks20n0YRrnBbt0aEa-gzGzoHsz',appKey: '0G70OUQeQuHu7zdI8t2MdB4R',placeholder: '把你的疑问写下来吧~',avatar: 'mp',meta: undefined,pageSize: 10,lang: 'zh-CN',recordIP: false})</script></p>
+ <link rel="stylesheet" type="text/css" href="https://storage.googleapis.com/app.klipse.tech/css/codemirror.css"> <script>     window.klipse_settings = {         selector: ".language-klipse, .lang-eval-clojure",         selector_eval_js: ".lang-eval-js",         selector_eval_python_client: ".lang-eval-python",         selector_eval_php: ".lang-eval-php",         selector_eval_scheme: ".lang-eval-scheme",         selector_eval_ruby: ".lang-eval-ruby",         selector_reagent: ".lang-reagent",        selector_google_charts: ".lang-google-chart",        selector_es2017: ".lang-eval-es2017",        selector_jsx: ".lang-eval-jsx",        selector_transpile_jsx: ".lang-transpile-jsx",        selector_render_jsx: ".lang-render-jsx",        selector_react: ".lang-react",        selector_eval_markdown: ".lang-render-markdown",        selector_eval_lambdaway: ".lang-render-lambdaway",        selector_eval_cpp: ".lang-eval-cpp",        selector_eval_html: ".lang-render-html",        selector_sql: ".lang-eval-sql",        selector_brainfuck: "lang-eval-brainfuck",        selector_js: ".lang-transpile-cljs"    }; </script> <script src="https://storage.googleapis.com/app.klipse.tech/plugin/js/klipse_plugin.js"></script>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="rw3.html" class="navigation navigation-prev " aria-label="Previous page: 任务三 搭建keras-yolo3 环境">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="rw5.html" class="navigation navigation-next " aria-label="Next page: 任务五 训练植物识别数据集">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"任务四 测试keras-yolo3 实例","level":"1.3.2.4","depth":3,"next":{"title":"任务五 训练植物识别数据集","level":"1.3.2.5","depth":3,"path":"part2/xm2/rw5.md","ref":"part2/xm2/rw5.md","articles":[]},"previous":{"title":"任务三 搭建keras-yolo3 环境","level":"1.3.2.3","depth":3,"path":"part2/xm2/rw3.md","ref":"part2/xm2/rw3.md","articles":[]},"dir":"ltr"},"config":{"plugins":["chapter-fold","back-to-top-button","code","copy-code-button","-lunr","-search","-sharing","search-pro","advanced-emoji","klipse","pageview-count","insert-logo","favicon","hide-element","theme-comscore","tbfed-pagefooter","valine","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"广州云歌信息科技有限公司 &","modify_label":"文档修改时间:","modify_format":"YYYY-MM-DD HH:mm:ss"},"chapter-fold":{},"livereload":{},"search-pro":{},"code":{"copyButtons":true},"hide-element":{"elements":[".gitbook-link"]},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":{"shortcut":"/images/favicon.ico","bookmark":"/images/favicon.ico"},"theme-comscore":{},"back-to-top-button":{},"pageview-count":{},"copy-code-button":{},"klipse":{"myConfigKey":"it's the default value"},"advanced-emoji":{"embedEmojis":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"insert-logo":{"style":"background: none; max-height: 50px; min-height: 50px","url":"/images/logo.png"},"valine":{"avatar":"mp","lang":"zh-CN","pageSize":10,"placeholder":"把你的疑问写下来吧~","recordIP":false,"appId":"Tt5Ec66ks20n0YRrnBbt0aEa-gzGzoHsz","appKey":"0G70OUQeQuHu7zdI8t2MdB4R"}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"人工智能技术应用基础","gitbook":"*"},"file":{"path":"part2/xm2/rw4.md","mtime":"2021-08-24T07:34:08.743Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-02-10T06:29:58.573Z"},"basePath":"../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-chapter-fold/chapter-fold.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-back-to-top-button/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-code/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-copy-code-button/toggle.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search-pro/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search-pro/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-pageview-count/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-insert-logo/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-hide-element/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-theme-comscore/test.js"></script>
+        
+    
+
+    </body>
+</html>
+

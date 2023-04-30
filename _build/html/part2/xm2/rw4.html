@@ -1,0 +1,674 @@
+
+
+<!DOCTYPE html>
+
+
+<html >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>任务2.2.4 测试keras-yolov3实例 &#8212; My sample book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'part2/xm2/rw4';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="None"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../../intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    Welcome to your Jupyter Book
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../part1/xm1/xm.html">模块一  人工智能知识认知</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../part1/xm1/xm1.html">模块一  人工智能知识认知</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../part1/xm1/rw1.html">任务1.1.1 人工智能知识认知</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../part1/xm1/rw2.html">任务1.1.2 人工智能技术发展历程探究</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../part1/xm1/rw3.html">任务1.1.3 探究新职业-人工智能训练师</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../part1/xm2/xm.html">项目三   人工智能基础支撑</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../part1/xm2/rw1.html">任务1.2.1人工智能应用支撑认知</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../part1/xm2/rw2.html">任务1.2.2人工智能应用行业探究</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fpart2/xm2/rw4.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/part2/xm2/rw4.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>任务2.2.4 测试keras-yolov3实例</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">任务描述</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">学习目标</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">1.知识目标</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">2.能力目标</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">3.素质素养目标</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">任务分析</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">1.重点</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">2.难点</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">知识链接</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#keras-yolov3-pycharm">1.下载官方keras-yolov3项目文件，并在Pycharm中打开</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tf-115">2.为项目创建tf_115虚拟环境</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">3.下载官方权重并测试</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">素质素养养成</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">任务分组</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">学生任务分配表</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">任务实施</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#yolo3">任务工作单1：Yolo3官方案例测试</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id15">任务工作单2：Yolo3官方案例测试</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id16">个人自评表</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id17">小组内互评表</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id18">小组间互评表</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id19">教师评价表</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <div class="section" id="keras-yolov3">
+<h1>任务2.2.4 测试keras-yolov3实例<a class="headerlink" href="#keras-yolov3" title="Permalink to this headline">#</a></h1>
+<div class="section" id="id1">
+<h2>任务描述<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h2>
+<p>       YOLO有自己训练好的数据集，YOLO的检测类别和使用的数据集类型有关系，例如：VOC 数据集可以检测21个类别，COCO 数据集可以检测80个类别，而且有官方训练比较好的权重，我们可以直接拿来测试。请下载VOC数据集和提供目标检测视频test.mp4，在任务3的环境对test.mp4视频进行目标检测实验，参考效果如图2.2.4.1。</p>
+<p><img alt="dis" src="images/second/xm2/b1.png" /></p>
+<p>图2.2.4.1 YOLOv3目标检测效果图</p>
+</div>
+<div class="section" id="id2">
+<h2>学习目标<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h2>
+<div class="section" id="id3">
+<h3>1.知识目标<a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h3>
+<p>       （1）掌握keras-yolo3官方案例的测试方法。</p>
+<p>       （2）掌握Pycharm环境Python Interpreter的设置方法。</p>
+</div>
+<div class="section" id="id4">
+<h3>2.能力目标<a class="headerlink" href="#id4" title="Permalink to this headline">#</a></h3>
+<p>       （1）能利用Anaconda及Pycharm搭建yolo3的运行环境进行官方案例测试。</p>
+</div>
+<div class="section" id="id5">
+<h3>3.素质素养目标<a class="headerlink" href="#id5" title="Permalink to this headline">#</a></h3>
+<p>       （1）培养不怕困难、认真细致的工作作风；</p>
+<p>       （2）培养工程思维意识；</p>
+<p>       （3）培养遵守规范的意识。</p>
+</div>
+</div>
+<div class="section" id="id6">
+<h2>任务分析<a class="headerlink" href="#id6" title="Permalink to this headline">#</a></h2>
+<div class="section" id="id7">
+<h3>1.重点<a class="headerlink" href="#id7" title="Permalink to this headline">#</a></h3>
+<p>keras-yolo3官方案例的测试。</p>
+</div>
+<div class="section" id="id8">
+<h3>2.难点<a class="headerlink" href="#id8" title="Permalink to this headline">#</a></h3>
+<p>keras-yolo3官方案例的测试。</p>
+</div>
+</div>
+<div class="section" id="id9">
+<h2>知识链接<a class="headerlink" href="#id9" title="Permalink to this headline">#</a></h2>
+<p>       <strong>Darkent</strong>是个轻量级深度学习训练框架，用c和cuda编写，支持GPU加速。darknet和tensorflow，pytorch，caffe，mxnet一样，是用于跑模型的底层框架。</p>
+<p>       Yolo(从yolov1~yolov3)系列是目标检测领域比较优秀的网络模型，和yolo差不多的有SSD，R-CNN，Faster R-CNN等。</p>
+<p>       Yolo是用于目标检测的模型，darkent是跑模型的框架。Joseph Chet Redmon开发了一个深度学习框架Darkent，并且设计了多种yolo系列模型，这些模型顺理成章地用他自己开发的darknet框架来训练。本项目就采用Darkent来跑YOLO模型。</p>
+<div class="section" id="keras-yolov3-pycharm">
+<h3>1.下载官方keras-yolov3项目文件，并在Pycharm中打开<a class="headerlink" href="#keras-yolov3-pycharm" title="Permalink to this headline">#</a></h3>
+<p>       keras-yolov3项目文件GitHub下载网址：<a class="reference external" href="https://github.com/qqwweee/keras-yolo3.git%EF%BC%8C%E4%B8%8B%E8%BD%BD%E8%A7%A3%E5%8E%8B%E4%B9%8B%E5%90%8E%E4%BD%BF%E7%94%A8Pycharm%E6%89%93%E5%BC%80%E3%80%82">https://github.com/qqwweee/keras-yolo3.git，下载解压之后使用Pycharm打开。</a></p>
+</div>
+<div class="section" id="tf-115">
+<h3>2.为项目创建tf_115虚拟环境<a class="headerlink" href="#tf-115" title="Permalink to this headline">#</a></h3>
+<p>       （1）我们需要在pycharm里面设置之前在anaconda prompt里创建的tf_115虚拟环境，因此，以下操作非常关键，单击图2.2.4.2中框选的地方，会出现图2.2.4.3所示的列表，点击这个列表中的“Interpreter Settings”进行设置。</p>
+<p><img alt="dis" src="images/second/xm2/b2.png" /></p>
+<p>图2.2.4.2 keras-yolo3切换环境1</p>
+<p><img alt="dis" src="images/second/xm2/b3.png" /></p>
+<p>图2.2.4.3 keras-yolo3切换环境2</p>
+<p>       （2）在图2.2.4.4中的Python Interpreter，点击倒三角按钮，然后再点单击“Show All…”选项，打开Python Interp窗口（如图2.2.4.5所示），点击其中的“+”。</p>
+<p><img alt="dis" src="images/second/xm2/b4.png" /></p>
+<p>图2.2.4.4 keras-yolo3 Settings界面</p>
+<p><img alt="dis" src="images/second/xm2/b5.png" /></p>
+<p>图2.2.4.5 Python Interp界面</p>
+<p>       （3）进入Add Python Interpreter，按图2.2.4.6中标注的步骤进行操作，最后单击OK保存更改。</p>
+<p><img alt="dis" src="images/second/xm2/b6.png" /></p>
+<p>图2.2.4.6 Add Python Interpreter界面中配置ttf_115虚拟环境的步骤</p>
+<p>       经过以上三个步骤就能保证该项目是使用我们之前创建的tf_115的虚拟环境。</p>
+</div>
+<div class="section" id="id10">
+<h3>3.下载官方权重并测试<a class="headerlink" href="#id10" title="Permalink to this headline">#</a></h3>
+<p>       <strong>步骤1</strong>：下载网址：**<a class="reference external" href="https://pjreddie.com/media/files/yolov3.weights%EF%BC%8C**%E5%B9%B6%E5%B0%86%E6%9D%83%E9%87%8D%E6%94%BE%E5%9C%A8keras-yolo3-master%E7%9A%84%E6%96%87%E4%BB%B6%E5%A4%B9%E4%B8%8B%EF%BC%8C%E5%8F%82%E8%80%83%E5%9B%BE2.2.4.7%E3%80%82%EF%BC%88%E4%B9%9F%E5%8F%AF%E4%BB%A5%E6%89%AB%E6%8F%8F%E5%8F%B3%E6%96%B9%E4%BA%8C%E7%BB%B4%E7%A0%81%E8%BF%9B%E8%A1%8C%E4%B8%8B%E8%BD%BD%EF%BC%89">https://pjreddie.com/media/files/yolov3.weights，**并将权重放在keras-yolo3-master的文件夹下，参考图2.2.4.7。（也可以扫描右方二维码进行下载）</a></p>
+<p><img alt="dis" src="images/second/xm2/b7.jpg" /></p>
+<p><img alt="dis" src="images/second/xm2/b8.png" /></p>
+<p>图2.2.4.7 keras-yolo3中添加权重文件</p>
+<p>       **步骤2：**接着使用 pycharm 终端输入如下命令，把 darknet下的 yolov3 配置文件转换成 keras 适用的 .h5 文件。输入命令：**python <a class="reference external" href="http://convert.py">convert.py</a> yolov3.cfg yolov3.weights model_data/yolo.h5，**如图2.2.4.8所示：</p>
+<p><img alt="dis" src="images/second/xm2/b9.png" /></p>
+<p>图2.2.4.8  转换.h5 文件</p>
+<p>       **步骤3：**<a class="reference external" href="http://xn--yolo-zx7i515k8ff6yi.py">测试运行yolo.py</a>
+进入到 <a class="reference external" href="http://yolo.py">yolo.py</a> 文件中，在文件的最后加上创建YOLO模型对象代码，调用YOLO模型测试本地的test.mp4视频，参考代码如下，这里是把测试视频test.mp4放在项目文件夹根目录下了。</p>
+<p>       yolo=YOLO()</p>
+<p>       detect_video(yolo,’test.mp4’)</p>
+<p>       右键运行项目，看见如图2.2。4.9所示的目标检测框和标签说明运行成功。</p>
+<p><img alt="dis" src="images/second/xm2/b10.png" /></p>
+</div>
+</div>
+<div class="section" id="id11">
+<h2>素质素养养成<a class="headerlink" href="#id11" title="Permalink to this headline">#</a></h2>
+<p>       1.本任务涉及很多人工智能的相关术语及概念，多且复杂，但都不要求同学生掌握，只要求学生应用，培养学生面对新知识的学习能力及思考能力，引导学生认同终生学习的理念。</p>
+<p>       2.在实践过程中，会遇到很多不可预计的问题，在搭建虚拟环境中的过程培养学生遵守规则的职业素养。</p>
+<p>       3.通过目标检测示例效果的置信度和检测到的物体展示培养学生探索未知、追求真理、勇攀科学高峰的责任感和使命感。</p>
+</div>
+<div class="section" id="id12">
+<h2>任务分组<a class="headerlink" href="#id12" title="Permalink to this headline">#</a></h2>
+<div class="section" id="id13">
+<h3>学生任务分配表<a class="headerlink" href="#id13" title="Permalink to this headline">#</a></h3>
+<p><a class="reference external" href="https://docs.qq.com/sheet/DWUJFSWhhdXVpT3ls">学生任务分配表</a></p>
+</div>
+</div>
+<div class="section" id="id14">
+<h2>任务实施<a class="headerlink" href="#id14" title="Permalink to this headline">#</a></h2>
+<div class="section" id="yolo3">
+<h3>任务工作单1：Yolo3官方案例测试<a class="headerlink" href="#yolo3" title="Permalink to this headline">#</a></h3>
+<p>组号：__________           姓名：__________           学号：__________            检索号：__________</p>
+<p><strong>引导问题：</strong></p>
+<p>（1）通过分析讨论，阐述本任务在实施过程中的注意事项，本任务与任务3之间的联系？</p>
+<p>—————————————————————————————————————————————————————————</p>
+<p>（2）通过网络搜索资源，搜索Keras-Yolo3官方项目资源以及权重文件。</p>
+<p>—————————————————————————————————————————————————————————</p>
+</div>
+<div class="section" id="id15">
+<h3>任务工作单2：Yolo3官方案例测试<a class="headerlink" href="#id15" title="Permalink to this headline">#</a></h3>
+<p>组号：__________           姓名：__________           学号：__________            检索号：__________</p>
+<p><strong>引导问题：</strong></p>
+<p>（1）测试yolo3官方案例并记录结果。</p>
+<p>—————————————————————————————————————————————————————————</p>
+<p>（2）总结在测试keras-yolo3官方案例时碰到的问题及解决方案。</p>
+<p>—————————————————————————————————————————————————————————</p>
+<p>（3）在完成本任务时，引发你思考的问题，以及你从网络中找到的答案？</p>
+<p>—————————————————————————————————————————————————————————</p>
+</div>
+<div class="section" id="id16">
+<h3>个人自评表<a class="headerlink" href="#id16" title="Permalink to this headline">#</a></h3>
+<p><a class="reference external" href="https://docs.qq.com/sheet/DWU9HdWhXVVpYR3FW">个人自评表</a></p>
+</div>
+<div class="section" id="id17">
+<h3>小组内互评表<a class="headerlink" href="#id17" title="Permalink to this headline">#</a></h3>
+<p><a class="reference external" href="https://docs.qq.com/sheet/DWXV3Y2tCUERWVGJz">小组内互评表</a></p>
+</div>
+<div class="section" id="id18">
+<h3>小组间互评表<a class="headerlink" href="#id18" title="Permalink to this headline">#</a></h3>
+<p><a class="reference external" href="https://docs.qq.com/sheet/DWVZ2eFJDaFZHU1Bs">小组间互评表</a></p>
+</div>
+<div class="section" id="id19">
+<h3>教师评价表<a class="headerlink" href="#id19" title="Permalink to this headline">#</a></h3>
+<p><a class="reference external" href="https://docs.qq.com/sheet/DWWRCQm1JYVVnTFF2">教师评价表</a></p>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./part2\xm2"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">任务描述</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">学习目标</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">1.知识目标</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">2.能力目标</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">3.素质素养目标</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">任务分析</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">1.重点</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">2.难点</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">知识链接</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#keras-yolov3-pycharm">1.下载官方keras-yolov3项目文件，并在Pycharm中打开</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tf-115">2.为项目创建tf_115虚拟环境</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">3.下载官方权重并测试</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">素质素养养成</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">任务分组</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">学生任务分配表</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">任务实施</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#yolo3">任务工作单1：Yolo3官方案例测试</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id15">任务工作单2：Yolo3官方案例测试</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id16">个人自评表</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id17">小组内互评表</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id18">小组间互评表</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id19">教师评价表</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By The Jupyter Book Community
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
