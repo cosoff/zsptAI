@@ -75,6 +75,9 @@ x = np.linspace(0,10)
 plt.plot(x, np.sin(x))
 plt.plot(x, np.cos(x))
 </pre>
+<pre data-executable="true" data-language="python">
+！pip install -r requirements.txt
+</pre>
 ### 学习目标
 
 #### 1.知识目标
