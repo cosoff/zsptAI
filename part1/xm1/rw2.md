@@ -66,6 +66,15 @@ start_audio()
 from playsound import playsound
 playsound('test.wav')
 </pre>
+
+<pre data-executable="true" data-language="python">
+%matplotlib inline
+import numpy as np
+import matplotlib.pyplot as plt
+x = np.linspace(0,10)
+plt.plot(x, np.sin(x))
+plt.plot(x, np.cos(x))
+</pre>
 ### 学习目标
 
 #### 1.知识目标
