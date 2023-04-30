@@ -155,6 +155,7 @@ const thebe_selector_output = ".output, .cell_output"
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../README.html">简介</a></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="xm.html">模块一  人工智能知识认知</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2 current active has-children"><a class="reference internal" href="xm1.html">模块一  人工智能知识认知</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="rw1.html">任务1.1.1 人工智能知识认知</a></li>
@@ -447,6 +448,65 @@ document.write(`
 <div class="section" id="id2">
 <h2>任务描述<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h2>
 <p>       1956年达特茅斯会议被广泛认为是人工智能诞生的标志，经过60多年的蜿蜒前行，时至今日，人工智能发展日新月异，此刻AI已经走出实验室，离开棋盘，已通过智能客服、智能医生、智能家电等服务场景在诸多行业进行深入而广泛的应用。可以说，AI正在全面进入我们的日常生活，属于未来的力量正席卷而来。但是人工智能是一门极富发展潜力和挑战性的学科，和大多数事物发展规律一样，该学科也呈“肯定－否定－否定之否定”的螺旋上升发展趋势。请同学查找资料，总结人工智能发展三次快速发展和两次低谷的原因，了解推动人工智能技术发展中优秀人物和实践，了解世界和我国的人工智能技术发展规划和AI新基建，思考人工智能技术对自己就业和未来从事行业的影响。</p>
+<!-- Configure and load Thebe !-->
+<script type="text/x-thebe-config">
+  {
+      requestKernel: true,
+      mountActivateWidget: true,
+      mountStatusWidget: true,
+      binderOptions: {
+      repo: "binder-examples/requirements",
+      },
+  }
+</script>
+<script src="https://unpkg.com/thebe@latest/lib/index.js"></script>
+<div class="thebe-activate"></div>
+<div class="thebe-status"></div>
+<pre data-executable="true" data-language="python">
+import pyaudio
+import wave
+def start_audio(time=3, save_file="test.wav"):
+    CHUNK = 1024
+    FORMAT = pyaudio.paInt16
+    CHANNELS = 2
+    RATE = 16000
+    RECORD_SECONDS = time  # 需要录制的时间
+    WAVE_OUTPUT_FILENAME = save_file  # 保存的文件名
+
+    p = pyaudio.PyAudio()  # 初始化
+    print("ON")
+
+    stream = p.open(format=FORMAT,
+                    channels=CHANNELS,
+                    rate=RATE,
+                    input=True,
+                    frames_per_buffer=CHUNK)  # 创建录音文件
+    frames = []
+
+    for i in range(0, int(RATE / CHUNK * RECORD_SECONDS)):
+        data = stream.read(CHUNK)
+        frames.append(data)  # 开始录音
+
+    print("OFF")
+
+    stream.stop_stream()
+    stream.close()
+    p.terminate()
+
+    wf = wave.open(WAVE_OUTPUT_FILENAME, 'wb')  # 保存
+    wf.setnchannels(CHANNELS)
+    wf.setsampwidth(p.get_sample_size(FORMAT))
+    wf.setframerate(RATE)
+    wf.writeframes(b''.join(frames))
+    wf.close()
+
+
+start_audio()
+</pre>
+<pre data-executable="true" data-language="python">
+from playsound import playsound
+playsound('test.wav')
+</pre>
 </div>
 <div class="section" id="id3">
 <h2>学习目标<a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h2>
@@ -494,7 +554,7 @@ document.write(`
 <div class="section" id="id11">
 <h3>一、人工智能“三起两落”发展之路<a class="headerlink" href="#id11" title="Permalink to this headline">#</a></h3>
 <p>       1956年达特茅斯会议被广泛认为是人工智能诞生的标志，经过60多年的蜿蜒前行，时至今日，人工智能发展日新月异，此刻AI已经走出实验室，离开棋盘，已通过智能客服、智能医生、智能家电等服务场景在诸多行业进行深入而广泛的应用。可以说，AI正在全面进入我们的日常生活，属于未来的力量正席卷而来。让我们来回顾下人工智能走过的曲折发展历程。</p>
-<p><img alt="dis" src="images/first/dtms.png" /></p>
+<p><img alt="dis" src="../../_images/dtms.png" /></p>
 <div class="section" id="id12">
 <h4>1.人工智能的第一次高峰<a class="headerlink" href="#id12" title="Permalink to this headline">#</a></h4>
 <p>       1950年，一名在校大四学生马文·明斯基与他的同学邓恩·埃德蒙建造了世界上第一台神经网络计算机，这通常被认为是人工智能的起点，马文.明斯基也被世人称为“人工智能之父”。同年，“计算机之父”阿兰·图灵提出了一个举世瞩目的想法，即图灵测试。图灵当时大胆预言了真正具备智能机器的可行性。1956年，在达特茅斯学院举办的一次会议上，计算机专家约翰·麦卡锡提出了“人工智能”一词。这次会议后不久，约翰.麦卡锡和马文·明斯基先后搬到了麻省理工学院（Massachusetts Institute of Technology）一起开展人工智能相关研究，两人共同创建了世界上第一个人工智能实验室——MIT AI LAB实验室。达特茅斯会议上正式确立了人工智能这一术语，对人工智能的学术研究也正式拉开序幕，人工智能学者和技术开发者陆续涌现，成为第一批人工智能领域的研究实践者。在此后的10多年里，计算机被广泛应用于数学和自然语言领域，用来解决代数、几何和英语等问题，这大大增加了研究学者们对机器人工智能化发展的信心，甚至不少研究者这认为：“二十年内，机器将能完成人能做到的一切。”</p>
@@ -514,7 +574,7 @@ document.write(`
 <div class="section" id="id16">
 <h4>5.人工智能再次崛起<a class="headerlink" href="#id16" title="Permalink to this headline">#</a></h4>
 <p>       上世纪九十年代中期开始，随着AI技术尤其是神经网络技术的逐步发展，以及人们对AI开始抱有客观理性的认知，人工智能技术开始进入平稳发展时期。1997年5月11日，IBM的计算机系统“深蓝”战胜了国际象棋世界冠军卡斯帕罗夫，又一次在公众领域引发了现象级的AI话题讨论，成为人工智能发展的一个重要里程。2006年，Hinton在神经网络的深度学习领域取得突破，人类又一次看到机器赶超人类的希望，也是标志性的技术进步。2009年，IBM首席执行官彭明盛首次提出“智慧地球”这一概念，”智慧的地球”战略的主要内容是把新一代IT技术充分运用在各行各业之中。即把感应器嵌入和装备到电网、铁路、桥梁、隧道、公路、建筑、供水系统、大坝、油气管道等各种物体中，实现万物互联，形成”物联网”的物理系统，然后基于超级计算机和云计算技术实现与物理系统交互，从而帮助人类更加精细和动态的管理生产和生活，最终达到“智慧”状态。</p>
-<p><img alt="dis" src="images/first/a1.png" /></p>
+<p><img alt="dis" src="../../_images/a1.png" /></p>
 <p>       唯物辩证法认为，无论是自然界、人类，还是人的思维都在不断地运动、变化和发展，事物的发展具有普遍性和客观性。事物发展的方向是前进的、上升的；事物前进的道路是曲折的、迁回的。人工智能技术的发展也是这样曲折前进，经历了“两落三起”的人工智能技术已经掀起第四次商业革命，谷歌、微软、百度等互联网巨头以及众多的初创科技公司，纷纷加入人工智能技术应用的战场，掀起又一轮的智能化狂潮，随着技术的日趋成熟和大众的广泛接受，这次狂潮也许可以推动现代文明进入未来文明。</p>
 </div>
 </div>
@@ -535,7 +595,7 @@ document.write(`
 <p>       世界各国已经认识到人工智能是未来国家之间竞争的关键赛场，因而纷纷开始部署人工智能发展战略，以期占领新一轮科技革命的历史高点，我国也不例外。2017年3月，“人工智能”首次被写入政府工作报告。2017年7月，国务院发布《新一代人工智能发展规划》。2017年10月，人工智能被写入十九大报告。2018年3月，人工智能再度被写入政府工作报告。2018年12月的中央经济工作会议上，人工智能被列入“新基建”的核心板块。2019年3月，人工智能第三次出现在政府工作报告中，并升级为“人工智能+”。2020年3月，中共中央政治局常务委员会召开会议，提出要发力于科技端的基础设施建设，人工智能再次成为“新基建”七大板块中的重要一项。</p>
 <p>       <strong>新技术推动学科建设和催生新职业。<strong>2018年4月，教育部正在研究制定《高等学校引领人工智能创新行动计划》时确定设立人工智能专业，进一步完善中国高校人工智能学科体系，旨在培养中国人工智能产业的应用型人才，推动人工智能一级学科建设。2019年3月，全国共有35所高校获首批</strong>人工智能新专业建设</strong>资格。教育部确定2019年度增补<strong>人工智能技术服务专业</strong>，自2020年起执行，首批共有171所高职院校获批新专业人才培养资格。2019年4月，中华人民共和国人力资源保障部（以下简称人社部）等部门发布13个新职业，包括<strong>人工智能工程技术人员</strong>等。2020年2月，人社部再次向社会发布了未来急需的16个新职业，<strong>人工智能训练师</strong>、智能制造工程技术人员等名列其中。
 在人工智能领域，无论是从理论研究、技术研发方面，还是从产业基础方面来看，应该说我国的研究积累与发达国家相比差距不大，目前很多方面已经处于世界领先水平。已经成为我国战略规划部署重点的人工智能，未来空间无限。</p>
-<p><img alt="dis" src="images/first/a2.png" /></p>
+<p><img alt="dis" src="../../_images/a2.png" /></p>
 </div>
 </div>
 <div class="section" id="id21">
@@ -552,17 +612,17 @@ document.write(`
 <div class="section" id="id24">
 <h4>3.人机大战—“深蓝”<a class="headerlink" href="#id24" title="Permalink to this headline">#</a></h4>
 <p>       1997年，IBM的超级计算机“深蓝”挑战世界第一象棋冠军盖瑞•卡斯帕洛夫，人工智能又再次出现在人们的视野中。卡斯帕洛夫一分钟可以思考3步棋，而“深蓝”存储了一百年来几乎所有顶级大师的棋谱，一秒钟可以思考两亿步棋。在最后的决胜局中，卡斯帕洛夫仅仅走了十九步便失去了耐心离开现场，这场人机大战以机器完胜人类代表而结束，人工智能顿时声名大噪。</p>
-<p><img alt="dis" src="images/first/sl.png" /></p>
+<p><img alt="dis" src="../../_images/sl.png" /></p>
 </div>
 <div class="section" id="id25">
 <h4>4.智力问答——“沃森”<a class="headerlink" href="#id25" title="Permalink to this headline">#</a></h4>
 <p>       2011年，IBM人工智能系统“沃森”决定向北美热播的智力问答节目《危险边缘》宣战，能从节目中胜出的都是上知天文下知地理的学霸级人物，很多人并不看好“沃森”。“沃森”的大脑中虽然已经输入全套百科全书，数百万份的资料，强大的处理器由90台服务器和360个计算机芯片驱动，但是问题的难点并不是储存丰富知识和快速的检索，更重要的是需要让“沃森”理解出题者的问话，对！就是像人类一样“理解”；于是“沃森”像人一样疯狂的“训练”，通过155场模拟赛，8000次以上实验，“沃森”在挑战两位史上获得奖金最多的两位人类选手时，再一次完胜。</p>
-<p><img alt="dis" src="images/first/ws.png" /></p>
+<p><img alt="dis" src="../../_images/ws.png" /></p>
 </div>
 <div class="section" id="aiphago">
 <h4>5.世纪大战——“AIphaGo”<a class="headerlink" href="#aiphago" title="Permalink to this headline">#</a></h4>
 <p>       2016年3月，世界顶尖围棋高手李世石九段接受了谷歌人工智能“AlphaGo”的挑战；众所周知，围棋千古不同局，万千变化多达10的172次方。麻省理工学院大脑与认识科学系教授托马斯•波吉奥表示：围棋的走法比宇宙中的原子数还多，与“深蓝”不同的是，“AlphaGo”不能仅仅依靠“蛮力”的编程，也不可能将所有走法的可能性都存储起来，它应用的是允许机器被训练，并不断学习成长的算法，这个算法称之为：深度学习。在第二局37手“AlphaGo”走出了天马行空的一幕，让很多围观的人汗毛直立，这一步棋让李世石整整想了15分钟，但已经回天无力了，最终“AlphaGo”完胜人类代表李世石；我们在“AlphaGo”身上仿佛已经看到人类的很多特质，比如创造力、直觉和复杂的思考。</p>
-<p><img alt="dis" src="images/first/alphago.png" /></p>
+<p><img alt="dis" src="../../_images/alphago.png" /></p>
 </div>
 <div class="section" id="eliza">
 <h4>6.第一台聊天机器人Eliza<a class="headerlink" href="#eliza" title="Permalink to this headline">#</a></h4>
@@ -583,7 +643,7 @@ document.write(`
 <div class="section" id="cloud-automl">
 <h4>10. 谷歌发布Cloud AutoML<a class="headerlink" href="#cloud-automl" title="Permalink to this headline">#</a></h4>
 <p>       2018年1月，谷歌发布Cloud AutoML 系统，Cloud AutoML基于监督学习，开发者只需要通过鼠标拖拽的方式上传一组图片、导入标签，不需要编写一行代码，几乎不需要任何人为的干预，谷歌系统就能自动生成一个定制化的机器学习模型。我们用户只需要通过在网页上选定需求，比如“我要一个能够识别客厅的AI模型”，那我只要再上传少量（100张左右）的客厅照片，系统就可以自动生成一个可以识别客厅的AI模型。简而言之，即便你不懂机器学习的专业知识，也可以借此来从事一些人工智能领域的工作！这就大大降低了人工智能领域的进入门槛，从而推动人工智能技术更加广泛的应用。</p>
-<p><img alt="dis" src="images/first/a3.png" /></p>
+<p><img alt="dis" src="../../_images/a3.png" /></p>
 <p>       人工智能作为新一轮产业革命的核心驱动力，将进一步释放历次科技革命和产业革命积蓄的巨大能量，创造新的强大引擎，重构生产、分配、交换、消费等经济活动各环节，形成从宏观到微观各领域的智能化新需求，催生新技术、新产品、新产业、新业态、新模式，引发经济结构重大变革，深刻改变人类生产方式和思维模式，实现社会生产力的整体跃升。</p>
 </div>
 </div>

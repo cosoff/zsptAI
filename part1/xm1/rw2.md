@@ -3,7 +3,69 @@
 ### 任务描述
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1956年达特茅斯会议被广泛认为是人工智能诞生的标志，经过60多年的蜿蜒前行，时至今日，人工智能发展日新月异，此刻AI已经走出实验室，离开棋盘，已通过智能客服、智能医生、智能家电等服务场景在诸多行业进行深入而广泛的应用。可以说，AI正在全面进入我们的日常生活，属于未来的力量正席卷而来。但是人工智能是一门极富发展潜力和挑战性的学科，和大多数事物发展规律一样，该学科也呈“肯定－否定－否定之否定”的螺旋上升发展趋势。请同学查找资料，总结人工智能发展三次快速发展和两次低谷的原因，了解推动人工智能技术发展中优秀人物和实践，了解世界和我国的人工智能技术发展规划和AI新基建，思考人工智能技术对自己就业和未来从事行业的影响。
+<!-- Configure and load Thebe !-->
+<script type="text/x-thebe-config">
+  {
+      requestKernel: true,
+      mountActivateWidget: true,
+      mountStatusWidget: true,
+      binderOptions: {
+      repo: "binder-examples/requirements",
+      },
+  }
+</script>
 
+<script src="https://unpkg.com/thebe@latest/lib/index.js"></script>
+
+<div class="thebe-activate"></div>
+<div class="thebe-status"></div>
+
+<pre data-executable="true" data-language="python">
+import pyaudio
+import wave
+def start_audio(time=3, save_file="test.wav"):
+    CHUNK = 1024
+    FORMAT = pyaudio.paInt16
+    CHANNELS = 2
+    RATE = 16000
+    RECORD_SECONDS = time  # 需要录制的时间
+    WAVE_OUTPUT_FILENAME = save_file  # 保存的文件名
+
+    p = pyaudio.PyAudio()  # 初始化
+    print("ON")
+
+    stream = p.open(format=FORMAT,
+                    channels=CHANNELS,
+                    rate=RATE,
+                    input=True,
+                    frames_per_buffer=CHUNK)  # 创建录音文件
+    frames = []
+
+    for i in range(0, int(RATE / CHUNK * RECORD_SECONDS)):
+        data = stream.read(CHUNK)
+        frames.append(data)  # 开始录音
+
+    print("OFF")
+
+    stream.stop_stream()
+    stream.close()
+    p.terminate()
+
+    wf = wave.open(WAVE_OUTPUT_FILENAME, 'wb')  # 保存
+    wf.setnchannels(CHANNELS)
+    wf.setsampwidth(p.get_sample_size(FORMAT))
+    wf.setframerate(RATE)
+    wf.writeframes(b''.join(frames))
+    wf.close()
+
+
+start_audio()
+</pre>
+
+<pre data-executable="true" data-language="python">
+from playsound import playsound
+playsound('test.wav')
+</pre>
 ### 学习目标
 
 #### 1.知识目标
