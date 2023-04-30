@@ -62,6 +62,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'markdown';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Content with notebooks" href="notebooks.html" />
+    <link rel="prev" title="Welcome to your Jupyter Book" href="intro.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="None"/>
   </head>
@@ -152,22 +154,10 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="README.html">简介</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="part1/xm1/xm.html">模块一  人工智能知识认知</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2 has-children"><a class="reference internal" href="part1/xm1/xm1.html">模块一  人工智能知识认知</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="part1/xm1/rw1.html">任务1.1.1 人工智能知识认知</a></li>
-<li class="toctree-l3"><a class="reference internal" href="part1/xm1/rw2.html">任务1.1.2 人工智能技术发展历程探究</a></li>
-<li class="toctree-l3"><a class="reference internal" href="part1/xm1/rw3.html">任务1.1.3 探究新职业-人工智能训练师</a></li>
-</ul>
-</li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="part1/xm2/xm.html">项目三   人工智能基础支撑</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="part1/xm2/rw1.html">任务1.2.1人工智能应用支撑认知</a></li>
-<li class="toctree-l3"><a class="reference internal" href="part1/xm2/rw2.html">任务1.2.2人工智能应用行业探究</a></li>
-</ul>
-</li>
-</ul>
-</li>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Markdown Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks.html">Content with notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="markdown-notebooks.html">Notebooks with MyST Markdown</a></li>
 </ul>
 
     </div>
@@ -428,6 +418,65 @@ then the bibliography is inserted with:</p>
 <h2>Learn more<a class="headerlink" href="#learn-more" title="Permalink to this headline">#</a></h2>
 <p>This is just a simple starter to get you started.
 You can learn a lot more at <a class="reference external" href="https://jupyterbook.org">jupyterbook.org</a>.</p>
+<!-- Configure and load Thebe !-->
+<script type="text/x-thebe-config">
+  {
+      requestKernel: true,
+      mountActivateWidget: true,
+      mountStatusWidget: true,
+      binderOptions: {
+      repo: "binder-examples/requirements",
+      },
+  }
+</script>
+<script src="https://unpkg.com/thebe@latest/lib/index.js"></script>
+<div class="thebe-activate"></div>
+<div class="thebe-status"></div>
+<pre data-executable="true" data-language="python">
+import pyaudio
+import wave
+def start_audio(time=3, save_file="test.wav"):
+    CHUNK = 1024
+    FORMAT = pyaudio.paInt16
+    CHANNELS = 2
+    RATE = 16000
+    RECORD_SECONDS = time  # 需要录制的时间
+    WAVE_OUTPUT_FILENAME = save_file  # 保存的文件名
+
+    p = pyaudio.PyAudio()  # 初始化
+    print("ON")
+
+    stream = p.open(format=FORMAT,
+                    channels=CHANNELS,
+                    rate=RATE,
+                    input=True,
+                    frames_per_buffer=CHUNK)  # 创建录音文件
+    frames = []
+
+    for i in range(0, int(RATE / CHUNK * RECORD_SECONDS)):
+        data = stream.read(CHUNK)
+        frames.append(data)  # 开始录音
+
+    print("OFF")
+
+    stream.stop_stream()
+    stream.close()
+    p.terminate()
+
+    wf = wave.open(WAVE_OUTPUT_FILENAME, 'wb')  # 保存
+    wf.setnchannels(CHANNELS)
+    wf.setsampwidth(p.get_sample_size(FORMAT))
+    wf.setframerate(RATE)
+    wf.writeframes(b''.join(frames))
+    wf.close()
+
+
+start_audio()
+</pre>
+<pre data-executable="true" data-language="python">
+from playsound import playsound
+playsound('test.wav')
+</pre>
 </div>
 </div>
 
@@ -462,6 +511,24 @@ You can learn a lot more at <a class="reference external" href="https://jupyterb
   
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="intro.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Welcome to your Jupyter Book</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="notebooks.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Content with notebooks</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div></div>
   
 </div>

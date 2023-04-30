@@ -1,7 +1,6 @@
 jupyter-book
+matplotlib
 numpy
-time
-portaudio
 pyaudio
 wave
 playsound
