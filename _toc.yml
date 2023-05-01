@@ -15,6 +15,7 @@ parts:
       sections:
       - file: part1/xm2/rw1.md
       - file: part1/xm2/rw2.md
+parts:
   - caption: 模块二 人工智能技术应用
     chapters:
     - file: part2/xm1/xm.md
@@ -38,6 +39,7 @@ parts:
       - file: part2/xm3/rw3.md
       - file: part2/xm3/rw4.md
       - file: part2/xm3/rw5.md
+parts:
   - caption: 模块三 AI安全法律伦理
     chapters:
     - file: part3/xm1/xm.md
