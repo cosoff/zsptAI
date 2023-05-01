@@ -1,0 +1,724 @@
+
+
+<!DOCTYPE html>
+
+
+<html >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>任务2.3.3 人脸特征提取 &#8212; My sample book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'part2/xm3/rw3';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="任务四 人脸识别" href="rw4.html" />
+    <link rel="prev" title="任务二 人脸矫正" href="rw2.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="None"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../../intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    Welcome to your Jupyter Book
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">模块一 人工智能知识认知</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../part1/xm1/xm.html">项目1.1 人工智能寻古探今</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../part1/xm1/rw1.html">任务1.1.1 人工智能知识认知</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../part1/xm1/rw2.html">任务1.1.2 人工智能技术发展历程探究</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../part1/xm1/rw3.html">任务1.1.3 探究新职业-人工智能训练师</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../part1/xm2/xm.html">项目1.2 人工智能技术应用探究</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../part1/xm2/rw1.html">任务1.2.1人工智能应用支撑认知</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../part1/xm2/rw2.html">任务1.2.2人工智能应用行业探究</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">模块二 人工智能技术应用</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../xm1/xm.html">模块二 人工智能技术应用</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../xm1/rw1.html">任务2.1.1 语音数据采集</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../xm1/rw2.html">任务2.1.2 语音转文字</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../xm1/rw3.html">任务2.1.3 语音合成-语音助手</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../xm1/rw4.html">任务2.1.4 聊天机器人</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../xm1/rw5.html">任务描述</a></li>
+
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../xm2/xm.html">项目情景</a></li>
+
+
+
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="xm.html"><center>项目2.3 人脸识别技术应用-开发人脸识别考勤系统</center></a><input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="rw1.html"><center>任务2.3.1 人脸检测</center></a></li>
+<li class="toctree-l2"><a class="reference internal" href="rw2.html"><center>任务二 人脸矫正</center></a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#"><center>任务2.3.3 人脸特征提取</center></a></li>
+<li class="toctree-l2"><a class="reference internal" href="rw4.html"><center>任务四 人脸识别</center></a></li>
+<li class="toctree-l2"><a class="reference internal" href="rw5.html"><center>任务2.3.5 简易人脸识别考勤系统</center></a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">模块三 AI安全法律伦理</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../part3/xm1/xm.html">项目情景</a></li>
+
+
+
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/cosoff/zsptAI" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/cosoff/zsptAI/issues/new?title=Issue%20on%20page%20%2Fpart2/xm3/rw3.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/part2/xm3/rw3.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1><center>任务2.3.3 人脸特征提取</center></h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">【任务描述】</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">【学习目标】</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">【任务分析】</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">【知识链接】</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">【素质素养养成】</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">【任务分组】</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <div class="section" id="center-2-3-3-center">
+<h1><center>任务2.3.3 人脸特征提取</center><a class="headerlink" href="#center-2-3-3-center" title="Permalink to this headline">#</a></h1>
+<div class="section" id="id1">
+<h2>【任务描述】<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h2>
+<p>    输入一张人脸图像，调用face_net模型输出对应的人脸特征向量。完成后效果参考图2.3.3.1。</p>
+<p><img alt="dis" src="../../_images/rw33.jpg" />
+图2.3.3.1人脸特征向量提取效果</p>
+</div>
+<div class="section" id="id2">
+<h2>【学习目标】<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h2>
+<p>    <strong>1.知识目标</strong><br />
+    （1）了解人脸特征提取的流程和方法；<br />
+    （2）掌握调用人脸识别模型进行人脸特征提取的方法；<br />
+    <strong>2.能力目标</strong><br />
+    （1）能调用人脸识别模型进行人脸特征提取并存储；<br />
+    （2）能利用人脸特征进行人脸识别。<br />
+    <strong>3.素质素养目标</strong>
+    （1）培养学生树立人类命运共同体意识；<br />
+    （2）培养学生遵守规范的意识；<br />
+    （3）培养学生探索多种方法解决问题的思维意识</p>
+</div>
+<div class="section" id="id3">
+<h2>【任务分析】<a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h2>
+<p>    <strong>1.重点</strong><br />
+    调用face_net模型进行人脸特征提取<br />
+    <strong>2.难点</strong><br />
+    理解人脸特征提取的原理</p>
+</div>
+<div class="section" id="id4">
+<h2>【知识链接】<a class="headerlink" href="#id4" title="Permalink to this headline">#</a></h2>
+<p>    <strong>一、人脸特征和人脸体征提取方法</strong><br />
+    特征提取是指通过一些数字来表征人脸信息。常见的人脸特征分为两类：几何特征和表征特征。<br />
+    几何特征是指眼睛、鼻子和嘴等面部特征之间的几何关系，如距离、面积和角度等。各器官之间欧氏距离、角度及其大小和外形被量化成一系列参数，来衡量人脸特征，所以对眼、鼻、嘴等的定位就是一个很重要的工作。由于算法利用了一些直观的特征，计算量小。但是几何特征所需的特征点不能精确选择，限制了它的应用范围。另外，当光照变化、人脸有外物遮挡、面部表情变化时，几何特征变化较大，很不鲁棒。<br />
+    表征特征利用人脸图像的灰度信息，通过一些算法提取全局或局部特征。常见的特征提取算法有主成分特征分析（PCA）算法，BP神经网络识别方法，以及Gabor特征提取算法等。<br />
+    PCA（Principal Component Analysis）是一种常用的数据分析方法，PCA通过线性变换将原始数据变换为一组各维度线性无关的表示，可用于提取数据的主要特征分量，可用于高维数据的降维。基于PCA的人脸识别方法通过只保留某些关键像素进行人脸特征的提取，可以使识别速度大大提升。<br />
+    LBP(Local Binary Patterns)方法首先将图像分成若干区域，在每个区域的邻域中用中心值作阈值化，将结果看成是二进制数。LBP算子的特点是对单调灰度变化保持不变。每个区域通过这样的运算得到一组直方图，然后将所有的直方图连起来组成一个大的直方图并进行直方图匹配计算进行分类。基于LBP的人脸特征提取是采用将人脸图像分块，统计每块中的人脸纹理特征。<br />
+    BP(back propagation)神经网络是一种按照误差逆向传播算法训练的多层前馈神经网络，是应用最广泛的神经网络模型之一。BP神经网络具有任意复杂的模式分类能力和优良的多维函数映射能力。BP网络具有输入层、隐藏层和输出层，BP算法就是以网络误差平方为目标函数、采用梯度下降法来计算目标函数的最小值。<br />
+    <strong>二、facenet模型</strong><br />
+    FaceNet模型由Google工程师Florian Schroff，Dmitry Kalenichenko，James Philbin提出的一种人脸识别解决方案，是一个对识别（即：这是谁？）、验证（即：这是同一个人吗？）、聚类（即：在这些面孔中找到同一个人）等问题的统一解决框架。 FaceNet模型主要思想是把人脸图像映射到一个多维空间，通过空间距离表示人脸的相似度。即它们都可以放到特征空间里统一处理，只需要专注于解决的仅仅是如何将人脸更好的映射到特征空间。其本质是通过卷积神经网络学习人脸图像到128维欧几里得空间的映射，该映射将人脸图像映射为128维的特征向量，使用特征向量之间的距离的倒数来表征人脸图像之间的“相关系数”，对于相同个体的不同图片，其特征向量之间的距离较小（即是同一个人的可能性大），对于不同个体的图像，其特征向量之间的距离较大（即是同一个人的可能小）。最后基于特征向量之间的距离大小来解决人脸图像的识别、验证和聚类等问题<br />
+    <strong>三、提取人脸特征向量</strong><br />
+    目前比较主流的人脸特征提取方法是把人脸图像通过神经网络，得到一个特定维数的特征向量，该向量可以很好地表征人脸数据，使得不同人脸的两个特征向量距离尽可能大，同一张人脸的两个特征向量尽可能小，这样就可以通过特征向量来进行人脸识别。这就是FaceNet模型的解决方案。<br />
+    在人脸特征提取开始之前，我们需要有一个已训练好了的face_net模型，可以到如下地址中获得。<br />
+    人脸特征提取的第一步就是要把人脸从图片中获取出来，根据任务1的流程我们很容易就可以获得人脸ROI图片，这里可以将任务1的实现过程封装起来，方便后面直接调用。参考代码如下：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">tensorflow.keras</span> <span class="k">as</span> <span class="nn">k</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">cv2</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="c1"># 获得人脸ROI区域</span>
+<span class="k">def</span> <span class="nf">get_face_roi</span><span class="p">(</span><span class="n">img</span><span class="p">):</span>
+    <span class="n">gray</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">cvtColor</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">COLOR_BGR2GRAY</span><span class="p">)</span>
+    <span class="n">faces</span> <span class="o">=</span> <span class="n">face_date</span><span class="o">.</span><span class="n">detectMultiScale</span><span class="p">(</span><span class="n">gray</span><span class="p">,</span> <span class="mf">1.3</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">face</span> <span class="ow">in</span> <span class="n">faces</span><span class="p">:</span>
+        <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">h</span> <span class="o">=</span> <span class="n">face</span>
+        <span class="n">img</span> <span class="o">=</span> <span class="n">img</span><span class="p">[</span><span class="n">y</span><span class="p">:</span><span class="n">y</span><span class="o">+</span><span class="n">h</span><span class="p">,</span><span class="n">x</span><span class="p">:</span><span class="n">x</span><span class="o">+</span><span class="n">w</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">img</span>
+</pre></div>
+</div>
+<p>    接下来，我们定义一个函数get_face_features（）用来获取人脸特征，参考代码如下：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># 获得人脸特征</span>
+<span class="k">def</span> <span class="nf">get_face_features</span><span class="p">(</span><span class="n">img</span><span class="p">):</span>
+    <span class="c1"># 将图片缩放为模型的输入大小</span>
+    <span class="n">image</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">resize</span><span class="p">(</span><span class="n">img</span><span class="p">,(</span><span class="mi">160</span><span class="p">,</span><span class="mi">160</span><span class="p">))</span>
+    <span class="n">image</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">image</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span><span class="o">/</span><span class="mf">255.</span>
+    <span class="n">image</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">expand_dims</span><span class="p">(</span><span class="n">image</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+    <span class="c1"># 使用模型获得人脸特征向量</span>
+    <span class="n">features</span>  <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">image</span><span class="p">)</span>
+<span class="c1"># 标准化数据</span>
+<span class="n">features</span> <span class="o">=</span> <span class="n">features</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">maximum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">features</span><span class="p">),</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">keepdims</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span> <span class="mf">1e-10</span><span class="p">))</span>
+
+    <span class="k">return</span> <span class="n">features</span>
+</pre></div>
+</div>
+<p>    最后，在main函数中调用这2个函数，即可获得人脸特征向量，参考代码如下:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="c1"># 加载模型</span>
+    <span class="n">face_date</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">CascadeClassifier</span><span class="p">(</span><span class="s1">&#39;model\haarcascade_frontalface_default.xml&#39;</span><span class="p">)</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">k</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">load_model</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;model\facenet_keras.h5&#39;</span><span class="p">)</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+
+    <span class="c1"># 加载图片</span>
+    <span class="n">image_path</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;images\face1.jpg&#39;</span>
+    <span class="n">img</span><span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="n">image_path</span><span class="p">)</span>
+    <span class="n">img_roi</span> <span class="o">=</span> <span class="n">get_face_roi</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
+    <span class="n">features</span> <span class="o">=</span> <span class="n">get_face_features</span><span class="p">(</span><span class="n">img_roi</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">features</span><span class="p">)</span>
+    <span class="c1"># 显示特征</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">features</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+    <span class="n">cv2</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="s1">&#39;s&#39;</span><span class="p">,</span><span class="n">img_roi</span><span class="p">)</span>
+    <span class="n">cv2</span><span class="o">.</span><span class="n">waitKey</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>程序运行结果参考图2.3.3.1。</p>
+<p>    <strong>四、人脸特征库搭建</strong></p>
+<p>    人脸特征库搭建有一个最简单的方法，就是直接保存人脸图片即可，但是这种方式有两个缺点：1.在进行网路传输时开销较大；2.在终端进行加载时速度较慢（因为需要重新找到人脸，获取特征），所以为了更好的性能，一般会直接提取人脸的特征进行保存。具体操作也十分简单，在get_face_features()添加如下代码即可：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># 获得人脸特征</span>
+<span class="k">def</span> <span class="nf">get_face_features</span><span class="p">(</span><span class="n">img</span><span class="p">):</span>
+    <span class="c1"># 将图片缩放为模型的输入大小</span>
+    <span class="n">image</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">resize</span><span class="p">(</span><span class="n">img</span><span class="p">,(</span><span class="mi">160</span><span class="p">,</span><span class="mi">160</span><span class="p">))</span>
+    <span class="n">image</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">image</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span><span class="o">/</span><span class="mf">255.</span>
+    <span class="n">image</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">expand_dims</span><span class="p">(</span><span class="n">image</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+    <span class="c1"># 使用模型获得人脸特征向量</span>
+    <span class="n">features</span>  <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">image</span><span class="p">)</span>
+    <span class="c1"># 标准化数据</span>
+    <span class="n">features</span> <span class="o">=</span> <span class="n">features</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">maximum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">features</span><span class="p">),</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">keepdims</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span> <span class="mf">1e-10</span><span class="p">))</span>
+
+    <span class="c1"># 添加代码-------------------</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;knowface\face1&#39;</span><span class="p">,</span><span class="n">features</span><span class="p">)</span>
+    <span class="c1"># ----------------------------------</span>
+    <span class="k">return</span> <span class="n">features</span>
+</pre></div>
+</div>
+<p>    运行后即可在项目目录中看到face1.npy文件，这就是我们已经保存好的人脸特征了。多次修改图片地址，就可以搭建好一个人脸特征库了。<br />
+<img alt="dis" src="../../_images/rw35.png" /></p>
+<p>    读取*.npy文件的代码如下：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;knowface\face1.npy&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id5">
+<h2>【素质素养养成】<a class="headerlink" href="#id5" title="Permalink to this headline">#</a></h2>
+<p>    (1)通过选取不同数量特征工具包、了解不同的人脸特征提取方法的优缺点培养学生探索多种方法解决问题的思维方式；<br />
+    (2)通过不同人种、不同民族的人脸特征都是一组向量数据，培养学生树立全球意识、人类命运共同体的意识；<br />
+    (3)通过构建人脸特征库引导学生在多种方法综合考量客观情况来选择最优方式的职业素养。</p>
+</div>
+<div class="section" id="id6">
+<h2>【任务分组】<a class="headerlink" href="#id6" title="Permalink to this headline">#</a></h2>
+<center>学生任务分配表</center>
+链接:[学生任务分配表](https://docs.qq.com/sheet/DWVpHVlFySlRGc1dC)  
+### 【任务实施】 
+<center>任务工作单1：认知人脸特征向量</center>  
+组号：————————           姓名：————————            学号：————————           检索号： ————————     
+**引导问题：**               
+（1）人脸特征向量是什么？ 
+<hr class="docutils" />
+<p>（2）人脸识别为什么要提取人脸特征向量？</p>
+<hr class="docutils" />
+<p>（3）简述常用的人脸特征向量提取方法有哪些？总结各自的优缺点</p>
+<hr class="docutils" />
+<center>任务工作单2：人脸特征向量提取方法探究</center>  
+组号：————————           姓名：————————            学号：————————           检索号： ————————                 
+（1）人脸特征向量是什么？ 
+<hr class="docutils" />
+<p>（2）人脸识别为什么要提取人脸特征向量？</p>
+<hr class="docutils" />
+<p>（3）简述常用的人脸特征向量提取方法有哪些？总结各自的优缺点</p>
+<hr class="docutils" />
+<center>任务工作单3：人脸特征向量提取方法（讨论）</center>  
+组号：————————           姓名：————————            学号：————————           检索号： ————————                  
+（1）小组交流讨论，确定人脸特征向量提取的完整流程和每个环节的实现方法，将人脸特征向量保存到本地。
+<hr class="docutils" />
+<p>（2）请记录自己在进行人脸特征提取过程中的错误。</p>
+<hr class="docutils" />
+<center>任务工作单4：人脸特征向量提取方法（汇报）</center>  
+组号：————————           姓名：————————            学号：————————           检索号： ————————                   
+（1）每小组推荐一位小组长，汇报人脸特征提取和保存的实现过程，借鉴各组分享的经验，进一步完善实现的步骤。
+<hr class="docutils" />
+<p>（2）总结别的小组的优点、自查自己存在的不足。</p>
+<hr class="docutils" />
+<center>任务工作单4：人脸特征提取实现</center>  
+组号：————————           姓名：————————            学号：————————           检索号： ————————                   
+（1）按照正确的流程和方法按照要求完成人脸特征向量提取并保存人脸特征库。
+<hr class="docutils" />
+<p>（2）检查自己不足的地方。</p>
+<hr class="docutils" />
+<p><strong>评价反馈</strong></p>
+ <center>个人评价表</center>  
+组号：————————           姓名：————————            学号：————————           检索号： ————————  
+链接:[个人评价表](https://docs.qq.com/sheet/DWU9yclpISXdIeVhj)  
+<center>小组内互评表</center>  
+组号：————————           姓名：————————            学号：————————           检索号： ————————  
+链接:[小组内互评表](https://docs.qq.com/sheet/DWWpXU3drTlBzSlBC)  
+<center>小组间互评表</center>  
+被评组号：————————           检索号：————————    
+链接:[小组间互评表](https://docs.qq.com/sheet/DWUxXRkhJaVFJeUJU)
+<center>教师评价表-任务工作单4</center>  
+组号：————————           姓名：————————            学号：————————           检索号： ————————  
+链接:[教师评价表](https://docs.qq.com/sheet/DWXJqak1xTUJkaGJK)
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "cosoff/zsptAI",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./part2\xm3"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="rw2.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><center>任务二 人脸矫正</center></p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="rw4.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><center>任务四 人脸识别</center></p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">【任务描述】</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">【学习目标】</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">【任务分析】</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">【知识链接】</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">【素质素养养成】</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">【任务分组】</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By The Jupyter Book Community
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

@@ -1,0 +1,796 @@
+
+
+<!DOCTYPE html>
+
+
+<html >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>任务二 人脸矫正 &#8212; My sample book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'part2/xm3/rw2';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="任务2.3.3 人脸特征提取" href="rw3.html" />
+    <link rel="prev" title="任务2.3.1 人脸检测" href="rw1.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="None"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../../intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    Welcome to your Jupyter Book
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">模块一 人工智能知识认知</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../part1/xm1/xm.html">项目1.1 人工智能寻古探今</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../part1/xm1/rw1.html">任务1.1.1 人工智能知识认知</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../part1/xm1/rw2.html">任务1.1.2 人工智能技术发展历程探究</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../part1/xm1/rw3.html">任务1.1.3 探究新职业-人工智能训练师</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../part1/xm2/xm.html">项目1.2 人工智能技术应用探究</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../part1/xm2/rw1.html">任务1.2.1人工智能应用支撑认知</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../part1/xm2/rw2.html">任务1.2.2人工智能应用行业探究</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">模块二 人工智能技术应用</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../xm1/xm.html">模块二 人工智能技术应用</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../xm1/rw1.html">任务2.1.1 语音数据采集</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../xm1/rw2.html">任务2.1.2 语音转文字</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../xm1/rw3.html">任务2.1.3 语音合成-语音助手</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../xm1/rw4.html">任务2.1.4 聊天机器人</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../xm1/rw5.html">任务描述</a></li>
+
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../xm2/xm.html">项目情景</a></li>
+
+
+
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="xm.html"><center>项目2.3 人脸识别技术应用-开发人脸识别考勤系统</center></a><input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="rw1.html"><center>任务2.3.1 人脸检测</center></a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#"><center>任务二 人脸矫正</center></a></li>
+<li class="toctree-l2"><a class="reference internal" href="rw3.html"><center>任务2.3.3 人脸特征提取</center></a></li>
+<li class="toctree-l2"><a class="reference internal" href="rw4.html"><center>任务四 人脸识别</center></a></li>
+<li class="toctree-l2"><a class="reference internal" href="rw5.html"><center>任务2.3.5 简易人脸识别考勤系统</center></a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">模块三 AI安全法律伦理</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../part3/xm1/xm.html">项目情景</a></li>
+
+
+
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/cosoff/zsptAI" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/cosoff/zsptAI/issues/new?title=Issue%20on%20page%20%2Fpart2/xm3/rw2.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/part2/xm3/rw2.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1><center>任务二 人脸矫正</center></h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">【任务描述】</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">【学习目标】</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">【任务分析】</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">【知识链接】</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">【素质素养养成】</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">【任务分组】</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <div class="tex2jax_ignore mathjax_ignore section" id="center-center">
+<h1><center>任务二 人脸矫正</center><a class="headerlink" href="#center-center" title="Permalink to this headline">#</a></h1>
+<div class="section" id="id1">
+<h2>【任务描述】<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h2>
+<p>    大多数情况下，从视频中截取到的人脸是包含歪头和侧脸的现象，我们就需要进行人脸矫正操作来保证人脸识别的效果。读入一张歪头的人脸图像，请通过人脸矫正调整人脸的显示。效果参考图2.3.2.1。<br />
+<img alt="dis" src="../../_images/13.png" /></p>
+</div>
+<div class="section" id="id2">
+<h2>【学习目标】<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h2>
+<p>    <strong>1.知识目标</strong><br />
+    （1）掌握用Dlib库进行人脸关键点检测的方法。<br />
+    （2）掌握采用人脸基准点进行人脸对齐的方法。</p>
+<p>    <strong>2.能力目标</strong><br />
+    （1）能调用api进行人脸关键点检测。<br />
+    （2）能采用Python编程进行基于人脸基准点的人脸对齐。<br />
+    <strong>3.素质素养目标</strong><br />
+    （1）培养学生关注工作质量和工作效率的职业素养；<br />
+    （2）培养学生树立正确的容貌观；<br />
+    （3）培养学生树立肖像保护意识。</p>
+</div>
+<div class="section" id="id3">
+<h2>【任务分析】<a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h2>
+<p>    <strong>1.重点</strong><br />
+    调用api进行人脸关键点检测及人脸对齐。<br />
+    <strong>2.难点</strong><br />
+    采用Python编程实现基于人脸基准点的人脸对齐。</p>
+</div>
+<div class="section" id="id4">
+<h2>【知识链接】<a class="headerlink" href="#id4" title="Permalink to this headline">#</a></h2>
+<p>    我们进行人脸识别的时候正脸的效果是最好的，所以在人脸识别前还需要完成人脸矫正。人脸矫正是一个中间步骤，在人脸矫正之前需要先进行人脸检测，保存人脸区域后进行人脸对齐，然后基于人脸的关键点进行人脸矫正。人脸对齐的结果可以用于人脸识别、属性计算、表情识别等。<br />
+<strong>一、人脸关键点定位和检测</strong>
+    人脸关键点定位(Facial landmark localization）是在人脸检测的基础上，根据输入的人脸图像自动定位出面部关键特征点。人脸关键点大致分三类：１）标记人脸上的器官，比如眼角、嘴角等；２）某个方向上的最高点或曲率极值点，比如嘴角；３）前两类点的插值点，比如脸颊轮廓中的点等。常用的人脸关键点数据库中标注的人脸关键点个数有5个点、49个点或68个点等，可以调用相应的工具包实现。<br />
+    人脸关键点检测方法大致分为三种，分别是：1）基于模板的传统方法；2）基于级联形状回归的方法；3）基于深度学习的方法。基于参数化形状模型的方法可依据其外观模型的不同，可进一步分为，基于局部的方法和基于全局的方法；对于非参数化进一步可分为基于样例的方法、基于图模型的方法、基于级联回归的方法和基于深度学习的方法。目前，应用最广的、精度最高的是基于深度学习的方法。<br />
+    我们常用的dilb库提供的正向人脸68个点特征的人脸检测模型就是一个10级的训练好的集成回归树算法模型，首先用标注好人脸图像特征点的训练集进行输入回归树模型进行训练。模型为级联的10个回归树，每个回归树中有500个弱回归器，每个树的深度为5，使用梯度提升算法，使用残差不断回归，拟合误差，得到最终的回归树模型。<br />
+    <strong>二、人脸对齐（矫正）</strong><br />
+    人脸对齐是以人脸检测获得的人脸图像区域为输入，通过定位人脸上的基准点（例如眼睛，鼻子等），结合标准图上基准点的坐标建立一个特定的变换，然后将待测试人脸图像变换至标准的姿态。以降低人脸图像上的干扰因素，从而极大地提高后续识别任务的成功率。因此，人脸对齐是人脸识别系统中的关键环节。这里我们的人脸矫正就是实现人脸对齐。<br />
+    人脸矫正首先需要进行人脸关键点定位，然后利用定位信息计算旋转角度、进行坐标变换，最后通过人脸仿射变换完成矫正。<br />
+    <strong>1.使用dlib进行人脸关键点定位</strong>
+    一种比较简单的人脸检测的方法，就是使用Dlib进行人脸检测（dlib 可使用pip3 install dlib 安装）。Dlib 库是一个包含常用机器学习算法的开源工具包，Dlib库中内置了多种人脸检测器。这里我们使用Dlib已训练好的正向人脸 68 点特征的人脸检测模型：<strong>shape_predictor_68_face_landmarks.dat</strong>（百度网盘下载链接: <a class="reference external" href="https://pan.baidu.com/s/">https://pan.baidu.com/s/</a> 1JZm2p8ccKUbdAVGlSuebNg 提取码: wgun）。使用dlib进行人脸关键点定位的代码如下：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">cv2</span>
+<span class="kn">import</span> <span class="nn">dlib</span>
+
+<span class="n">detector</span><span class="o">=</span><span class="n">dlib</span><span class="o">.</span><span class="n">get_frontal_face_detector</span><span class="p">()</span>
+<span class="n">predictor</span><span class="o">=</span><span class="n">dlib</span><span class="o">.</span><span class="n">shape_predictor</span><span class="p">(</span><span class="s1">&#39;shape_predictor_68_face_landmarks.dat&#39;</span><span class="p">)</span>
+
+<span class="n">img</span><span class="o">=</span><span class="n">cv2</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="s1">&#39;opencv_image/lena.jpg&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
+<span class="n">gray</span><span class="o">=</span><span class="n">cv2</span><span class="o">.</span><span class="n">cvtColor</span><span class="p">(</span><span class="n">img</span><span class="p">,</span><span class="n">cv2</span><span class="o">.</span><span class="n">COLOR_BGR2GRAY</span><span class="p">)</span>
+<span class="n">dets</span><span class="o">=</span><span class="n">detector</span><span class="p">(</span><span class="n">gray</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="c1">#获得人脸个数</span>
+<span class="k">for</span> <span class="n">k</span><span class="p">,</span><span class="n">d</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">dets</span><span class="p">):</span>
+    <span class="n">shape</span><span class="o">=</span><span class="n">predictor</span><span class="p">(</span><span class="n">img</span><span class="p">,</span><span class="n">d</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">68</span><span class="p">):</span>
+        <span class="n">cv2</span><span class="o">.</span><span class="n">circle</span><span class="p">(</span><span class="n">img</span><span class="p">,(</span><span class="n">shape</span><span class="o">.</span><span class="n">part</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">.</span><span class="n">x</span><span class="p">,</span><span class="n">shape</span><span class="o">.</span><span class="n">part</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">.</span><span class="n">y</span><span class="p">),</span>
+                   <span class="mi">1</span><span class="p">,(</span><span class="mi">0</span><span class="p">,</span><span class="mi">255</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">8</span><span class="p">)</span>
+        <span class="n">cv2</span><span class="o">.</span><span class="n">putText</span><span class="p">(</span><span class="n">img</span><span class="p">,</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">),(</span><span class="n">shape</span><span class="o">.</span><span class="n">part</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">.</span><span class="n">x</span><span class="p">,</span><span class="n">shape</span><span class="o">.</span><span class="n">part</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">.</span><span class="n">y</span><span class="p">),</span>
+                                <span class="n">cv2</span><span class="o">.</span><span class="n">FONT_HERSHEY_SIMPLEX</span><span class="p">,</span><span class="mf">.5</span><span class="p">,(</span><span class="mi">255</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">cv2</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="s1">&#39;face&#39;</span><span class="p">,</span><span class="n">img</span><span class="p">)</span>
+<span class="n">cv2</span><span class="o">.</span><span class="n">waitKey</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+</pre></div>
+</div>
+<p>    在dlib中，定义人脸有68特征,如图所示,我们可以通过循环，一个一个画出来。人脸的关键点如如同2.3.2.2所示，对图像进行68个特征点关键点定位效果如图：</p>
+<center>![dis](../../images/second/xm3/14.png)</center>
+<p>    程序运行结果如图2.3.2.3所示。</p>
+<center>![dis](../../images/second/xm3/15.png)</center>  
+<p>    <strong>2.人脸矫正</strong></p>
+<p>    人脸矫正的前提是已经获得了人脸的关键点，我们将会使用人脸的关键点进行人脸矫正，具体包括以下下4个步骤。</p>
+<p>    step1：人脸关键点检测<br />
+    Step2:人脸旋转角度计算<br />
+    Step3:坐标变换<br />
+    Step4:人脸仿射变换<br />
+下面我以使用人脸图像为例进行人脸矫正。<br />
+    Step1：检测人脸图像中的68个关键点，代码如下。细心的同学会发现，在get_face() 函数中有个correct_face()函数未实现，这就是我们下一步要完成的任务。</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">dlib</span>
+<span class="kn">import</span> <span class="nn">cv2</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">math</span>
+
+<span class="n">detector</span><span class="o">=</span><span class="n">dlib</span><span class="o">.</span><span class="n">get_frontal_face_detector</span><span class="p">()</span>
+<span class="n">predictor</span><span class="o">=</span><span class="n">dlib</span><span class="o">.</span><span class="n">shape_predictor</span><span class="p">(</span><span class="s1">&#39;shape_predictor_68_face_landmarks.dat&#39;</span><span class="p">)</span>
+
+<span class="c1">#得到人脸</span>
+<span class="k">def</span> <span class="nf">get_face</span><span class="p">(</span><span class="n">image_path</span><span class="p">,</span><span class="n">save</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="n">image</span><span class="o">=</span><span class="n">cv2</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="n">image_path</span><span class="p">)</span>
+    <span class="n">gray</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">cvtColor</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">COLOR_BGR2GRAY</span><span class="p">)</span>
+    <span class="n">dets</span> <span class="o">=</span> <span class="n">detector</span><span class="p">(</span><span class="n">gray</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>  <span class="c1"># 获得人脸个数</span>
+    <span class="c1"># print(dets)</span>
+    <span class="n">face</span><span class="o">=</span><span class="kc">None</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">dets</span><span class="p">)</span><span class="o">==</span><span class="mi">0</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;未检测到人脸&#39;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">face</span><span class="o">=</span><span class="n">correct_face</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">dets</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">save</span><span class="p">:</span>
+            <span class="n">path</span><span class="o">=</span><span class="n">image_path</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="n">cv2</span><span class="o">.</span><span class="n">imwrite</span><span class="p">(</span><span class="n">path</span><span class="o">+</span><span class="s1">&#39;.jpg&#39;</span><span class="p">,</span><span class="n">face</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">face</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">image_path</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;D:\GPU_SY\Opencv\opencv_image\face1.jpg&#39;</span>
+    <span class="n">face</span> <span class="o">=</span> <span class="n">get_face</span><span class="p">(</span><span class="n">image_path</span><span class="p">)</span>
+    <span class="n">cv2</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="s1">&#39;img&#39;</span><span class="p">,</span> <span class="n">face</span><span class="p">)</span>
+    <span class="n">cv2</span><span class="o">.</span><span class="n">waitKey</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>    Step2:人脸旋转角度计算，完成correct_face()函数，实现代码如下：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># 人脸矫正</span>
+<span class="k">def</span> <span class="nf">correct_face</span><span class="p">(</span><span class="n">image</span><span class="p">,</span><span class="n">rects</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="mi">128</span><span class="p">):</span>
+    <span class="n">shape</span><span class="o">=</span><span class="n">predictor</span><span class="p">(</span><span class="n">image</span><span class="p">,</span><span class="n">rects</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">w</span><span class="p">,</span><span class="n">h</span><span class="o">=</span><span class="n">get_face_rect</span><span class="p">(</span><span class="n">rects</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="c1"># 获得左右眼的坐标</span>
+    <span class="n">x1</span><span class="p">,</span><span class="n">y1</span><span class="o">=</span> <span class="n">shape</span><span class="o">.</span><span class="n">part</span><span class="p">(</span><span class="mi">36</span><span class="p">)</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">shape</span><span class="o">.</span><span class="n">part</span><span class="p">(</span><span class="mi">36</span><span class="p">)</span><span class="o">.</span><span class="n">y</span>
+    <span class="n">x2</span><span class="p">,</span><span class="n">y2</span> <span class="o">=</span> <span class="n">shape</span><span class="o">.</span><span class="n">part</span><span class="p">(</span><span class="mi">45</span><span class="p">)</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">shape</span><span class="o">.</span><span class="n">part</span><span class="p">(</span><span class="mi">45</span><span class="p">)</span><span class="o">.</span><span class="n">y</span>
+
+    <span class="c1"># 获取人脸区域</span>
+    <span class="n">face</span><span class="o">=</span><span class="n">image</span><span class="p">[</span><span class="n">y</span><span class="p">:</span><span class="n">h</span><span class="p">,</span><span class="n">x</span><span class="p">:</span><span class="n">w</span><span class="p">]</span>
+    <span class="n">width</span><span class="p">,</span> <span class="n">height</span> <span class="o">=</span> <span class="n">face</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">face</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="c1"># 获取左右眼的夹角</span>
+    <span class="n">h1</span><span class="o">=</span><span class="n">y2</span><span class="o">-</span><span class="n">y1</span>
+    <span class="n">w1</span><span class="o">=</span><span class="n">x2</span><span class="o">-</span><span class="n">x1</span>
+    <span class="n">a1</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arctan</span><span class="p">(</span><span class="n">h1</span><span class="o">/</span><span class="n">w1</span><span class="p">)</span>
+
+    <span class="n">a</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">degrees</span><span class="p">(</span><span class="n">a1</span><span class="p">)</span>  <span class="c1"># 弧度转角度</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;旋转角度：</span><span class="si">%s</span><span class="s1">°&#39;</span> <span class="o">%</span> <span class="n">a</span><span class="p">)</span>
+
+    <span class="c1"># 这里使用弧度制</span>
+    <span class="n">points</span><span class="o">=</span><span class="n">get_trainpose_point</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">w</span><span class="p">,</span><span class="n">h</span><span class="p">,</span><span class="n">a1</span><span class="p">)</span>
+    <span class="n">points</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">points</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+
+    <span class="c1"># 将 旋转后的坐标 仿射变换到新的坐标</span>
+    <span class="n">new_point</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="n">size</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="n">size</span><span class="p">,</span><span class="n">size</span><span class="p">]],</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+    <span class="n">A1</span><span class="o">=</span><span class="n">cv2</span><span class="o">.</span><span class="n">getAffineTransform</span><span class="p">(</span><span class="n">points</span><span class="p">,</span><span class="n">dst</span><span class="o">=</span><span class="n">new_point</span><span class="p">)</span>
+    <span class="n">d1</span><span class="o">=</span><span class="n">cv2</span><span class="o">.</span><span class="n">warpAffine</span><span class="p">(</span><span class="n">image</span><span class="p">,</span><span class="n">A1</span><span class="p">,(</span><span class="n">size</span><span class="p">,</span><span class="n">size</span><span class="p">),</span><span class="n">borderValue</span><span class="o">=</span><span class="mi">125</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">d1</span>
+</pre></div>
+</div>
+<p>    correct_face()函数中，也有2个函数为实现，分别是get_face_rect()用来获取人脸ROI区域，以及get_trainpose_point()用来进行坐标变换。<br />
+    Step3:完成get_face_rect()获取人脸ROI区域，然后完成get_trainpose_point()进行坐标变换。get_face_rect()代码为如下：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># 获得人脸区域</span>
+<span class="k">def</span> <span class="nf">get_face_rect</span><span class="p">(</span><span class="n">rects</span><span class="p">):</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">rects</span><span class="o">.</span><span class="n">left</span><span class="p">()</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">rects</span><span class="o">.</span><span class="n">top</span><span class="p">()</span>
+    <span class="n">w</span> <span class="o">=</span> <span class="n">rects</span><span class="o">.</span><span class="n">right</span><span class="p">()</span>
+    <span class="n">h</span> <span class="o">=</span> <span class="n">rects</span><span class="o">.</span><span class="n">bottom</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">w</span><span class="p">,</span><span class="n">h</span>
+</pre></div>
+</div>
+<p>    get_trainpose_point()用来对左边进行变换，这里我们是使用两只人眼(分别是36和45号关键点)与水平的夹角来计算人脸的旋转角度a。</p>
+<p>    Step4:在获得旋转角度a后，根据旋转公式（假设对图片上任意点(x,y)，绕一个坐标点(rx0,ry0)逆时针旋转a角度后的新的坐标设为(x0, y0)，</p>
+<center>x0= (x - rx0)*cos(a) - (y - ry0)*sin(a) + rx0</center>  
+<center>y0= (x - rx0)*sin(a) + (y - ry0)*cos(a) + ry0</center>  
+ 这样即可获得变换后的人脸坐标，具体代码如下：  
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x0</span><span class="o">=</span> <span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">rx0</span><span class="p">)</span><span class="o">*</span><span class="n">cos</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="n">y</span> <span class="o">-</span> <span class="n">ry0</span><span class="p">)</span><span class="o">*</span><span class="n">sin</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">+</span> <span class="n">rx0</span>
+<span class="n">y0</span><span class="o">=</span> <span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">rx0</span><span class="p">)</span><span class="o">*</span><span class="n">sin</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">y</span> <span class="o">-</span> <span class="n">ry0</span><span class="p">)</span><span class="o">*</span><span class="n">cos</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">+</span> <span class="n">ry0</span>
+</pre></div>
+</div>
+<p>    可以获得变换后的人脸坐标，具体代码如下：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># 获得人脸旋转后的坐标</span>
+<span class="k">def</span> <span class="nf">get_trainpose_point</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">w</span><span class="p">,</span><span class="n">h</span><span class="p">,</span><span class="n">angle</span><span class="p">):</span>
+    <span class="c1"># 求三角函数值 这里默认使用弧度制，所以输入的是弧度</span>
+    <span class="n">sina</span><span class="o">=</span><span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">angle</span><span class="p">)</span>
+    <span class="n">cosa</span><span class="o">=</span><span class="n">math</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">angle</span><span class="p">)</span>
+
+    <span class="c1"># 获得矩形的宽高</span>
+    <span class="n">height</span><span class="o">=</span><span class="n">h</span><span class="o">-</span><span class="n">y</span>
+    <span class="n">weidth</span><span class="o">=</span><span class="n">w</span><span class="o">-</span><span class="n">x</span>
+
+    <span class="c1"># 获得中心点坐标</span>
+    <span class="n">centerx</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="o">+</span><span class="n">weidth</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">centery</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">y</span><span class="o">+</span><span class="n">height</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+
+    <span class="c1"># 分别获得当前 左上角 右上角 右下角的坐标</span>
+    <span class="n">left_point</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">])</span>
+    <span class="n">top_right_point</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">w</span><span class="p">,</span><span class="n">y</span><span class="p">])</span>
+    <span class="n">bottom_right_point</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">w</span><span class="p">,</span><span class="n">h</span><span class="p">])</span>
+
+    <span class="c1"># 组合</span>
+    <span class="n">points</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">left_point</span><span class="p">,</span><span class="n">top_right_point</span><span class="p">,</span><span class="n">bottom_right_point</span><span class="p">))</span>
+
+    <span class="c1"># 分别获得旋转后的左上角右上角 右下角的坐标</span>
+    <span class="n">points</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">=</span><span class="p">(</span><span class="n">points</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">centerx</span><span class="p">)</span> <span class="o">*</span> <span class="n">cosa</span> <span class="o">-</span> <span class="p">(</span><span class="n">points</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">centery</span><span class="p">)</span> <span class="o">*</span> <span class="n">sina</span> <span class="o">+</span> <span class="n">centerx</span>
+    <span class="n">points</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">=</span><span class="p">(</span><span class="n">points</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">centerx</span><span class="p">)</span> <span class="o">*</span> <span class="n">sina</span> <span class="o">+</span> <span class="p">(</span><span class="n">points</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">centery</span><span class="p">)</span> <span class="o">*</span> <span class="n">cosa</span> <span class="o">+</span> <span class="n">centery</span>
+
+    <span class="n">points</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">points</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">-</span> <span class="n">centerx</span><span class="p">)</span> <span class="o">*</span> <span class="n">cosa</span> <span class="o">-</span> <span class="p">(</span><span class="n">points</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">-</span> <span class="n">centery</span><span class="p">)</span> <span class="o">*</span> <span class="n">sina</span> <span class="o">+</span> <span class="n">centerx</span>
+    <span class="n">points</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">points</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">-</span> <span class="n">centerx</span><span class="p">)</span> <span class="o">*</span> <span class="n">sina</span> <span class="o">+</span> <span class="p">(</span><span class="n">points</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">-</span> <span class="n">centery</span><span class="p">)</span> <span class="o">*</span> <span class="n">cosa</span> <span class="o">+</span> <span class="n">centery</span>
+
+    <span class="n">points</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span><span class="o">=</span><span class="p">(</span><span class="n">points</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span> <span class="o">-</span> <span class="n">centerx</span><span class="p">)</span> <span class="o">*</span> <span class="n">cosa</span> <span class="o">-</span> <span class="p">(</span><span class="n">points</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">centery</span><span class="p">)</span> <span class="o">*</span> <span class="n">sina</span> <span class="o">+</span> <span class="n">centerx</span>
+    <span class="n">points</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">=</span><span class="p">(</span><span class="n">points</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span> <span class="o">-</span> <span class="n">centerx</span><span class="p">)</span> <span class="o">*</span> <span class="n">sina</span> <span class="o">+</span> <span class="p">(</span><span class="n">points</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">centery</span><span class="p">)</span> <span class="o">*</span> <span class="n">cosa</span> <span class="o">+</span> <span class="n">centery</span>
+
+    <span class="k">return</span> <span class="n">points</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>    程序运行结果参考图2.3.2.4：</p>
+<p><img alt="dis" src="../../_images/16.png" /></p>
+</div>
+<div class="section" id="id5">
+<h2>【素质素养养成】<a class="headerlink" href="#id5" title="Permalink to this headline">#</a></h2>
+<p>（1）通过关键点检测培养学生提炼关键点来提高解决问题效率的方法。<br />
+（2）通过人脸矫正的原理培养学生培养进行数据清洗和采集中规范操作、提高数据质量的职业意识。<br />
+（3）通过人脸矫正帮助学生树立正确的肖像保护意识，树立正确的容貌观。</p>
+</div>
+<div class="section" id="id6">
+<h2>【任务分组】<a class="headerlink" href="#id6" title="Permalink to this headline">#</a></h2>
+<center>学生任务分配表</center>
+[学生任务分配表](https://docs.qq.com/sheet/DWVpHVlFySlRGc1dC)  
+### 【任务实施】 
+<center>任务工作单1：人脸关键点检测</center>  
+组号：————————           姓名：————————            学号：————————           检索号： ————————     
+**引导问题：**               
+（1）人脸关键点定位是什么？ 
+————————————————————————————————————————  
+<p>（2）选择dlib库，进行人脸关键点检测，共68个关键点，也可以考虑face++(106个)(可能要收费), stasm(77个)。</p>
+<p>————————————————————————————————————————
+（3）在人脸图像上，采用circle函数绘制出人脸的68个关键点。代码和效果截图。</p>
+<p>————————————————————————————————————————</p>
+<center>任务工作单2：确定人脸矫正操作步骤</center>  
+组号：————————           姓名：————————            学号：————————           检索号： ————————     
+**引导问题：**               
+（1）为什么要进行人脸矫正？
+<p>————————————————————————————————————————<br />
+（2）人脸矫正需要经过哪些环节，每个环节怎么实现。</p>
+<p>————————————————————————————————————————</p>
+<center>任务工作单3：人脸矫正操作步骤优化</center>  
+组号：————————           姓名：————————            学号：————————           检索号： ————————     
+**引导问题：**               
+（1）小组讨论交流，教师参与引导。确定人脸矫正的实现环节和对应的方法。？
+<p>————————————————————————————————————————<br />
+（2）请记录自己在人脸矫正操作过程中出现的问题。</p>
+<p>————————————————————————————————————————</p>
+<center>任务工作单4：人脸矫正实现流程（展示汇报）</center>  
+组号：————————           姓名：————————            学号：————————           检索号： ————————     
+**引导问题：**               
+（1）每小组推荐一位小组长，汇报实现过程，借鉴各组分享的经验，进一步优化实现方法。
+<p>————————————————————————————————————————<br />
+（2）检查自己不足的地方。</p>
+<p>————————————————————————————————————————</p>
+<center>任务工作单5：人脸矫正实施</center>  
+组号：————————           姓名：————————            学号：————————           检索号： ————————     
+**引导问题：**               
+（1）按照正确的流程和实现方法，对人脸图像的人脸进行矫正。
+<p>————————————————————————————————————————<br />
+（2）检查自己不足的地方。</p>
+<p>————————————————————————————————————————<br />
+<strong>评价反馈</strong></p>
+ <center>个人评价表</center>  
+组号：————————           姓名：————————            学号：————————           检索号： ————————  
+链接：[个人评价表](https://docs.qq.com/sheet/DWU9yclpISXdIeVhj)  
+<center>小组内互评表</center>  
+组号：————————           姓名：————————            学号：————————           检索号： ————————  
+链接：[小组内互评表](https://docs.qq.com/sheet/DWWpXU3drTlBzSlBC)  
+<center>小组间互评表</center>  
+被评组号：————————           检索号：————————    
+链接：[小组间互评表](https://docs.qq.com/sheet/DWUxXRkhJaVFJeUJU)
+<center>教师评价表-任务工作单4</center>  
+组号：————————           姓名：————————            学号：————————           检索号： ————————  
+链接：[教师评价表](https://docs.qq.com/sheet/DWXJqak1xTUJkaGJK)</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "cosoff/zsptAI",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./part2\xm3"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="rw1.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><center>任务2.3.1 人脸检测</center></p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="rw3.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><center>任务2.3.3 人脸特征提取</center></p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">【任务描述】</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">【学习目标】</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">【任务分析】</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">【知识链接】</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">【素质素养养成】</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">【任务分组】</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By The Jupyter Book Community
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
