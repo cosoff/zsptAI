@@ -4,14 +4,14 @@
 format: jb-book
 root: intro
 parts:
-  - caption:模块一 人工智能知识认知
+  - caption: 模块一 人工智能知识认知
     chapters:
-    - file: ./part1/xm1/xm.md
+    - file: part1/xm1/xm.md
       sections:
-      - file: ./part1/xm1/rw1.md
-      - file: ./part1/xm1/rw2.md
-      - file: ./part1/xm1/rw3.md
-    - file: ./part1/xm2/xm.md
+      - file: part1/xm1/rw1.md
+      - file: part1/xm1/rw2.md
+      - file: part1/xm1/rw3.md
+    - file: part1/xm2/xm.md
       sections:
-      - file: ./part1/xm2/rw1.md
-      - file: ./part1/xm2/rw2.md
+      - file: part1/xm2/rw1.md
+      - file: part1/xm2/rw2.md

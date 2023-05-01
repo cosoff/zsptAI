@@ -4,7 +4,7 @@
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;YOLO有自己训练好的数据集，YOLO的检测类别和使用的数据集类型有关系，例如：VOC 数据集可以检测21个类别，COCO 数据集可以检测80个类别，而且有官方训练比较好的权重，我们可以直接拿来测试。请下载VOC数据集和提供目标检测视频test.mp4，在任务3的环境对test.mp4视频进行目标检测实验，参考效果如图2.2.4.1。
 
-![dis](../../images/second/b1.png)
+![dis](./b1.png)
 
 图2.2.4.1 YOLOv3目标检测效果图
 
@@ -54,27 +54,27 @@
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;（1）我们需要在pycharm里面设置之前在anaconda prompt里创建的tf_115虚拟环境，因此，以下操作非常关键，单击图2.2.4.2中框选的地方，会出现图2.2.4.3所示的列表，点击这个列表中的“Interpreter Settings”进行设置。
  
-![dis](../../images/second/b2.png)
+![dis](./b2.png)
 
 图2.2.4.2 keras-yolo3切换环境1
  
-![dis](../../images/second/b3.png)
+![dis](./b3.png)
 
 图2.2.4.3 keras-yolo3切换环境2
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;（2）在图2.2.4.4中的Python Interpreter，点击倒三角按钮，然后再点单击“Show All...”选项，打开Python Interp窗口（如图2.2.4.5所示），点击其中的“+”。
 
-![dis](../../images/second/b4.png)
+![dis](./b4.png)
 
 图2.2.4.4 keras-yolo3 Settings界面
  
-![dis](../../images/second/b5.png)
+![dis](./b5.png)
 
 图2.2.4.5 Python Interp界面
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;（3）进入Add Python Interpreter，按图2.2.4.6中标注的步骤进行操作，最后单击OK保存更改。
  
-![dis](../../images/second/b6.png)
+![dis](./b6.png)
 
 图2.2.4.6 Add Python Interpreter界面中配置ttf_115虚拟环境的步骤
 
@@ -84,15 +84,15 @@
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**步骤1**：下载网址：**https://pjreddie.com/media/files/yolov3.weights，**并将权重放在keras-yolo3-master的文件夹下，参考图2.2.4.7。（也可以扫描右方二维码进行下载）
 
-![dis](../../images/second/b7.png)
+![dis](./b7.jpg)
 
-![dis](../../images/second/b8.png)
+![dis](./b8.png)
 
 图2.2.4.7 keras-yolo3中添加权重文件
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**步骤2：**接着使用 pycharm 终端输入如下命令，把 darknet下的 yolov3 配置文件转换成 keras 适用的 .h5 文件。输入命令：**python convert.py yolov3.cfg yolov3.weights model_data/yolo.h5，**如图2.2.4.8所示：
  
-![dis](../../images/second/b9.png)
+![dis](./b9.png)
 
 图2.2.4.8  转换.h5 文件
 
@@ -105,7 +105,7 @@
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;右键运行项目，看见如图2.2。4.9所示的目标检测框和标签说明运行成功。
 
-![dis](../../images/second/b10.png)
+![dis](./b10.png)
 
 ###素质素养养成
 
