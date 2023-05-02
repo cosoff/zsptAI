@@ -179,16 +179,21 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../xm1/rw5.html">任务2.1.5 校园智能客服</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../xm2/xm.html">项目情景</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../xm2/xm.html">项目2.2 图像识别技术应用—植物检测</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../xm2/rw1.html">任务2.2.1 植物图像资源采集</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../xm2/rw2.html">任务2.2.2 图像数据标注</a></li>
 
-
-
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="xm.html"><center>项目2.3 人脸识别技术应用-开发人脸识别考勤系统</center></a><input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l2 current active"><a class="current reference internal" href="#"><center>任务2.3.1 人脸检测</center></a></li>
-<li class="toctree-l2"><a class="reference internal" href="rw2.html"><center>任务二 人脸矫正</center></a></li>
-<li class="toctree-l2"><a class="reference internal" href="rw3.html"><center>任务2.3.3 人脸特征提取</center></a></li>
-<li class="toctree-l2"><a class="reference internal" href="rw4.html"><center>任务四 人脸识别</center></a></li>
-<li class="toctree-l2"><a class="reference internal" href="rw5.html"><center>任务2.3.5 简易人脸识别考勤系统</center></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../xm2/rw3.html">任务2.2.3 搭建YOLO3环境</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../xm2/rw4.html">任务2.2.4 测试keras-yolov3实例</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../xm2/rw5.html">任务2.2.5 训练植物数据集</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="xm.html">项目2.3 人脸识别技术应用-开发人脸识别考勤系统</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">任务2.3.1 人脸检测</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rw2.html">任务二 人脸矫正</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rw3.html">任务2.3.3 人脸特征提取</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rw4.html">任务四 人脸识别</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rw5.html">任务2.3.5 简易人脸识别考勤系统</a></li>
 </ul>
 </li>
 </ul>
@@ -381,7 +386,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1><center>任务2.3.1 人脸检测</center></h1>
+    <h1>任务2.3.1 人脸检测</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -391,43 +396,43 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">【任务描述】</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">【学习目标】</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">【任务分析】</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">【知识链接】</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">【任务描述】</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">【学习目标】</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">【任务分析】</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">【知识链接】</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#opencv">一、计算机视觉库-OpenCV</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#haar">二、使用haar分类器进行人脸检测的原理</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#haar-like">1.Haar-like特征</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">2.积分图</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">2.积分图</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#adaboost">3.Adaboost分类器</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">三、人脸检测操作流程</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">1.获取实时的视频流</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">2.在视频流中使用haar分类器进行人脸检测</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">三、人脸检测操作流程</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">1.获取实时的视频流</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">2.在视频流中使用haar分类器进行人脸检测</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#roi">3.保存人脸ROI区域</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">素质素养养成</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">任务分组</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">任务实施</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">任务工作单1：人脸检测环境准备和测试</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">任务工作单2：人脸检测原理认知</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">任务工作单3：人脸检测方法探究</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id15">任务工作单4：人脸检测方法优化（讨论）</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id16">任务工作单5：人脸检测方法优化（展示）</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id17">任务工作单6：人脸检测实践</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">素质素养养成</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">任务分组</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">任务实施</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">任务工作单1：人脸检测环境准备和测试</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">任务工作单2：人脸检测原理认知</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id15">任务工作单3：人脸检测方法探究</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id16">任务工作单4：人脸检测方法优化（讨论）</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id17">任务工作单5：人脸检测方法优化（展示）</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id18">任务工作单6：人脸检测实践</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id18">评价反馈</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id19">个人评价表</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id20">小组内互评表-任务工作单2</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id21">小组间互评表</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id22">教师评价表-任务工作单4</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id19">评价反馈</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id20">个人评价表</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id21">小组内互评表-任务工作单2</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id22">小组间互评表</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id23">教师评价表-任务工作单4</a></li>
 </ul>
 </li>
 </ul>
@@ -441,16 +446,16 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <div class="section" id="center-2-3-1-center">
-<h1><center>任务2.3.1 人脸检测</center><a class="headerlink" href="#center-2-3-1-center" title="Permalink to this headline">#</a></h1>
-<div class="section" id="id1">
-<h2>【任务描述】<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h2>
+  <div class="section" id="id1">
+<h1>任务2.3.1 人脸检测<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h1>
+<div class="section" id="id2">
+<h2>【任务描述】<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h2>
 <p>    利用摄像头实时录制视频，调用OpenCV库检测视频中人脸的具体位置和范围并框出来，效果参考图2.3.1.1。<br />
 <img alt="dis" src="../../_images/rw2311.png" />
 图2.3.1.1  效果参考图</p>
 </div>
-<div class="section" id="id2">
-<h2>【学习目标】<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h2>
+<div class="section" id="id3">
+<h2>【学习目标】<a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h2>
 <p>    <strong>1.知识目标</strong><br />
     （1）掌握OpenCV读入图像，显示图像，保存图像的方法。<br />
     （2）掌握OpenCV写文字的方法。<br />
@@ -465,15 +470,15 @@ document.write(`
     （3）培养文明使用视频数据的意识；<br />
     （4）培养爱护环境的环保意识。</p>
 </div>
-<div class="section" id="id3">
-<h2>【任务分析】<a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h2>
+<div class="section" id="id4">
+<h2>【任务分析】<a class="headerlink" href="#id4" title="Permalink to this headline">#</a></h2>
 <p><strong>1.重点</strong><br />
 人脸检测的方法<br />
 <strong>2.难点</strong><br />
 理解人脸检测的原理，进行人脸区域的保存。</p>
 </div>
-<div class="section" id="id4">
-<h2>【知识链接】<a class="headerlink" href="#id4" title="Permalink to this headline">#</a></h2>
+<div class="section" id="id5">
+<h2>【知识链接】<a class="headerlink" href="#id5" title="Permalink to this headline">#</a></h2>
 <p>    人脸图像采集是人脸识别项目中一项重要工作，不同的人脸图像都能通过摄像镜头采集下来，比如静态图像、动态图像、不同的位置、不同表情等方面都可以得到很好的采集。当用户在采集设备的拍摄范围内时，采集设备会自动搜索并拍摄用户的人脸图像。<br />
     人脸检测在实际中主要用于人脸识别的预处理，即在图像中准确标定出人脸的位置和大小。人脸图像中包含的模式特征十分丰富，如直方图特征、颜色特征、模板特征、结构特征及Haar特征等。人脸检测就是把这其中有用的信息挑出来，并利用这些特征实现人脸检测。主流的人脸检测方法基于以上特征采用Adaboost学习算法，Adaboost算法是一种用来分类的方法，它把一些比较弱的分类方法合在一起，组合出新的很强的分类方法。人脸检测过程中使用Adaboost算法挑选出一些最能代表人脸的矩形特征(弱分类器)，按照加权投票的方式将弱分类器构造为一个强分类器，再将训练得到的若干强分类器串联组成一个级联结构的层叠分类器，有效地提高分类器的检测速度。</p>
 <div class="section" id="opencv">
@@ -569,8 +574,8 @@ document.write(`
 图2.3.1.7  矩形特征在人脸图像的特征匹配
     对于每一个特征的计算我们需要计算白色和黑色矩形内的像素和,对于一个24*24像素分辨率图像，其内的矩阵特征数目大约160000多个，这个计算量太大了。为了解决这个问题，引入了积分图像,这可以大大的简化求和运算。</p>
 </div>
-<div class="section" id="id5">
-<h4>2.积分图<a class="headerlink" href="#id5" title="Permalink to this headline">#</a></h4>
+<div class="section" id="id6">
+<h4>2.积分图<a class="headerlink" href="#id6" title="Permalink to this headline">#</a></h4>
 <p>    积分图被定义为坐标A(x,y)的积分图是其左上角的所有像素之和，这样对每个像素进行少量的计算得到的“积分图”可以在相同的时间里计算尺度大小不同的矩形特征值，因此大大提高计算速度。对于任何一个区域的像素和只需要对积分图像上的四个像素操作即可,这样可以使运算大大提升！</p>
 </div>
 <div class="section" id="adaboost">
@@ -578,10 +583,10 @@ document.write(`
 <p>    接下来使用Adaboost分类器从大量的特征中选出最好的特征。为了达到这个目的, 将每一个特征应用于所有的训练图像, 对于每一个特征要找到它能够区分出正样本和负样本的最佳阈值。但是很明显, 这会产生错误或者错误分类。我们要选取错误率最低的特征, 这说明它们是检测面部和非面部图像最好的特征(这个过程其实不像我们说的这么简单, 在开始时每一张图像都具有相同的权重, 每一次分类之后, 被错分的图像的权重会增大。同样的过程会被再做一遍, 然后我们又得到新的错误率和新的权重, 重复执行这个过程直到达到要求的准确率或者错误率或者要求数目的特征找到)。最终的分类器是这些弱分类器的加权和, 之所以称为弱分类器是因为只是用这些分类器不能实现对图像进行分类, 但是与其他的分类器联合起来就是一个很强的分类器了。</p>
 </div>
 </div>
-<div class="section" id="id6">
-<h3>三、人脸检测操作流程<a class="headerlink" href="#id6" title="Permalink to this headline">#</a></h3>
 <div class="section" id="id7">
-<h4>1.获取实时的视频流<a class="headerlink" href="#id7" title="Permalink to this headline">#</a></h4>
+<h3>三、人脸检测操作流程<a class="headerlink" href="#id7" title="Permalink to this headline">#</a></h3>
+<div class="section" id="id8">
+<h4>1.获取实时的视频流<a class="headerlink" href="#id8" title="Permalink to this headline">#</a></h4>
 <p>    在本任务实施前，你应该有一个摄像头，并且已经配置好OpenCV的环境（可以使用 pip3 install opencv-python 下载）。</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># 打开一个摄像头</span>
 <span class="n">cam</span><span class="o">=</span><span class="n">cv2</span><span class="o">.</span><span class="n">VideoCapture</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
@@ -602,8 +607,8 @@ document.write(`
 <img alt="dis" src="../../_images/rw111.png" />
 图2.3.1.8 获取视频流效果</p>
 </div>
-<div class="section" id="id8">
-<h4>2.在视频流中使用haar分类器进行人脸检测<a class="headerlink" href="#id8" title="Permalink to this headline">#</a></h4>
+<div class="section" id="id9">
+<h4>2.在视频流中使用haar分类器进行人脸检测<a class="headerlink" href="#id9" title="Permalink to this headline">#</a></h4>
 <p>    在本任务开始之前，我们需要用到Opencv已经训练好的人脸检测模型 <strong>haarcascade_frontalface_default.xml</strong>，我们可以通过2种方式得到，第1种是到Git上https://github.com/opencv/opencv下载对应的源码，然后找到opencv/data/haarcascades/目录，就可以得到该xml文件了。第2种方式是找到你pip 的地址，一般在python安装地址的lib/site-pckages里面，我们可以通过打开cmd 输入where python查看python安装地址，有了这个模型以后，我们就可以开始编写人脸检测的代码了。
 <img alt="dis" src="../../_images/rw121.png" /></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">cv2</span>
@@ -672,20 +677,20 @@ document.write(`
 </div>
 </div>
 </div>
-<div class="section" id="id9">
-<h2>素质素养养成<a class="headerlink" href="#id9" title="Permalink to this headline">#</a></h2>
+<div class="section" id="id10">
+<h2>素质素养养成<a class="headerlink" href="#id10" title="Permalink to this headline">#</a></h2>
 <p>    （1）在利用摄像头录制视频的过程中培养学生保护隐私、合理文明使用视频的意识；<br />
     （2） 通过调用OpenCV的人脸检测模块的基本流程培养学生遵守规则和流程的职业素养；<br />
     （3）通过人脸检测和保存人脸ROI区域了解视频数据质量对实验效果的影响，培养学生操作规范精益求精的职业精神。<br />
     （4）通过校园美景图和乱丢垃圾的图引导学生爱护校园、爱护环境，培养学生的文明意识、环保意识。</p>
-<div class="section" id="id10">
-<h3>任务分组<a class="headerlink" href="#id10" title="Permalink to this headline">#</a></h3>
+<div class="section" id="id11">
+<h3>任务分组<a class="headerlink" href="#id11" title="Permalink to this headline">#</a></h3>
 <p><a class="reference external" href="https://docs.qq.com/sheet/DWVpHVlFySlRGc1dC">学生任务分配表</a></p>
 </div>
-<div class="section" id="id11">
-<h3>任务实施<a class="headerlink" href="#id11" title="Permalink to this headline">#</a></h3>
 <div class="section" id="id12">
-<h4>任务工作单1：人脸检测环境准备和测试<a class="headerlink" href="#id12" title="Permalink to this headline">#</a></h4>
+<h3>任务实施<a class="headerlink" href="#id12" title="Permalink to this headline">#</a></h3>
+<div class="section" id="id13">
+<h4>任务工作单1：人脸检测环境准备和测试<a class="headerlink" href="#id13" title="Permalink to this headline">#</a></h4>
 <p>组号：————————           姓名：————————            学号：————————           检索号： ————————<br />
 <strong>引导问题：</strong><br />
 （1）安装OpenCV-Python，导入CV2库。</p>
@@ -694,36 +699,36 @@ document.write(`
 <p>（4）读入一张校园风景照，在图像框出你最喜欢的部分，代码和运行效果截图。</p>
 <p>（5）读入一张乱丢垃圾后的路面图，用圆形圈出垃圾，代码和运行效果截图。</p>
 </div>
-<div class="section" id="id13">
-<h4>任务工作单2：人脸检测原理认知<a class="headerlink" href="#id13" title="Permalink to this headline">#</a></h4>
+<div class="section" id="id14">
+<h4>任务工作单2：人脸检测原理认知<a class="headerlink" href="#id14" title="Permalink to this headline">#</a></h4>
 <p>组号：————————           姓名：————————            学号：————————           检索号： ————————<br />
 <strong>引导问题：</strong><br />
 (1)Haar人脸分类器是什么？</p>
 <p>(2)Haar人脸分类器的原理是什么？</p>
 </div>
-<div class="section" id="id14">
-<h4>任务工作单3：人脸检测方法探究<a class="headerlink" href="#id14" title="Permalink to this headline">#</a></h4>
+<div class="section" id="id15">
+<h4>任务工作单3：人脸检测方法探究<a class="headerlink" href="#id15" title="Permalink to this headline">#</a></h4>
 <p>组号：————————           姓名：————————            学号：————————           检索号： ————————<br />
 <strong>引导问题：</strong><br />
 （1）导入dlib库，读入图像或者视频进行正脸人脸检测，绘制人脸区域。代码和运行结果截图</p>
 <p>（2）读入图像或者视频进行正脸人脸检测，保存人脸区域的坐标值。代码和运行结果截图</p>
 </div>
-<div class="section" id="id15">
-<h4>任务工作单4：人脸检测方法优化（讨论）<a class="headerlink" href="#id15" title="Permalink to this headline">#</a></h4>
+<div class="section" id="id16">
+<h4>任务工作单4：人脸检测方法优化（讨论）<a class="headerlink" href="#id16" title="Permalink to this headline">#</a></h4>
 <p>组号：————————           姓名：————————            学号：————————           检索号： ————————<br />
 <strong>引导问题：</strong><br />
 （1）小组讨论交流，总结确定人脸检测的方法流程。</p>
 <p>（2）记录人脸检测调试过程中的错误。</p>
 </div>
-<div class="section" id="id16">
-<h4>任务工作单5：人脸检测方法优化（展示）<a class="headerlink" href="#id16" title="Permalink to this headline">#</a></h4>
+<div class="section" id="id17">
+<h4>任务工作单5：人脸检测方法优化（展示）<a class="headerlink" href="#id17" title="Permalink to this headline">#</a></h4>
 <p>组号：————————           姓名：————————            学号：————————           检索号： ————————<br />
 <strong>引导问题：</strong><br />
 （1）每小组推荐一位小组长，汇报实现过程，借鉴各组分享的经验，进一步优化实现的步骤。</p>
 <p>（2）检查自己不足的地方。</p>
 </div>
-<div class="section" id="id17">
-<h4>任务工作单6：人脸检测实践<a class="headerlink" href="#id17" title="Permalink to this headline">#</a></h4>
+<div class="section" id="id18">
+<h4>任务工作单6：人脸检测实践<a class="headerlink" href="#id18" title="Permalink to this headline">#</a></h4>
 <p>组号：————————           姓名：————————            学号：————————           检索号： ————————<br />
 <strong>引导问题：</strong><br />
 （1）按照正确的流程和方法完成实时视频人脸检测任务。</p>
@@ -731,25 +736,25 @@ document.write(`
 </div>
 </div>
 </div>
-<div class="section" id="id18">
-<h2>评价反馈<a class="headerlink" href="#id18" title="Permalink to this headline">#</a></h2>
 <div class="section" id="id19">
-<h3>个人评价表<a class="headerlink" href="#id19" title="Permalink to this headline">#</a></h3>
+<h2>评价反馈<a class="headerlink" href="#id19" title="Permalink to this headline">#</a></h2>
+<div class="section" id="id20">
+<h3>个人评价表<a class="headerlink" href="#id20" title="Permalink to this headline">#</a></h3>
 <p>组号：————————           姓名：————————            学号：————————           检索号： ————————<br />
 <a class="reference external" href="https://docs.qq.com/sheet/DWU9yclpISXdIeVhj">个人评价表</a></p>
 </div>
-<div class="section" id="id20">
-<h3>小组内互评表-任务工作单2<a class="headerlink" href="#id20" title="Permalink to this headline">#</a></h3>
+<div class="section" id="id21">
+<h3>小组内互评表-任务工作单2<a class="headerlink" href="#id21" title="Permalink to this headline">#</a></h3>
 <p>组号：————————           姓名：————————            学号：————————           检索号： ————————<br />
 <a class="reference external" href="https://docs.qq.com/sheet/DWWpXU3drTlBzSlBC">小组内互评表</a></p>
 </div>
-<div class="section" id="id21">
-<h3>小组间互评表<a class="headerlink" href="#id21" title="Permalink to this headline">#</a></h3>
+<div class="section" id="id22">
+<h3>小组间互评表<a class="headerlink" href="#id22" title="Permalink to this headline">#</a></h3>
 <p>被评组号：————————           检索号：————————<br />
 <a class="reference external" href="https://docs.qq.com/sheet/DWUxXRkhJaVFJeUJU">小组间互评表</a></p>
 </div>
-<div class="section" id="id22">
-<h3>教师评价表-任务工作单4<a class="headerlink" href="#id22" title="Permalink to this headline">#</a></h3>
+<div class="section" id="id23">
+<h3>教师评价表-任务工作单4<a class="headerlink" href="#id23" title="Permalink to this headline">#</a></h3>
 <p>组号：————————           姓名：————————            学号：————————           检索号： ————————<br />
 <a class="reference external" href="https://docs.qq.com/sheet/DWXJqak1xTUJkaGJK">教师评价表</a></p>
 </div>
@@ -793,7 +798,7 @@ document.write(`
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><center>项目2.3 人脸识别技术应用-开发人脸识别考勤系统</center></p>
+        <p class="prev-next-title">项目2.3 人脸识别技术应用-开发人脸识别考勤系统</p>
       </div>
     </a>
     <a class="right-next"
@@ -801,7 +806,7 @@ document.write(`
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><center>任务二 人脸矫正</center></p>
+        <p class="prev-next-title">任务二 人脸矫正</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -823,43 +828,43 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">【任务描述】</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">【学习目标】</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">【任务分析】</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">【知识链接】</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">【任务描述】</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">【学习目标】</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">【任务分析】</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">【知识链接】</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#opencv">一、计算机视觉库-OpenCV</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#haar">二、使用haar分类器进行人脸检测的原理</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#haar-like">1.Haar-like特征</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">2.积分图</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">2.积分图</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#adaboost">3.Adaboost分类器</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">三、人脸检测操作流程</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">1.获取实时的视频流</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">2.在视频流中使用haar分类器进行人脸检测</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">三、人脸检测操作流程</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">1.获取实时的视频流</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">2.在视频流中使用haar分类器进行人脸检测</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#roi">3.保存人脸ROI区域</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">素质素养养成</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">任务分组</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">任务实施</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">任务工作单1：人脸检测环境准备和测试</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">任务工作单2：人脸检测原理认知</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">任务工作单3：人脸检测方法探究</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id15">任务工作单4：人脸检测方法优化（讨论）</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id16">任务工作单5：人脸检测方法优化（展示）</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id17">任务工作单6：人脸检测实践</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">素质素养养成</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">任务分组</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">任务实施</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">任务工作单1：人脸检测环境准备和测试</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">任务工作单2：人脸检测原理认知</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id15">任务工作单3：人脸检测方法探究</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id16">任务工作单4：人脸检测方法优化（讨论）</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id17">任务工作单5：人脸检测方法优化（展示）</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id18">任务工作单6：人脸检测实践</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id18">评价反馈</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id19">个人评价表</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id20">小组内互评表-任务工作单2</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id21">小组间互评表</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id22">教师评价表-任务工作单4</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id19">评价反馈</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id20">个人评价表</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id21">小组内互评表-任务工作单2</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id22">小组间互评表</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id23">教师评价表-任务工作单4</a></li>
 </ul>
 </li>
 </ul>

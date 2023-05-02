@@ -179,16 +179,21 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../xm1/rw5.html">任务2.1.5 校园智能客服</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../xm2/xm.html">项目情景</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../xm2/xm.html">项目2.2 图像识别技术应用—植物检测</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../xm2/rw1.html">任务2.2.1 植物图像资源采集</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../xm2/rw2.html">任务2.2.2 图像数据标注</a></li>
 
-
-
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="xm.html"><center>项目2.3 人脸识别技术应用-开发人脸识别考勤系统</center></a><input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="rw1.html"><center>任务2.3.1 人脸检测</center></a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#"><center>任务二 人脸矫正</center></a></li>
-<li class="toctree-l2"><a class="reference internal" href="rw3.html"><center>任务2.3.3 人脸特征提取</center></a></li>
-<li class="toctree-l2"><a class="reference internal" href="rw4.html"><center>任务四 人脸识别</center></a></li>
-<li class="toctree-l2"><a class="reference internal" href="rw5.html"><center>任务2.3.5 简易人脸识别考勤系统</center></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../xm2/rw3.html">任务2.2.3 搭建YOLO3环境</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../xm2/rw4.html">任务2.2.4 测试keras-yolov3实例</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../xm2/rw5.html">任务2.2.5 训练植物数据集</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="xm.html">项目2.3 人脸识别技术应用-开发人脸识别考勤系统</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="rw1.html">任务2.3.1 人脸检测</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">任务二 人脸矫正</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rw3.html">任务2.3.3 人脸特征提取</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rw4.html">任务四 人脸识别</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rw5.html">任务2.3.5 简易人脸识别考勤系统</a></li>
 </ul>
 </li>
 </ul>
@@ -381,7 +386,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1><center>任务二 人脸矫正</center></h1>
+    <h1>任务二 人脸矫正</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -391,12 +396,12 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">【任务描述】</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">【学习目标】</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">【任务分析】</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">【知识链接】</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">【素质素养养成】</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">【任务分组】</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">【任务描述】</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">【学习目标】</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">【任务分析】</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">【知识链接】</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">【素质素养养成】</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">【任务分组】</a></li>
 </ul>
             </nav>
         </div>
@@ -408,15 +413,15 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <div class="tex2jax_ignore mathjax_ignore section" id="center-center">
-<h1><center>任务二 人脸矫正</center><a class="headerlink" href="#center-center" title="Permalink to this headline">#</a></h1>
-<div class="section" id="id1">
-<h2>【任务描述】<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h2>
+  <div class="tex2jax_ignore mathjax_ignore section" id="id1">
+<h1>任务二 人脸矫正<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h1>
+<div class="section" id="id2">
+<h2>【任务描述】<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h2>
 <p>    大多数情况下，从视频中截取到的人脸是包含歪头和侧脸的现象，我们就需要进行人脸矫正操作来保证人脸识别的效果。读入一张歪头的人脸图像，请通过人脸矫正调整人脸的显示。效果参考图2.3.2.1。<br />
 <img alt="dis" src="../../_images/13.png" /></p>
 </div>
-<div class="section" id="id2">
-<h2>【学习目标】<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h2>
+<div class="section" id="id3">
+<h2>【学习目标】<a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h2>
 <p>    <strong>1.知识目标</strong><br />
     （1）掌握用Dlib库进行人脸关键点检测的方法。<br />
     （2）掌握采用人脸基准点进行人脸对齐的方法。</p>
@@ -428,15 +433,15 @@ document.write(`
     （2）培养学生树立正确的容貌观；<br />
     （3）培养学生树立肖像保护意识。</p>
 </div>
-<div class="section" id="id3">
-<h2>【任务分析】<a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h2>
+<div class="section" id="id4">
+<h2>【任务分析】<a class="headerlink" href="#id4" title="Permalink to this headline">#</a></h2>
 <p>    <strong>1.重点</strong><br />
     调用api进行人脸关键点检测及人脸对齐。<br />
     <strong>2.难点</strong><br />
     采用Python编程实现基于人脸基准点的人脸对齐。</p>
 </div>
-<div class="section" id="id4">
-<h2>【知识链接】<a class="headerlink" href="#id4" title="Permalink to this headline">#</a></h2>
+<div class="section" id="id5">
+<h2>【知识链接】<a class="headerlink" href="#id5" title="Permalink to this headline">#</a></h2>
 <p>    我们进行人脸识别的时候正脸的效果是最好的，所以在人脸识别前还需要完成人脸矫正。人脸矫正是一个中间步骤，在人脸矫正之前需要先进行人脸检测，保存人脸区域后进行人脸对齐，然后基于人脸的关键点进行人脸矫正。人脸对齐的结果可以用于人脸识别、属性计算、表情识别等。<br />
 <strong>一、人脸关键点定位和检测</strong>
     人脸关键点定位(Facial landmark localization）是在人脸检测的基础上，根据输入的人脸图像自动定位出面部关键特征点。人脸关键点大致分三类：１）标记人脸上的器官，比如眼角、嘴角等；２）某个方向上的最高点或曲率极值点，比如嘴角；３）前两类点的插值点，比如脸颊轮廓中的点等。常用的人脸关键点数据库中标注的人脸关键点个数有5个点、49个点或68个点等，可以调用相应的工具包实现。<br />
@@ -603,14 +608,14 @@ document.write(`
 <p>    程序运行结果参考图2.3.2.4：</p>
 <p><img alt="dis" src="../../_images/16.png" /></p>
 </div>
-<div class="section" id="id5">
-<h2>【素质素养养成】<a class="headerlink" href="#id5" title="Permalink to this headline">#</a></h2>
+<div class="section" id="id6">
+<h2>【素质素养养成】<a class="headerlink" href="#id6" title="Permalink to this headline">#</a></h2>
 <p>（1）通过关键点检测培养学生提炼关键点来提高解决问题效率的方法。<br />
 （2）通过人脸矫正的原理培养学生培养进行数据清洗和采集中规范操作、提高数据质量的职业意识。<br />
 （3）通过人脸矫正帮助学生树立正确的肖像保护意识，树立正确的容貌观。</p>
 </div>
-<div class="section" id="id6">
-<h2>【任务分组】<a class="headerlink" href="#id6" title="Permalink to this headline">#</a></h2>
+<div class="section" id="id7">
+<h2>【任务分组】<a class="headerlink" href="#id7" title="Permalink to this headline">#</a></h2>
 <center>学生任务分配表</center>
 [学生任务分配表](https://docs.qq.com/sheet/DWVpHVlFySlRGc1dC)  
 ### 【任务实施】 
@@ -703,7 +708,7 @@ document.write(`
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><center>任务2.3.1 人脸检测</center></p>
+        <p class="prev-next-title">任务2.3.1 人脸检测</p>
       </div>
     </a>
     <a class="right-next"
@@ -711,7 +716,7 @@ document.write(`
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><center>任务2.3.3 人脸特征提取</center></p>
+        <p class="prev-next-title">任务2.3.3 人脸特征提取</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -733,12 +738,12 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">【任务描述】</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">【学习目标】</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">【任务分析】</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">【知识链接】</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">【素质素养养成】</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">【任务分组】</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">【任务描述】</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">【学习目标】</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">【任务分析】</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">【知识链接】</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">【素质素养养成】</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">【任务分组】</a></li>
 </ul>
   </nav></div>
 
