@@ -1,0 +1,837 @@
+
+
+<!DOCTYPE html>
+
+
+<html >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>任务2.3.5 简易人脸识别考勤系统 &#8212; My sample book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'part2/xm3/rw5';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="项目 3.1 AI发展中的问题认知" href="../../part3/xm1/xm.html" />
+    <link rel="prev" title="任务四 人脸识别" href="rw4.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="None"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../../intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    Welcome to your Jupyter Book
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">模块一 人工智能知识认知</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../part1/xm1/xm.html">项目1.1 人工智能寻古探今</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../part1/xm1/rw1.html">任务1.1.1 人工智能知识认知</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../part1/xm1/rw2.html">任务1.1.2 人工智能技术发展历程探究</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../part1/xm1/rw3.html">任务1.1.3 探究新职业-人工智能训练师</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../part1/xm2/xm.html">项目1.2 人工智能技术应用探究</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../part1/xm2/rw1.html">任务1.2.1人工智能应用支撑认知</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../part1/xm2/rw2.html">任务1.2.2人工智能应用行业探究</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">模块二 人工智能技术应用</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../xm1/xm.html">项目2.1 语音识别技术应用-开发校园智能客服机器人</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../xm1/rw1.html">任务2.1.1 语音数据采集</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../xm1/rw2.html">任务2.1.2 语音转文字</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../xm1/rw3.html">任务2.1.3 语音合成-语音助手</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../xm1/rw4.html">任务2.1.4 聊天机器人</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../xm1/rw5.html">任务2.1.5 校园智能客服</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../xm2/xm.html">项目2.2 图像识别技术应用—植物检测</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../xm2/rw1.html">任务2.2.1 植物图像资源采集</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../xm2/rw2.html">任务2.2.2 图像数据标注</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../xm2/rw3.html">任务2.2.3 搭建YOLO3环境</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../xm2/rw4.html">任务2.2.4 测试keras-yolov3实例</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../xm2/rw5.html">任务2.2.5 训练植物数据集</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="xm.html">项目2.3 人脸识别技术应用-开发人脸识别考勤系统</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="rw1.html">任务2.3.1 人脸检测</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rw2.html">任务二 人脸矫正</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rw3.html">任务2.3.3 人脸特征提取</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rw4.html">任务四 人脸识别</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">任务2.3.5 简易人脸识别考勤系统</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">模块三 AI安全法律伦理</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../part3/xm1/xm.html">项目 3.1  AI发展中的问题认知</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../part3/xm1/rw1.html">任务3.1.1 人工智能安全威胁</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../part3/xm1/rw2.html">任务3.1.2 人工智能伦理探究</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../part3/xm1/rw3.html">任务3.1.3 人工智能法律探究</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/cosoff/zsptAI" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/cosoff/zsptAI/issues/new?title=Issue%20on%20page%20%2Fpart2/xm3/rw5.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/part2/xm3/rw5.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>任务2.3.5 简易人脸识别考勤系统</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">【任务描述】</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">【学习目标】</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">【任务分析】</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">【知识链接】</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">【素质素养养成】</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">【任务分组】</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">【任务实施】</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">【评价反馈】</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <div class="section" id="id1">
+<h1>任务2.3.5 简易人脸识别考勤系统<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h1>
+<div class="section" id="id2">
+<h2>【任务描述】<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h2>
+<p>    利用任务1-4的人脸识别技术，针对给定的人脸图像库开发一个人脸识别考勤系统，实现人脸实时签到和输出考勤结果。参考结果如图2.3.5.1和图2.3.5.2所示。</p>
+<p><img alt="dis" src="../../_images/rw55.png" /><br />
+图2.3.5.1 实时签到</p>
+<p><img alt="dis" src="../../_images/rw57.png" /><br />
+图2.3.5.2 输出考勤结果</p>
+</div>
+<div class="section" id="id3">
+<h2>【学习目标】<a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h2>
+<p>    <strong>1.知识目标</strong><br />
+    （1）了解人脸识别应用开发流程。<br />
+    （2）掌握人脸识别与实际场景的融合方法。<br />
+    <strong>2.能力目标</strong><br />
+    （1）能将人脸识别应用到实际场景。<br />
+    <strong>3.素质素养目标</strong><br />
+    （1）培养学生树立技术服务人类的意识；<br />
+    （2）培养学生认可社会主义核心观，做一个守时、诚信的人。</p>
+</div>
+<div class="section" id="id4">
+<h2>【任务分析】<a class="headerlink" href="#id4" title="Permalink to this headline">#</a></h2>
+<p>    <strong>1.重点</strong><br />
+    人脸识别应用项目的开发。<br />
+    <strong>2.难点</strong><br />
+    人脸识别与实际场景的融合。</p>
+</div>
+<div class="section" id="id5">
+<h2>【知识链接】<a class="headerlink" href="#id5" title="Permalink to this headline">#</a></h2>
+<p><strong>一、考勤系统功能和框架简介</strong></p>
+<p>    人脸考勤系统是基于人脸识别技术的考勤管理系统，主要用于出勤统计，签到时需要通过摄像头采集签到人员的面部图像,再通过人脸识别算法从采集到的图像中提取特征值并与数据库中预先存入的人脸照片的特征值进行分析比较，根据识别结果和时间判断缺勤、迟到和正常。<br />
+    本次任务的简易人脸考勤系统场景为校园学生上课考勤，假设人脸数据可以通过校园管理系统得到。系统的整体流程如下六个环节，图2.3.5.3是项目开发流程图。<br />
+    获取上课的学生列表<br />
+    为学生注册某一课程<br />
+    搭建人脸特征库<br />
+    上课前进行人脸识别签到<br />
+    通过学生列表以及人脸识别的结果获得考勤记录<br />
+    考勤分析</p>
+<p><img alt="dis" src="../../_images/rw51.png" />
+图2.3.5.3 校园人脸考勤系统开发流程</p>
+<p><strong>二、开发准备工作</strong><br />
+    在开发考勤系统之前，我们要做一些准备工作，包括人脸图像数据、搭建项目框架和将人脸检测、人脸特征提取和人脸距离计算等功能实现封装。<br />
+    首先我们从校园管理系统中获取要进行考勤的学生人脸图像，本项目的测试人脸图像如图2.3.5.4所示。</p>
+<p><img alt="dis" src="../../_images/rw52.png" />
+图2.3.5.4 人脸图像数据列表</p>
+<p>    然后根据需求创建如图2.3.5.5所示的目录结构，class用来存储某一节课的课程信息，face_features用来存储人脸特征库，我们提取到的人脸特征存储到这里，models用来存放haar分类器以及face_net模型，student_images用来存放我们从校园管理系统中获取到的学生人脸图像数据。</p>
+<p><img alt="dis" src="../../_images/rw53.png" /><br />
+图2.3.5.5 人脸考勤系统目录结构</p>
+<p>    接着，我们将任务1、2、3、4中已经编写好了的一些函数放到utils.py文件中，方便后续直接调用，包括获取人脸ROI区域函数、获得人脸特征函数、加载人脸特征函数、计算人脸距离函数，完整的utils.py代码如下：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">tensorflow.keras</span> <span class="k">as</span> <span class="nn">k</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">cv2</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;CUDA_VISIBLE_DEVICES&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;-1&quot;</span>
+
+<span class="n">face_date</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">CascadeClassifier</span><span class="p">(</span><span class="s1">&#39;models\haarcascade_frontalface_default.xml&#39;</span><span class="p">)</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">k</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">load_model</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;models\facenet_keras.h5&#39;</span><span class="p">)</span>
+
+<span class="c1"># 获得人脸ROI区域</span>
+<span class="k">def</span> <span class="nf">get_face_roi</span><span class="p">(</span><span class="n">img</span><span class="p">):</span>
+    <span class="n">gray</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">cvtColor</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">COLOR_BGR2GRAY</span><span class="p">)</span>
+    <span class="n">faces</span> <span class="o">=</span> <span class="n">face_date</span><span class="o">.</span><span class="n">detectMultiScale</span><span class="p">(</span><span class="n">gray</span><span class="p">,</span> <span class="mf">1.3</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+
+    <span class="c1"># for face in faces:</span>
+    <span class="c1">#     x, y, w, h = face</span>
+    <span class="c1">#     img = img[y:y+h,x:x+w]</span>
+    <span class="k">return</span> <span class="n">faces</span>
+
+<span class="c1"># 获得人脸特征</span>
+<span class="k">def</span> <span class="nf">get_face_features</span><span class="p">(</span><span class="n">img</span><span class="p">):</span>
+    <span class="c1"># 将图片缩放为模型的输入大小</span>
+    <span class="n">image</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">resize</span><span class="p">(</span><span class="n">img</span><span class="p">,(</span><span class="mi">160</span><span class="p">,</span><span class="mi">160</span><span class="p">))</span>
+    <span class="n">image</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">image</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span><span class="o">/</span><span class="mf">255.</span>
+    <span class="n">image</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">expand_dims</span><span class="p">(</span><span class="n">image</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+    <span class="c1"># 使用模型获得人脸特征向量</span>
+    <span class="n">features</span>  <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">image</span><span class="p">)</span>
+    <span class="c1"># 标准化数据</span>
+    <span class="n">features</span> <span class="o">=</span> <span class="n">features</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">maximum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">features</span><span class="p">),</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">keepdims</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span> <span class="mf">1e-10</span><span class="p">))</span>
+    <span class="c1"># 添加代码-------------------</span>
+    <span class="c1"># np.save(r&#39;knowface\face1&#39;,features)</span>
+    <span class="c1"># --------------------------</span>
+    <span class="k">return</span> <span class="n">features</span>
+
+<span class="c1"># 加载人脸特征</span>
+<span class="k">def</span> <span class="nf">load_know_face</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
+    <span class="n">npy_paths</span> <span class="o">=</span> <span class="p">[</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">path</span> <span class="p">,</span><span class="n">p</span><span class="p">)</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">path</span><span class="p">)]</span>
+    <span class="n">data</span> <span class="o">=</span><span class="p">[]</span>
+    <span class="n">face_names</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">npy_path</span> <span class="ow">in</span> <span class="n">npy_paths</span><span class="p">:</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="n">npy_path</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\\</span><span class="s1">&#39;</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">face_names</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+        <span class="n">data</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">npy_path</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">data</span><span class="p">,</span><span class="n">face_names</span>
+
+<span class="c1"># 计算人脸距离</span>
+<span class="k">def</span>  <span class="nf">get_distance</span><span class="p">(</span><span class="n">image1</span><span class="p">,</span><span class="n">image2</span><span class="p">):</span>
+    <span class="n">l1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">image1</span> <span class="o">-</span> <span class="n">image2</span><span class="p">),</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">l1</span>
+</pre></div>
+</div>
+<p><strong>三、批量获取特征</strong></p>
+<p>    任务3 中我们获取人脸特征的方式比较简单，这里我们可以优化一下，新建register.py文件，实现将一个文件夹中的图片进行人脸特征的批量提取并自动保存到项目face_features文件夹中，实现代码如下：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">utils</span> <span class="kn">import</span> <span class="n">get_face_roi</span><span class="p">,</span><span class="n">get_face_features</span>
+<span class="kn">import</span> <span class="nn">cv2</span>
+<span class="kn">import</span>  <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">tqdm</span> <span class="kn">import</span> <span class="n">tqdm</span>
+
+<span class="n">student_dir</span><span class="o">=</span><span class="s1">&#39;student_images&#39;</span>
+
+<span class="n">student_paths</span> <span class="o">=</span> <span class="p">[</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">student_dir</span><span class="p">,</span><span class="n">p</span><span class="p">)</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">student_dir</span><span class="p">)]</span>
+<span class="k">for</span> <span class="n">student_path</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="n">student_paths</span><span class="p">):</span>
+    <span class="n">student_name</span> <span class="o">=</span> <span class="n">student_path</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\\</span><span class="s1">&#39;</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+
+    <span class="n">image</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="n">student_path</span><span class="p">)</span>
+    <span class="n">face_roi</span><span class="o">=</span> <span class="n">get_face_roi</span><span class="p">(</span><span class="n">image</span><span class="p">)</span>
+    <span class="n">features</span> <span class="o">=</span> <span class="n">get_face_features</span><span class="p">(</span><span class="n">face_roi</span><span class="p">)</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;face_features\</span><span class="si">%s</span><span class="s1">&#39;</span><span class="o">%</span><span class="n">student_name</span><span class="p">,</span><span class="n">features</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>    程序运行成功后可以在face_features文件夹中得到如图2.3.5.6所示的人脸特征文件。</p>
+<center>![dis](../../images/second/xm3/22.png)</center>   
+<p><strong>四、实时人脸签到</strong></p>
+<p>    新建Attendance_Runtime.py，加载学生人脸图像数据、打开摄像头、初始化化学生签到列表（初始签到情况都是’0’），实现实时签到功能。签到功能主要包括：通过摄像头获取人脸区域、与人脸图像库中每个人脸进行比对计算人脸距离和根据人脸距离与阈值的比较结果给获取到的人脸图像添加签到结果。完整的Attendance_Runtime.py代码为如下：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">utils</span> <span class="kn">import</span> <span class="n">get_face_roi</span><span class="p">,</span><span class="n">get_face_features</span><span class="p">,</span><span class="n">load_know_face</span><span class="p">,</span><span class="n">get_distance</span>
+<span class="kn">import</span>  <span class="nn">cv2</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">json</span>
+
+<span class="c1"># 加载学生数据</span>
+<span class="n">student_face_features</span> <span class="p">,</span><span class="n">student_names</span><span class="o">=</span> <span class="n">load_know_face</span><span class="p">(</span><span class="s1">&#39;face_features&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">student_names</span><span class="p">)</span>
+<span class="c1"># 开打摄像头</span>
+<span class="n">cam</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">VideoCapture</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="c1"># 初始化学生列表</span>
+<span class="n">student_signin_dist</span><span class="o">=</span><span class="p">{}</span>
+<span class="k">for</span> <span class="n">student_name</span> <span class="ow">in</span> <span class="n">student_names</span><span class="p">:</span>
+    <span class="n">student_signin_dist</span><span class="p">[</span><span class="n">student_name</span><span class="p">]</span><span class="o">=</span><span class="s1">&#39;0&#39;</span>
+
+<span class="k">while</span> <span class="n">cam</span> <span class="p">:</span>
+    <span class="n">_</span><span class="p">,</span><span class="n">frame</span> <span class="o">=</span> <span class="n">cam</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+    <span class="c1"># 获得人脸区域</span>
+    <span class="n">faces</span> <span class="o">=</span> <span class="n">get_face_roi</span><span class="p">(</span><span class="n">frame</span><span class="p">)</span>
+    <span class="c1"># 对图像中的每一个人脸进行对比</span>
+    <span class="k">for</span> <span class="n">face</span> <span class="ow">in</span> <span class="n">faces</span><span class="p">:</span>
+        <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">h</span> <span class="o">=</span> <span class="n">face</span>
+        <span class="n">cv2</span><span class="o">.</span><span class="n">rectangle</span><span class="p">(</span><span class="n">frame</span><span class="p">,(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">),(</span><span class="n">x</span><span class="o">+</span><span class="n">w</span><span class="p">,</span><span class="n">y</span><span class="o">+</span><span class="n">h</span><span class="p">),(</span><span class="mi">0</span><span class="p">,</span><span class="mi">255</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span><span class="mi">1</span><span class="p">)</span>
+        <span class="c1"># 获得人脸roi区域</span>
+        <span class="n">img_roi</span> <span class="o">=</span> <span class="n">frame</span><span class="p">[</span><span class="n">y</span><span class="p">:</span><span class="n">y</span> <span class="o">+</span> <span class="n">h</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span><span class="n">x</span> <span class="o">+</span> <span class="n">w</span><span class="p">]</span>
+        <span class="c1"># 获得人脸特征</span>
+        <span class="n">face_features</span> <span class="o">=</span> <span class="n">get_face_features</span><span class="p">(</span><span class="n">img_roi</span><span class="p">)</span>
+        <span class="c1"># 计算人脸距离</span>
+        <span class="n">distance</span> <span class="o">=</span> <span class="n">get_distance</span><span class="p">(</span><span class="n">student_face_features</span><span class="p">,</span><span class="n">face_features</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">distance</span><span class="p">)</span>
+
+        <span class="c1"># 判断最小的距离是否小于阈值</span>
+        <span class="n">min_dis_index</span> <span class="o">=</span> <span class="n">distance</span><span class="o">.</span><span class="n">argmin</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">distance</span><span class="p">[</span><span class="n">min_dis_index</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mf">0.7</span><span class="p">:</span>
+            <span class="n">student_name</span><span class="o">=</span> <span class="n">student_names</span><span class="p">[</span><span class="n">min_dis_index</span><span class="p">]</span>
+            <span class="c1"># print(&#39;已识别到此人为：%s&#39; % student_name)</span>
+            <span class="n">student_signin_dist</span><span class="p">[</span><span class="n">student_name</span><span class="p">]</span><span class="o">=</span><span class="n">time</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1"> %H:%M:%S&#39;</span><span class="p">,</span> <span class="n">time</span><span class="o">.</span><span class="n">localtime</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()))</span>
+            <span class="n">cv2</span><span class="o">.</span><span class="n">putText</span><span class="p">(</span><span class="n">frame</span><span class="p">,</span><span class="n">student_name</span><span class="p">,(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="o">-</span><span class="mi">10</span><span class="p">),</span><span class="n">cv2</span><span class="o">.</span><span class="n">FONT_HERSHEY_COMPLEX</span><span class="p">,</span><span class="mf">.5</span><span class="p">,(</span><span class="mi">0</span><span class="p">,</span><span class="mi">255</span><span class="p">,</span><span class="mi">255</span><span class="p">),</span><span class="mi">1</span><span class="p">)</span>
+
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># print(&#39;未能识别此人&#39;)</span>
+            <span class="n">cv2</span><span class="o">.</span><span class="n">putText</span><span class="p">(</span><span class="n">frame</span><span class="p">,</span><span class="s1">&#39;Unknow&#39;</span><span class="p">,(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">-</span> <span class="mi">10</span><span class="p">),</span> <span class="n">cv2</span><span class="o">.</span><span class="n">FONT_HERSHEY_COMPLEX</span><span class="p">,</span> <span class="mf">.5</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">),</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">cv2</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="s1">&#39;cam&#39;</span><span class="p">,</span><span class="n">frame</span><span class="p">)</span>
+    <span class="c1"># 按下‘q’退出</span>
+    <span class="k">if</span> <span class="n">cv2</span><span class="o">.</span><span class="n">waitKey</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">==</span><span class="nb">ord</span><span class="p">(</span><span class="s1">&#39;q&#39;</span><span class="p">):</span>
+        <span class="c1"># 记录本次签到结果</span>
+        <span class="n">json_</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">student_signin_dist</span><span class="p">)</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;class\student_att.json&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf8&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+            <span class="n">f</span><span class="o">.</span><span class="n">writelines</span><span class="p">(</span><span class="n">json_</span><span class="p">)</span>
+        <span class="k">break</span>
+<span class="n">cam</span><span class="o">.</span><span class="n">release</span><span class="p">()</span>
+<span class="n">cv2</span><span class="o">.</span><span class="n">destroyAllWindows</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>    程序运行后，你将会看到如图的界面，黄色字体为识别到的学生名称，并且使用按键’q’可以退出签到系统。</p>
+<p><img alt="dis" src="../../_images/rw55.png" /><br />
+图 2.3.5.7 实时签到成功效果</p>
+<p>    在退出时会同时保存签到信息成json文件到class文件夹中，签到成功则该学生的签到状态值为签到时间，如若还未签到，则签到状态值还是为’0’。效果参考图2.3.5.8所示。</p>
+<p><img alt="dis" src="../../_images/rw56.png" /><br />
+图 2.3.5.8 学生签到状态列表</p>
+<p><strong>五、考勤结果</strong></p>
+<p>    新建一个query.py文件用来根据学生签完到后的考勤状态json文件来确定学生是迟到、缺勤还是正常，参考代码如下：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">time</span>
+
+<span class="n">path</span> <span class="o">=</span> <span class="s1">&#39;class\student_att.json&#39;</span>
+<span class="c1"># 定义上课时间  格式固定</span>
+<span class="n">start_class_time</span> <span class="o">=</span><span class="s1">&#39;2021-04-29 17:41:00&#39;</span>
+<span class="n">start_class_time_stamp</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">mktime</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">start_class_time</span><span class="p">,</span> <span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1"> %H:%M:%S&#39;</span><span class="p">))</span>
+
+
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf8&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">class_datas</span><span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+
+<span class="n">class_datas_dict</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">class_datas</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">class_datas_dict</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+
+    <span class="n">att_time</span> <span class="o">=</span> <span class="n">class_datas_dict</span><span class="p">[</span><span class="n">name</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">att_time</span> <span class="o">==</span> <span class="s1">&#39;0&#39;</span><span class="p">:</span>
+        <span class="n">state</span> <span class="o">=</span> <span class="s1">&#39;缺勤&#39;</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="c1"># 如果签到时间大于上课时间则是迟到</span>
+        <span class="n">att_time_stamp</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">mktime</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">att_time</span><span class="p">,</span> <span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1"> %H:%M:%S&#39;</span><span class="p">))</span>
+        <span class="n">time_</span> <span class="o">=</span> <span class="n">start_class_time_stamp</span><span class="o">-</span><span class="n">att_time_stamp</span>
+        <span class="k">if</span> <span class="n">time_</span><span class="o">&lt;</span><span class="mi">0</span><span class="p">:</span>
+            <span class="n">state</span> <span class="o">=</span> <span class="s1">&#39;迟到&#39;</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">state</span><span class="o">=</span><span class="s1">&#39;正常&#39;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">name</span><span class="p">,</span><span class="n">att_time</span><span class="p">,</span><span class="n">state</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>    程序运行结果如图2.3.5.9所示，我们通过签到的时间来判断学生是否缺勤、迟到和正常。<br />
+<img alt="dis" src="../../_images/rw57.png" /><br />
+图2.3.5.9 学生考勤结果列表</p>
+</div>
+<div class="section" id="id6">
+<h2>【素质素养养成】<a class="headerlink" href="#id6" title="Permalink to this headline">#</a></h2>
+<p>1.在人脸识别技术应用到签到考勤系统的过程中培养学生技术服务人类的意识。<br />
+2.在通过签到时间计算考勤结果的过程中引导学生做一个守时、诚信的人。</p>
+</div>
+<div class="section" id="id7">
+<h2>【任务分组】<a class="headerlink" href="#id7" title="Permalink to this headline">#</a></h2>
+<p>学生任务分配表
+链接:<a class="reference external" href="https://docs.qq.com/sheet/DWVpHVlFySlRGc1dC">学生任务分配表</a></p>
+</div>
+<div class="section" id="id8">
+<h2>【任务实施】<a class="headerlink" href="#id8" title="Permalink to this headline">#</a></h2>
+<p>任务工作单1：人脸识别认知<br />
+组号：————————           姓名：————————            学号：————————           检索号： ————————<br />
+<strong>引导问题：</strong><br />
+（1）简述人脸考勤系统的原理。</p>
+<p>————————————————————————————————————————<br />
+（2）展示你创建的人脸识别项目结构并指出哪个文件夹用来存储人脸特征、哪个文件用来要签到的课程信息，哪个文件夹用来存放haar分类器以及face_net模型，哪个文件夹用来存储学生人脸图像数据</p>
+<p>————————————————————————————————————————<br />
+（3）将获取人脸ROI区域、提取人脸特征、计算人脸距离封装成函数。</p>
+<p>————————————————————————————————————————<br />
+任务工作单2：人脸考勤系统流程探究<br />
+组号：————————           姓名：————————            学号：————————           检索号： ————————<br />
+<strong>引导问题：</strong><br />
+（1）开发人脸考勤系统整个流程包括哪些环节？</p>
+<p>————————————————————————————————————————<br />
+（2）人脸考勤系统每个环节如何实现。</p>
+<p>————————————————————————————————————————<br />
+任务工作单3：人脸考勤系统流程确定（小组讨论）
+组号：————————           姓名：————————            学号：————————           检索号： ————————<br />
+<strong>引导问题：</strong><br />
+（1）小组交流讨论，确定正确人脸考勤系统开发流程和每个环节的实现方法。</p>
+<p>————————————————————————————————————————<br />
+（2）请记录自己在人脸考情系统开发过程中出现的问题。</p>
+<p>————————————————————————————————————————<br />
+任务工作单4：开发人脸考勤系统流程（展示汇报）<br />
+组号：————————           姓名：————————            学号：————————           检索号： ————————<br />
+<strong>引导问题：</strong><br />
+（1）每小组推荐一位小组长，汇报实现过程，借鉴各组分享的经验，进一步优化实现的步骤。</p>
+<p>————————————————————————————————————————<br />
+（2）检查自己不足的地方。</p>
+<p>————————————————————————————————————————</p>
+<p>任务工作单5：人脸考勤系统开发实践<br />
+组号：————————           姓名：————————            学号：————————           检索号： ————————<br />
+<strong>引导问题：</strong><br />
+（1）按照正确的流程和实现方法，利用本地摄像头实现人脸考勤系统。</p>
+<p>————————————————————————————————————————<br />
+（2）自查人脸考勤系统开发过程中出现错误的原因。</p>
+<p>————————————————————————————————————————</p>
+</div>
+<div class="section" id="id9">
+<h2>【评价反馈】<a class="headerlink" href="#id9" title="Permalink to this headline">#</a></h2>
+<p>个人评价表
+组号：————————           姓名：————————            学号：————————           检索号： ————————<br />
+链接:<a class="reference external" href="https://docs.qq.com/sheet/DWU9yclpISXdIeVhj">个人评价表</a></p>
+<p>小组内互评表
+组号：————————           姓名：————————            学号：————————           检索号： ————————<br />
+链接:<a class="reference external" href="https://docs.qq.com/sheet/DWWpXU3drTlBzSlBC">小组内互评表</a></p>
+<p>小组间互评表
+被评组号：————————           检索号：————————<br />
+链接:<a class="reference external" href="https://docs.qq.com/sheet/DWUxXRkhJaVFJeUJU">小组间互评表</a></p>
+<p>教师评价表<br />
+组号：————————           姓名：————————            学号：————————           检索号： ————————<br />
+链接:<a class="reference external" href="https://docs.qq.com/sheet/DWXJqak1xTUJkaGJK">教师评价表</a></p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "cosoff/zsptAI",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./part2\xm3"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="rw4.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">任务四 人脸识别</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../../part3/xm1/xm.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">项目 3.1  AI发展中的问题认知</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">【任务描述】</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">【学习目标】</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">【任务分析】</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">【知识链接】</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">【素质素养养成】</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">【任务分组】</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">【任务实施】</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">【评价反馈】</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By The Jupyter Book Community
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
