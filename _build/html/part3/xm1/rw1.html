@@ -1,0 +1,758 @@
+
+
+<!DOCTYPE html>
+
+
+<html >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>任务3.1.1 人工智能安全威胁 &#8212; My sample book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'part3/xm1/rw1';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="任务3.1.2 人工智能伦理探究" href="rw2.html" />
+    <link rel="prev" title="项目 3.1 AI发展中的问题认知" href="xm.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="None"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../../intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    Welcome to your Jupyter Book
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">模块一 人工智能知识认知</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../part1/xm1/xm.html">项目1.1 人工智能寻古探今</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../part1/xm1/rw1.html">任务1.1.1 人工智能知识认知</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../part1/xm1/rw2.html">任务1.1.2 人工智能技术发展历程探究</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../part1/xm1/rw3.html">任务1.1.3 探究新职业-人工智能训练师</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../part1/xm2/xm.html">项目1.2 人工智能技术应用探究</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../part1/xm2/rw1.html">任务1.2.1人工智能应用支撑认知</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../part1/xm2/rw2.html">任务1.2.2人工智能应用行业探究</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">模块二 人工智能技术应用</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../part2/xm1/xm.html">项目2.1 语音识别技术应用-开发校园智能客服机器人</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../part2/xm1/rw1.html">任务2.1.1 语音数据采集</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../part2/xm1/rw2.html">任务2.1.2 语音转文字</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../part2/xm1/rw3.html">任务2.1.3 语音合成-语音助手</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../../part2/xm1/rw4.html">任务2.1.4 聊天机器人</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../part2/xm1/rw5.html">任务2.1.5 校园智能客服</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../part2/xm2/xm.html">项目2.2 图像识别技术应用—植物检测</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../part2/xm2/rw1.html">任务2.2.1 植物图像资源采集</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../part2/xm2/rw2.html">任务2.2.2 图像数据标注</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../../part2/xm2/rw3.html">任务2.2.3 搭建YOLO3环境</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../part2/xm2/rw4.html">任务2.2.4 测试keras-yolov3实例</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../part2/xm2/rw5.html">任务2.2.5 训练植物数据集</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../part2/xm3/xm.html">项目2.3 人脸识别技术应用-开发人脸识别考勤系统</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../part2/xm3/rw1.html">任务2.3.1 人脸检测</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../part2/xm3/rw2.html">任务二 人脸矫正</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../part2/xm3/rw3.html">任务2.3.3 人脸特征提取</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../part2/xm3/rw4.html">任务四 人脸识别</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../part2/xm3/rw5.html">任务2.3.5 简易人脸识别考勤系统</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">模块三 AI安全法律伦理</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="xm.html">项目 3.1  AI发展中的问题认知</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">任务3.1.1 人工智能安全威胁</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rw2.html">任务3.1.2 人工智能伦理探究</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rw3.html">任务3.1.3 人工智能法律探究</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/cosoff/zsptAI" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/cosoff/zsptAI/issues/new?title=Issue%20on%20page%20%2Fpart3/xm1/rw1.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/part3/xm1/rw1.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>任务3.1.1 人工智能安全威胁</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">任务描述</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#center-center"><center> 人工智能安全探究任务书  </center></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">学习目标</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">     1.知识目标</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">    2.能力目标</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">  3.素质素养目标</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">任务分析</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">1.重点</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">2.难点</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">一、人工智能安全定义和隐患</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">1.人工智能系统的面临的新型威胁</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">（1）对抗样本攻击</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">（2）数据投毒</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">（3）模型窃取</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id15">（4）数据泄露</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id16">（5）对人工智能系统攻击</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id17">2.人工智能对人类安全的影响</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id18">（1）国家安全风险</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id19">（2）社会安全风险</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id20">（3）人身安全风险</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id21">3.人工智能安全因素</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id22">4.人工智能安全标准</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id23">素质素养养成</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <div class="section" id="id1">
+<h1>任务3.1.1 人工智能安全威胁<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h1>
+<div class="section" id="id2">
+<h2>任务描述<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h2>
+<p>    特斯拉创始人埃隆·马斯克认为，人工智能将威胁人类，或引发恐慌，呼吁政府尽快考虑针对这一技术的相关立法与管控，著名物理学家霍金也发出对人工智能的警告：“人工智能可能毁灭人类”；而Facebook的创办人扎克伯格等人则认为，人工智能将会让人类的生活变得更安全和美好。通过阅读材料、搜素网络资源、查找书籍，总结人工智能面临的攻击威胁类型，人工智能给人类带来的安全隐患和影响，我们要如何防范人工智能安全问题，完成人工智能安全探究任务书。</p>
+<div class="section" id="center-center">
+<h3><center> 人工智能安全探究任务书  </center><a class="headerlink" href="#center-center" title="Permalink to this headline">#</a></h3>
+<p><a class="reference external" href="https://docs.qq.com/doc/DTnJ4c0pLR2t5bGNP">人工智能安全探究任务书</a></p>
+</div>
+</div>
+<div class="section" id="id3">
+<h2>学习目标<a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h2>
+<div class="section" id="id4">
+<h3>     1.知识目标<a class="headerlink" href="#id4" title="Permalink to this headline">#</a></h3>
+<p>      （1）了解人工智能安全存在的问题；<br />
+      （2）了解人工智能系统面临的攻击方式。</p>
+</div>
+<div class="section" id="id5">
+<h3>    2.能力目标<a class="headerlink" href="#id5" title="Permalink to this headline">#</a></h3>
+<p>      （1）能发现人工智能安全存在的隐患和威胁；<br />
+      （2）能应对人工智能安全存在的问题。</p>
+</div>
+<div class="section" id="id6">
+<h3>  3.素质素养目标<a class="headerlink" href="#id6" title="Permalink to this headline">#</a></h3>
+<p>      （1）培养学生公民意识；<br />
+      （2）增强学生的法制意识；<br />
+      （3）培养“两面性”“透过现象看本质”的辩证思维。</p>
+</div>
+</div>
+<div class="section" id="id7">
+<h2>任务分析<a class="headerlink" href="#id7" title="Permalink to this headline">#</a></h2>
+<div class="section" id="id8">
+<h3>1.重点<a class="headerlink" href="#id8" title="Permalink to this headline">#</a></h3>
+<p>    （1）熟悉当前人工智能安全问题的表现形式；<br />
+    （2）从各类人工智能系统面临的威胁中总结出人工智能的安全隐患。</p>
+</div>
+<div class="section" id="id9">
+<h3>2.难点<a class="headerlink" href="#id9" title="Permalink to this headline">#</a></h3>
+<p>    人工智能安全隐患的防范。</p>
+<p>##知识链接</p>
+</div>
+</div>
+<div class="section" id="id10">
+<h2>一、人工智能安全定义和隐患<a class="headerlink" href="#id10" title="Permalink to this headline">#</a></h2>
+<p>    人工智能安全是指通过采取必要措施，防范对人工智能系统的攻击侵入干扰破坏和非法使用以及意外事故，使人工智能系统处于稳定可靠运行的状态，以及遵循人工智能以人为本权责一致等安全原则，保障人工智能算法模型，数据系统和产品应用的完整性保密性可用性鲁棒性透明性公平性和隐私的能力。人工智能系统除了会遭受拒绝服务等传统网络攻击威胁外，也会面临一些特定攻击。</p>
+<div class="section" id="id11">
+<h3>1.人工智能系统的面临的新型威胁<a class="headerlink" href="#id11" title="Permalink to this headline">#</a></h3>
+</div>
+<div class="section" id="id12">
+<h3>（1）对抗样本攻击<a class="headerlink" href="#id12" title="Permalink to this headline">#</a></h3>
+<p>    在输入样本中添加细微的人类无法明显察觉的干扰，导致模型以高置信度给出一个错误的输出，这个过程就是对抗攻击，被模型识别错误的数据就是对抗样本。深度学习系统容易受到精心设计的对抗样本的影响，可能导致系统出现误判或漏判等错误结果。对抗样本攻击也可来自物理世界，例如通过精心构造的交通标志对自动驾驶进行攻击，一个经过修改的实体停车标志，能够使得一个实时的目标检测系统，将其误识别为限速标志，从而可能造成交通事故。攻击者利用精心构造的对抗样本，也可发起模仿攻击、逃避攻击等欺骗攻击。如图3.1.1.1所示，本来是一张“熊猫”的图片，加入一些干扰后就识别成了“长臂猿”，虽然人的肉眼看还是“熊猫”，但是算法模型却识别成“长臂猿”。在人的前面挂一块具有特定图案的牌子，就能使人在视频监控系统中“隐身”（见图3.1.1.2）。在自动驾驶场景下，如果对限速标识牌加一些扰动，就可以误导自动驾驶系统识别成“Stop”（见图3.1.1.3），显然这在交通上会引起很大的安全隐患。</p>
+<p><img alt="dis" src="../../_images/rw112.png" />
+<img alt="dis" src="../../_images/rw22.png" />
+<img alt="dis" src="../../_images/rw33.png" /></p>
+</div>
+<div class="section" id="id13">
+<h3>（2）数据投毒<a class="headerlink" href="#id13" title="Permalink to this headline">#</a></h3>
+<p>    在训练数据中加入精心构造的异常数据，破坏原有的训练数据的完整性，导致算法模型决策出现偏差。数据投毒主要有两种攻击方式：一种是采用模型偏斜方式，主要攻击目标是训练数据样本，通过污染训练数据达到改变分类器分类边界的目的；另一种则是采用反馈误导方式，主要攻击目标是人工智能的学习模型本身，利用模型的用户反馈机制发起攻击，直接向模型“注入”伪装的数据或信息，误导人工智能做出错误判断。“数据投毒”危害巨大。在自动驾驶领域，“数据投毒”可导致车辆违反交通规则甚至造成交通事故；在军事领域，通过信息伪装的方式可诱导自主性武器启动或攻击，从而带来毁灭性风险。</p>
+</div>
+<div class="section" id="id14">
+<h3>（3）模型窃取<a class="headerlink" href="#id14" title="Permalink to this headline">#</a></h3>
+<p>    向目标模型发送大量预测查询，使用接收到的响应来训练另一个功能相同或类似的模型，或采用逆向攻击技术，获取模型的参数及训练数据。</p>
+</div>
+<div class="section" id="id15">
+<h3>（4）数据泄露<a class="headerlink" href="#id15" title="Permalink to this headline">#</a></h3>
+<p>    数据采集与用户授权不一致，个人敏感信息采集合规问题，数据质量问题，用户选择退出权难以保障。人工智能应用可导致个人数据过度采集，加剧隐私泄露风险。随着各类智能设备（如智能手环、智能音箱）和智能系统（如生物特征识别系统、智能医疗系统）的应用普及，人工智能设备和系统对个人信息采集更加直接与全面。相较于互联网对用户上网习惯、消费记录等信息采集，人工智能应用可采集用户人脸、指纹、声纹、虹膜、心跳、基因等具有强个人属性的生物特征信息。这些信息具有唯一性和不变性，一旦被泄露或者滥用会对公民权益将造成严重影响。此外还有匿名化数据被重识别问题，数据标注安全隐患和合规问题，数据存储安全隐患，数据共享安全隐患，数据传输安全隐患等。</p>
+</div>
+<div class="section" id="id16">
+<h3>（5）对人工智能系统攻击<a class="headerlink" href="#id16" title="Permalink to this headline">#</a></h3>
+<p>    对机器学习系统的典型攻击是影响数据机密性及数据和计算完整性的攻击，还有其他攻击型形式导致拒绝服务信息泄露或无效计算。例如，在智能音箱系统的应用中，对于开放的物理端口或接口，攻击者可利用接口、存储芯片的不安全性，直接拆解音箱硬件芯片，在芯片中植入后门，用于监听获取智能音箱的控制权，篡改操作系统或窃取个人数据。对机器学习系统的典型攻击是影响数据机密性及数据和计算完整性的攻击，还有其他攻击型形式导致拒绝服务信息泄露或无效计算。例如，在智能音箱系统的应用中，对于开放的物理端口或接口，攻击者可利用接口、存储芯片的不安全性，直接拆解音箱硬件芯片，在芯片中植入后门，用于监听获取智能音箱的控制权，篡改操作系统或窃取个人数据。</p>
+</div>
+</div>
+<div class="section" id="id17">
+<h2>2.人工智能对人类安全的影响<a class="headerlink" href="#id17" title="Permalink to this headline">#</a></h2>
+<div class="section" id="id18">
+<h3>（1）国家安全风险<a class="headerlink" href="#id18" title="Permalink to this headline">#</a></h3>
+<p>    人工智能可用于构建新型军事打击力量，对国防安全造成威胁。如生产具有自动识别目标和精准打击能力的人工智能武器、通过生成对抗性网络来制造军事相关的伪装和诱饵、人工智能系统间通过电磁对抗和机器学习帮助改进无线电频谱分配等。利用人工智能对目标用户进行信息定制传播，可达到社会舆论动员目的。通过搜集用户行为数据，采用机器学习对用户进行政治倾向等画像分析，为不同倾向的用户推送其期望的内容。也可通过学习和模拟真实人的言论来影响人们对事物事情的判断，一旦被恶意利用，可能造成大范围内影响。人工智能在情报分析上的大量应用，增加了国家重要数据的泄露风险。人工智能技术在情报收集和分析方面有很多用途，情报工作者可以从监控社交媒体等渠道获取越来越多的数据，通过人工智能数据对海量数据进行挖掘分析，可以获得许多重要敏感数据。</p>
+</div>
+<div class="section" id="id19">
+<h3>（2）社会安全风险<a class="headerlink" href="#id19" title="Permalink to this headline">#</a></h3>
+<p>    “机器换人”对中低技术要求的劳动力就业造成影响，长远会加剧社会分化和不平等现象。工业机器人和各种智能技术的大规模使用，使从事劳动密集型、重复性、高度流程化的行业的工人面临失业威胁，尤其对于受教育程度较低的人群，人工智能的普及会让他们的竞争力大幅降低，“机器吃人”的悲剧将在各行各业上演，这样导致的直接结果是大量的劳动者会处于失业状态，当一个国家的失业人数过多，其社会稳定性就难以得到保障。对人工智能技术的依赖会对现有社会伦理造成冲击，影响现有人际关系甚至人类的交往方式。例如，智能伴侣机器人依托个人数据分析，能够更加了解个体心理，贴近用户需求，对人类极度体贴和恭顺，这可能降低人们在现实生活中的正常社交需求，同样会导致社会问题。</p>
+</div>
+<div class="section" id="id20">
+<h3>（3）人身安全风险<a class="headerlink" href="#id20" title="Permalink to this headline">#</a></h3>
+<p>    人工智能在攸关人身安全的应用领域，可能由于漏洞缺陷或恶意攻击等原因损害人身安全。例如，在家居、医疗、交通等攸关人身安全的领域，一旦这些智能产品（例如智能医疗设备和无人汽车等）遭受网络攻击或存在漏洞缺陷，可能危害人身安全。人工智能技术可能被用于开发武器，借助人脸识别、自动控制等技术开发的人工智能武器，如“杀人蜂”，可以实现全自动攻击目标。如果赋予人工智能武器自行选择并杀害人类的能力，将给我们的人身安全与自由构成极大威胁。</p>
+</div>
+</div>
+<div class="section" id="id21">
+<h2>3.人工智能安全因素<a class="headerlink" href="#id21" title="Permalink to this headline">#</a></h2>
+<p>    人工智能技术客观因素导致的安全问题和人为主观因素导致的安全问题是工智能安全问题两大的原因。技术原因产生的安全问题并非当下弱人工智能时代安全问题真正的痛点，因为当人工智能技术没有按照预期轨道和人们要求发展时，人类可以直接进行人为的干预和控制。目前暴露出来的人工智能安全问题，大部分还是由人为主观因素导致的，当人工智能技术被不法分子所利用，人工智能就可以替代、辅助不法分子实施不法行为，谋取暴利。</p>
+</div>
+<div class="section" id="id22">
+<h2>4.人工智能安全标准<a class="headerlink" href="#id22" title="Permalink to this headline">#</a></h2>
+<p>    人工智能安全标准化是人工智能产业发展的重要组成部分，在激发健康良性的人工智能应用，推动人工智能产业有序健康发展方面发挥着基础性规范性引领性作用。加强人工智能安全标准化工作，是保障人工智能安全的必经之路。新一代人工智能发展规划中明确提出了要加强人工智能标准框架体系研究，逐步建立并完善人工智能基础共性、互联互通、行业应用、网络安全、隐私保护等技术标准。<br />
+    人工智能安全标准，是与人工智能安全、伦理、隐私保护等相关的标准规范。从广义来说，人工智能安全标准涉及人工智能本身、平台、技术、产品和应用相关的安全标准。<br />
+    目前，全国信息安全标准化技术委员会（TC260）已在生物特征识别、汽车电子、智能制造等部分人工智能技术、产品或应用安全方面开展了一些标准化工作。在生物特征识别安全方面，TC260已发布GB/T 20979-2007《信息安全技术 虹膜识别系统技术要求》标准，正在研制《基于可信环境的生物特征识别身份鉴别协议》《指纹识别系统技术要求》《网络人脸识别认证系统安全技术要求》等标准；在自动驾驶安全方面，2017年TC260立项《信息安全技术汽车电子系统网络安全指南》标准项目，这是我国在汽车电子领域第一个网络安全国家标准；在智能制造安全方面，TC260正在研制《工业控制网络监测安全技术要求及测试评价方法》《工业控制网络安全隔离与信息交换系统安全技术要求》《工业控制系统产品信息安全通用评估准则》《工业控制系统风险评估实施指南》等工控安全标准。</p>
+<p><img alt="dis" src="../../_images/112.png" /></p>
+<p>##任务2  人工智能安全</p>
+</div>
+<div class="section" id="id23">
+<h2>素质素养养成<a class="headerlink" href="#id23" title="Permalink to this headline">#</a></h2>
+<p>    （1）通过了解人工智能系统面临攻击方式多样性的特点，引导学生“透过现象看本质”，掌握事物的本质和规律；<br />
+    （2）通过讨论人工智能“甲之砒霜乙之蜜糖”，引导学生多角度辨别事物的特性，提高辩证思维能力；<br />
+    （3）通过学习世界主要国家的人工智能安全标准和习近平总书记有关人工智能安全讲话材料，培养学生的法制意识和公民意识。</p>
+<p><img alt="dis" src="../../_images/alaq.png" /></p>
+<p>### 任务分组</p>
+<p><a class="reference external" href="https://docs.qq.com/doc/DTlZxZU16R0JWdWV5">学生任务分配表</a></p>
+<p>### 任务实施</p>
+<p>####<center>任务工作单1：人工智能威胁认知</center><br />
+组号:__________ 姓名：__________学号:__<strong><strong><strong><strong>检索号:</strong></strong></strong></strong><br />
+引导问题：<br />
+（1）人工智能安全的定义是什么？</p>
+<p>————————————————————————————————————————————</p>
+<p>（2）人工智能的威胁和安全问题有哪些？请列举代表性观点和典型案例。</p>
+<p>————————————————————————————————————————————</p>
+<p>（3）列举攻击人工智能系统的案例，图文并茂或者视频展示。</p>
+<p>————————————————————————————————————————————</p>
+<p>####<center>任务工作单2：人工智能安全认知</center>
+组号:__________ 姓名：__________学号:__<strong><strong><strong><strong>检索号:</strong></strong></strong></strong><br />
+引导问题：<br />
+（1）现代有关人工智能安全因素有哪些？</p>
+<p>————————————————————————————————————————————</p>
+<p>（2）请问人工智能安全标准有哪些？对应的标准文件是什么？</p>
+<p>————————————————————————————————————————————<br />
+（3）当今世界各国在维护人工智能安全方面做了哪些工作？</p>
+<p>————————————————————————————————————————————</p>
+<p>（4）人工智能安全问题产生的原因是什么？</p>
+<p>————————————————————————————————————————————</p>
+<p>####<center>任务工作单3：人工智能安全讨论</center>
+组号:__________ 姓名：__________学号:__<strong><strong><strong><strong>检索号:</strong></strong></strong></strong><br />
+引导问题：<br />
+（1）组长组织小组讨论人工智能安全问题产生的原因是什么？教师参与引导。</p>
+<p>————————————————————————————————————————————
+（2）小组讨论，面对人工智能的安全问题以及威胁，该如何做好防范措施。</p>
+<p>————————————————————————————————————————————</p>
+<p>####<center>任务工作单4：人工智能安全展示汇报</center>
+组号:__________ 姓名：__________学号:__<strong><strong><strong><strong>检索号:</strong></strong></strong></strong><br />
+引导问题：<br />
+  每小组推荐一位同学代表本组汇报人工智能安全存在的问题、产生的原因以及应对的措施。</p>
+<p>————————————————————————————————————————————</p>
+<p>####<center>任务工作单5：人工智能安全学习反思</center>
+组号:__________ 姓名：__________学号:__<strong><strong><strong><strong>检索号:</strong></strong></strong></strong><br />
+引导问题：<br />
+  自查、分析小组在探究人工智能安全问题的过程中存在的不足及改进方法，并填写下表。<br />
+<a class="reference external" href="https://docs.qq.com/doc/DTnBDWHh0TUlDRUFo">表</a></p>
+<p>####评价反馈
+  组号:__________ 姓名：__________学号:__<strong><strong><strong><strong>检索号:</strong></strong></strong></strong><br />
+<a class="reference external" href="https://docs.qq.com/doc/DTmNVdVFQWVhGQ1lJ">个人评价表单</a></p>
+<p>####<center>小组内互评表</center>
+  组号:__________ 姓名：__________学号:__<strong><strong><strong><strong>检索号:</strong></strong></strong></strong><br />
+<a class="reference external" href="https://docs.qq.com/doc/DTnVKcHdiUHphWk91">小组内互评表</a></p>
+<p>####<center>小组间互评表</center>
+  被评组号：<strong><strong><strong><strong><strong><strong><strong>检索号：</strong></strong></strong></strong></strong></strong></strong><br />
+<a class="reference external" href="https://docs.qq.com/doc/DTkp4SGtwSkNJeXVY">小组间互评表</a></p>
+<p>####<center>教师评价表</center>
+组号:__________ 姓名：__________学号:__<strong><strong><strong><strong>检索号:</strong></strong></strong></strong><br />
+<a class="reference external" href="https://docs.qq.com/doc/DTm9vYXV5aFlRTW1q">教师评价表</a></p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "cosoff/zsptAI",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./part3\xm1"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="xm.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">项目 3.1  AI发展中的问题认知</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="rw2.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">任务3.1.2 人工智能伦理探究</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">任务描述</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#center-center"><center> 人工智能安全探究任务书  </center></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">学习目标</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">     1.知识目标</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">    2.能力目标</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">  3.素质素养目标</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">任务分析</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">1.重点</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">2.难点</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">一、人工智能安全定义和隐患</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">1.人工智能系统的面临的新型威胁</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">（1）对抗样本攻击</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">（2）数据投毒</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">（3）模型窃取</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id15">（4）数据泄露</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id16">（5）对人工智能系统攻击</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id17">2.人工智能对人类安全的影响</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id18">（1）国家安全风险</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id19">（2）社会安全风险</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id20">（3）人身安全风险</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id21">3.人工智能安全因素</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id22">4.人工智能安全标准</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id23">素质素养养成</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By The Jupyter Book Community
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
