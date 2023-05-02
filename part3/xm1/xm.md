@@ -1,5 +1,4 @@
-![dis](../../images/threh/xm1/23.png)
-#模块三 AI安全法律伦理  
+![dis](../../images/threh/xm1/23.png) 
 
 ## 项目 3.1  AI发展中的问题认知
 
