@@ -68,6 +68,23 @@
 
  **步骤1**: 安装pyaudion、wave依赖库。我们采用pip install命令方式，参考如下：
 
+<!-- Configure and load Thebe !-->
+<script type="text/x-thebe-config">
+  {
+      requestKernel: true,
+      mountActivateWidget: true,
+      mountStatusWidget: true,
+      binderOptions: {
+      repo: "binder-examples/requirements",
+      },
+  }
+</script>
+
+<script src="https://unpkg.com/thebe@latest/lib/index.js"></script>
+
+<div class="thebe-activate"></div>
+<div class="thebe-status"></div>
+
 ```shell
 pip install PyAudio 
 pip install wave 
@@ -75,8 +92,7 @@ pip install wave
 
 **步骤2**: 新建一个Python文件，通过import pyaudio创建PyAudio对象，打开声卡，创建缓存空间，完整代码参考：
 
-
-```python
+<pre data-executable="true" data-language="python">
 import pyaudio
 import wave
 
@@ -91,12 +107,12 @@ stream = p.open(format = FORMAT,
                 rate = RATE,
                 input=True,
                 frames_per_buffer=CHUCK)  # 打开声卡
-```
+</pre>
+
 
 **步骤3**: 录音10秒，并且将音频数据存储到列表，完成代码参考:
 
-```python
-
+<pre data-executable="true" data-language="python">
 record_buf = []        #创建列表用来存储采样的音频数据
 print("*****开始录音：请在10s内输入语音***")
 for i in range(0,int(RATE/CHUNK*RECORD_SECONDS)):
@@ -104,27 +120,27 @@ for i in range(0,int(RATE/CHUNK*RECORD_SECONDS)):
     record_buf.addpen(data)   #将读取的音频数据追加到列表
 
 print('***录音结束***')
-```
+</pre>
 
 **步骤4**: 通过wave将音频数据写到wav文件中，参考代码：
 
-```python
+<pre data-executable="true" data-language="python">
 wf = wave.open('audio1.wav', 'wb')          # 一读写模式创建一个音频文件，名字为“audio1.wav"
 wf.setnchannels(CHANNELS)                   # 设置声道数为
 wf.setsampwidth(p.get_sample_size(FORMAT))  # 设置采样深度
 
 wf.writeframes(b"".join(record_buf))       wf.setframerate(RATE)                       # 设置采样率    # 将数据写入创建的音频文件
-
-```
+</pre>
 
 **步骤5** :录音结束后，停止并关闭声卡，参考代码所示。不管是从数据安全还是资源管理方面，这一步操作都是必须的。
 
-```python
+<pre data-executable="true" data-language="python">
 wf.close()              # 关闭文件
 stream.stop_stream()    # 停止声卡
 stream.close()          # 关闭声卡
 pa.terminate()          # 终止pyaudio
-```
+</pre>
+
 ![dis](../../images/second/xm1/rw11.png)
 ![dis](../../images/second/xm1/rw12.png)
 &nbsp;&nbsp;&nbsp;&nbsp;经过以上5个步骤，运行程序，当出现提示后开始录音，10秒后录音自动结束，程序文件所在目录下新增“audio1.wav”文件。播放audio1.wav，听听看是不是刚刚录制的声音吧。
