@@ -508,54 +508,66 @@ document.write(`
 <h3>四、语音数据采集实现<a class="headerlink" href="#id7" title="Permalink to this headline">#</a></h3>
 <p>在了解了语音数据的相关知识后，我们使用Python语音识别库中的pyaudio和即插即用的PC端麦克风来采集一段10秒的语音并以WAV格式保存到本地。</p>
 <p><strong>步骤1</strong>: 安装pyaudion、wave依赖库。我们采用pip install命令方式，参考如下：</p>
+<!-- Configure and load Thebe !-->
+<script type="text/x-thebe-config">
+  {
+      requestKernel: true,
+      mountActivateWidget: true,
+      mountStatusWidget: true,
+      binderOptions: {
+      repo: "binder-examples/requirements",
+      },
+  }
+</script>
+<script src="https://unpkg.com/thebe@latest/lib/index.js"></script>
+<div class="thebe-activate"></div>
+<div class="thebe-status"></div>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pip install PyAudio 
 pip install wave 
 </pre></div>
 </div>
 <p><strong>步骤2</strong>: 新建一个Python文件，通过import pyaudio创建PyAudio对象，打开声卡，创建缓存空间，完整代码参考：</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pyaudio</span>
-<span class="kn">import</span> <span class="nn">wave</span>
+<pre data-executable="true" data-language="python">
+import pyaudio
+import wave
 
-<span class="n">CHUCK</span> <span class="o">=</span> <span class="mi">256</span>                      <span class="c1">#设置底层缓存的块大小为256</span>
-<span class="n">FORMAT</span> <span class="o">=</span> <span class="n">pyaudio</span><span class="o">.</span><span class="n">paInt16</span>         <span class="c1">#设置采样深度为16位</span>
-<span class="n">CHANNELS</span> <span class="o">=</span> <span class="mi">2</span>                     <span class="c1">#设置声道数为2</span>
-<span class="n">RATE</span> <span class="o">=</span> <span class="mi">16000</span>                     <span class="c1">#设置采样率为16k</span>
-<span class="n">RECORD_SECONDS</span> <span class="o">=</span> <span class="mi">10</span>              <span class="c1">#设置 录音时长为10s</span>
-<span class="n">p</span> <span class="o">=</span> <span class="n">pyaudio</span><span class="o">.</span><span class="n">PyAudio</span><span class="p">()</span>           <span class="c1">#实例化一个PyAudio对象</span>
-<span class="n">stream</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="nb">format</span> <span class="o">=</span> <span class="n">FORMAT</span><span class="p">,</span>     
-                <span class="n">channels</span> <span class="o">=</span> <span class="n">CHANNELS</span><span class="p">,</span>
-                <span class="n">rate</span> <span class="o">=</span> <span class="n">RATE</span><span class="p">,</span>
-                <span class="nb">input</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-                <span class="n">frames_per_buffer</span><span class="o">=</span><span class="n">CHUCK</span><span class="p">)</span>  <span class="c1"># 打开声卡</span>
-</pre></div>
-</div>
+CHUCK = 256                      #设置底层缓存的块大小为256
+FORMAT = pyaudio.paInt16         #设置采样深度为16位
+CHANNELS = 2                     #设置声道数为2
+RATE = 16000                     #设置采样率为16k
+RECORD_SECONDS = 10              #设置 录音时长为10s
+p = pyaudio.PyAudio()           #实例化一个PyAudio对象
+stream = p.open(format = FORMAT,     
+                channels = CHANNELS,
+                rate = RATE,
+                input=True,
+                frames_per_buffer=CHUCK)  # 打开声卡
+</pre>
 <p><strong>步骤3</strong>: 录音10秒，并且将音频数据存储到列表，完成代码参考:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
-<span class="n">record_buf</span> <span class="o">=</span> <span class="p">[]</span>        <span class="c1">#创建列表用来存储采样的音频数据</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;*****开始录音：请在10s内输入语音***&quot;</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="nb">int</span><span class="p">(</span><span class="n">RATE</span><span class="o">/</span><span class="n">CHUNK</span><span class="o">*</span><span class="n">RECORD_SECONDS</span><span class="p">)):</span>
-    <span class="n">data</span> <span class="o">=</span> <span class="n">stream</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">CHUNK</span><span class="p">)</span> <span class="c1">#读取声卡缓冲区的音频数据</span>
-    <span class="n">record_buf</span><span class="o">.</span><span class="n">addpen</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>   <span class="c1">#将读取的音频数据追加到列表</span>
+<pre data-executable="true" data-language="python">
+record_buf = []        #创建列表用来存储采样的音频数据
+print("*****开始录音：请在10s内输入语音***")
+for i in range(0,int(RATE/CHUNK*RECORD_SECONDS)):
+    data = stream.read(CHUNK) #读取声卡缓冲区的音频数据
+    record_buf.addpen(data)   #将读取的音频数据追加到列表
 
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;***录音结束***&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
+print('***录音结束***')
+</pre>
 <p><strong>步骤4</strong>: 通过wave将音频数据写到wav文件中，参考代码：</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">wf</span> <span class="o">=</span> <span class="n">wave</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s1">&#39;audio1.wav&#39;</span><span class="p">,</span> <span class="s1">&#39;wb&#39;</span><span class="p">)</span>          <span class="c1"># 一读写模式创建一个音频文件，名字为“audio1.wav&quot;</span>
-<span class="n">wf</span><span class="o">.</span><span class="n">setnchannels</span><span class="p">(</span><span class="n">CHANNELS</span><span class="p">)</span>                   <span class="c1"># 设置声道数为</span>
-<span class="n">wf</span><span class="o">.</span><span class="n">setsampwidth</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">get_sample_size</span><span class="p">(</span><span class="n">FORMAT</span><span class="p">))</span>  <span class="c1"># 设置采样深度</span>
+<pre data-executable="true" data-language="python">
+wf = wave.open('audio1.wav', 'wb')          # 一读写模式创建一个音频文件，名字为“audio1.wav"
+wf.setnchannels(CHANNELS)                   # 设置声道数为
+wf.setsampwidth(p.get_sample_size(FORMAT))  # 设置采样深度
 
-<span class="n">wf</span><span class="o">.</span><span class="n">writeframes</span><span class="p">(</span><span class="sa">b</span><span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">record_buf</span><span class="p">))</span>       <span class="n">wf</span><span class="o">.</span><span class="n">setframerate</span><span class="p">(</span><span class="n">RATE</span><span class="p">)</span>                       <span class="c1"># 设置采样率    # 将数据写入创建的音频文件</span>
-
-</pre></div>
-</div>
+wf.writeframes(b"".join(record_buf))       wf.setframerate(RATE)                       # 设置采样率    # 将数据写入创建的音频文件
+</pre>
 <p><strong>步骤5</strong> :录音结束后，停止并关闭声卡，参考代码所示。不管是从数据安全还是资源管理方面，这一步操作都是必须的。</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">wf</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>              <span class="c1"># 关闭文件</span>
-<span class="n">stream</span><span class="o">.</span><span class="n">stop_stream</span><span class="p">()</span>    <span class="c1"># 停止声卡</span>
-<span class="n">stream</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>          <span class="c1"># 关闭声卡</span>
-<span class="n">pa</span><span class="o">.</span><span class="n">terminate</span><span class="p">()</span>          <span class="c1"># 终止pyaudio</span>
-</pre></div>
-</div>
+<pre data-executable="true" data-language="python">
+wf.close()              # 关闭文件
+stream.stop_stream()    # 停止声卡
+stream.close()          # 关闭声卡
+pa.terminate()          # 终止pyaudio
+</pre>
 <p><img alt="dis" src="../../_images/rw11.png" />
 <img alt="dis" src="../../_images/rw12.png" />
     经过以上5个步骤，运行程序，当出现提示后开始录音，10秒后录音自动结束，程序文件所在目录下新增“audio1.wav”文件。播放audio1.wav，听听看是不是刚刚录制的声音吧。</p>
