@@ -1,0 +1,832 @@
+
+
+<!DOCTYPE html>
+
+
+<html >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<<<<<<< Updated upstream
+    <title>任务2.1.3 语音合成-语音助手 &#8212; 人工智能技术应用基础</title>
+=======
+    <title>任务2.1.3 语音合成-语音助手 &#8212; My sample book</title>
+>>>>>>> Stashed changes
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'part2/xm1/rw3';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="任务2.1.4 聊天机器人" href="rw4.html" />
+    <link rel="prev" title="任务2.1.2 语音转文字" href="rw2.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="None"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../../intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+<<<<<<< Updated upstream
+                    目录
+=======
+                    Welcome to your Jupyter Book
+>>>>>>> Stashed changes
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">模块一 人工智能知识认知</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../part1/xm1/xm.html">项目1.1 人工智能寻古探今</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../part1/xm1/rw1.html">任务1.1.1 人工智能知识认知</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../part1/xm1/rw2.html">任务1.1.2 人工智能技术发展历程探究</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../part1/xm1/rw3.html">任务1.1.3 探究新职业-人工智能训练师</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../part1/xm2/xm.html">项目1.2 人工智能技术应用探究</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../part1/xm2/rw1.html">任务1.2.1人工智能应用支撑认知</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../part1/xm2/rw2.html">任务1.2.2人工智能应用行业探究</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">模块二 人工智能技术应用</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="xm.html">项目2.1 语音识别技术应用-开发校园智能客服机器人</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="rw1.html">任务2.1.1 语音数据采集</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rw2.html">任务2.1.2 语音转文字</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">任务2.1.3 语音合成-语音助手</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="rw4.html">任务2.1.4 聊天机器人</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rw5.html">任务2.1.5 校园智能客服</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../xm2/xm.html">项目2.2 图像识别技术应用—植物检测</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../xm2/rw1.html">任务2.2.1 植物图像资源采集</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../xm2/rw2.html">任务2.2.2 图像数据标注</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../xm2/rw3.html">任务2.2.3 搭建YOLO3环境</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../xm2/rw4.html">任务2.2.4 测试keras-yolov3实例</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../xm2/rw5.html">任务2.2.5 训练植物数据集</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../xm3/xm.html">项目2.3 人脸识别技术应用-开发人脸识别考勤系统</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../xm3/rw1.html">任务2.3.1 人脸检测</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../xm3/rw2.html">任务二 人脸矫正</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../xm3/rw3.html">任务2.3.3 人脸特征提取</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../xm3/rw4.html">任务四 人脸识别</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../xm3/rw5.html">任务2.3.5 简易人脸识别考勤系统</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">模块三 AI安全法律伦理</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../part3/xm1/xm.html">项目 3.1  AI发展中的问题认知</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../part3/xm1/rw1.html">任务3.1.1 人工智能安全威胁</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../part3/xm1/rw2.html">任务3.1.2 人工智能伦理探究</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../part3/xm1/rw3.html">任务3.1.3 人工智能法律探究</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/cosoff/zsptAI" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/cosoff/zsptAI/issues/new?title=Issue%20on%20page%20%2Fpart2/xm1/rw3.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/part2/xm1/rw3.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>任务2.1.3 语音合成-语音助手</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">任务2.1.3 语音合成-语音助手</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">任务描述</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">学习目标</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">任务分析</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">知识链接</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">四、语音合成实现</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">素质素养养成</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">任务分组</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">任务实施</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">任务工作单1：语音合成工作准备</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">引导问题：</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">任务工作单2：认识百度语音合成方法</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">引导问题：</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#word">任务工作单3：朗读Word文档</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">引导问题：</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id15">任务工作单4：语音合成操作过程优化（讨论）</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id16">引导问题：</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id17">任务工作单5：语音合成技术应用优化（展示）</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id18">引导问题：</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id19">任务工作单6：语音合成应用实施</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id20">引导问题：</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id21">个人评价表</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id22">小组内互评表</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id23">小组间互评表</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id24">教师评价表-任务工作单4</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <div class="tex2jax_ignore mathjax_ignore section" id="id1">
+<h1>任务2.1.3 语音合成-语音助手<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h1>
+<div class="section" id="id2">
+<h2>任务描述<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h2>
+<p>    “把文字转换成声音，让你的应用开口说话”就是利用语音合成技术将文本转换成音频。请你从键盘输入图2.1.3.1中的文字，调用百度API将输入的中文转换成mp3音频文件同时播报这段音频。</p>
+<p><img alt="dis" src="../../_images/a110.png" /></p>
+</div>
+<div class="section" id="id3">
+<h2>学习目标<a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h2>
+<p><strong>1.知识目标</strong></p>
+<p>    （1）掌握语音合成技术的原理；</p>
+<p>    （2）熟悉我国语音合成技术API服务的企业；</p>
+<p>    （3）理解语音合方法中的参数的含义；</p>
+<p>    （4）了解语音合成技术的应用场景。</p>
+<p><strong>2.能力目标</strong></p>
+<p>    （1）能将文字转换成语音文件并存储；</p>
+<p>    （2）能正确播放语音文件。</p>
+<p><strong>3.素质素养目标</strong></p>
+<p>    （1）培养学生技术服务人类的意识；</p>
+<p>    （2）培养学生职业认同感；</p>
+<p>    （3）培养遵守规范的意识；</p>
+<p>    （4）培养学生政治认同意识。</p>
+</div>
+<div class="section" id="id4">
+<h2>任务分析<a class="headerlink" href="#id4" title="Permalink to this headline">#</a></h2>
+<p><strong>1.重点</strong></p>
+<p>    调用百度语音应用中的synthesis方法将文本转换成音频</p>
+<p><strong>2.难点</strong></p>
+<p>    朗读Word文档中的文字。</p>
+</div>
+<div class="section" id="id5">
+<h2>知识链接<a class="headerlink" href="#id5" title="Permalink to this headline">#</a></h2>
+<p>    文字与音频的互相转换是自然语言处理中很关键的技术点。语音就是人说的话，它的记录形式是一段一段的波形，是最自然便捷的沟通方式，在信息播报、人机交互上有着大量刚性需求。</p>
+<p><strong>1.语音</strong></p>
+<p>语音包括三大关键部分—语音信息、语音音色和语音韵律。语音信息是指说话的内容，是进行语音合成的文本信息的内容。语音音色是指说话者，俗话说的“未见其人先闻其声”说明音色的重要性，对于语音合成音色的选择与内容要匹配，比如播报新闻联播的声音用动漫里面的“娃娃音”就不合适。韵律就是说话的方式，即说话时声音的高低、快慢等，为什么说赵宗祥老师的《动物世界》解说无人超越，声音比赵老师好的人比比皆是，但是没人比他‘说的好’，就是因为他的音律控制的好。声音的惯性和魅力是无穷的，未来优质的声音IP将会作为重要的内容生产能力，受到重视和追捧，将语音从信息获取升级为艺术享受。</p>
+<p><strong>2.语音合成技术原理</strong></p>
+<p>语音合成又称文语转换(Text To Speech, TTS)，是一种通过电子方法产生人造语音的技术，将给定文字转换成对应的人类语言声音。语音合成过程是是通过计算机的数字信号去模拟生成一个连续的语音波形信号，类似于人说话，将想要表达的内容用对应的音色、韵律进行发声。
+语音合成技术按照工作过程主要分为语言分析部分和声学系统部分，也称为前端部分和后端部分。前端部分通过对输入的文字信息进行分析生成对应的语言学规格书，策划好怎么读；后端部分通过语音分析部分生成语音学规格书，完成对应的音频，实现发声的功能。</p>
+<p><strong>1）语言分析部分</strong></p>
+<p>语言分析部分包括文本结构与语种判断、文本标准化、文本转音素、句读韵律预测四个部分。</p>
+<p>**文本结构与语种判断：**当需要合成的文本输入后，先要判断是什么语种，例如中文，英文，藏语，维语等，再根据对应语种的语法规则，把整段文字切分为单个的句子，并将切分好的句子传到后面的处理模块。</p>
+<p>**文本标准化：**在输入需要合成的文本中，有阿拉伯数字或字母，需要转化为文字。根据设置好的规则，使合成文本标准化。例如， “请问您是尾号为8967的机主吗？” “8967”为阿拉伯数字，需要转化为汉字“八九六七”，这样便于进行文字标音等后续的工作；再如，对于数字的读法，刚才的“8967“为什么没有转化为”八千九百六十七“呢？因为在文本标准化的规则中，设定了”尾号为+数字“的格式规则，这种情况下数字按照这种方式播报。这就是文本标准化中设置的规则。</p>
+<p>**文本转音素：**在汉语的语音合成中，基本上是以拼音对文字标注的，所以我们需要把文字转化为相对应的拼音，但是有些字是多音字，怎么区分当前是哪个读音，就需要通过分词，词性句法分析，判断当前是哪个读音，并且是几声的音调。例如，“南京市长 江大桥”为“nan2jing1shi4zhang3jiang1da4qiao2”或者“南京市 长江大桥”“nan2jing1shi4chang2jiang1da4qiao3”。</p>
+<p>**句读韵律预测：**人类在语言表达的时候总是附带着语气与感情，TTS合成的音频是为了模仿真实的人声，所以需要对文本进行韵律预测，什么地方需要停顿，停顿多久，哪个字或者词语需要重读，哪个词需要轻读等，实现声音的高低曲折，抑扬顿挫。</p>
+<p><strong>2）声学系统部分</strong></p>
+<p>语音合成技术中的声学系统合成从最初只能合成元音和单音到现在已经与真人发声无异的效果，科学家们经过了长期的努力，根据其技术实现方式大致可以分为以下六类。</p>
+<p>（1）机械模拟阶段：18到19世纪，科学家们通过制作精巧的气囊和风箱等机械装置来模拟人的发声，这种发声系统只能合成一些元音和单音。</p>
+<p>（2）电子合成器阶段：20世纪初，科学家们利用电子合成器来模拟人的发声。最具代表性的就是贝尔实验室推出的名为“VODER”电子发声器，通过电子器件来模拟声音的谐振从而实现模拟人的声音。</p>
+<p>（3）共振峰合成器阶段：20世纪80年代，随着集成电路技术的发展，出现了比较复杂的组合型的电子发生器，科学家们利用组合型的电子发生器来合成人的声音。比较代表性的KLATT在1980年发布的串/并联混合共振峰合成器。</p>
+<p>（4）单元挑选拼接合成阶段：20世纪80、90年代，随着基音同步叠加（PSOLA）算法的提出和计算机能力的发展，单元挑选和波形拼接技术逐渐走向成熟，图2就是一个典型拼接方法语音合成过程。90年代末刘庆峰博士提出听感量化思想，首次将中文语音合成技术做到了实用化地步。单元挑选和波形拼接的关键技术是语料库设计及标注、目标代价计算和连接代价计算。</p>
+<p><img alt="dis" src="../../_images/a210.png" /></p>
+<p>（5）基于HMM参数合成阶段：20世纪末期，基于HMM的参数合成技术开始应用于语音合成领域，通过数学方法对已有录音进行频谱特性参数建模，构建文本序列映射到语音特征的映射关系，生成参数合成器。输入文本后，先要将文本序列映射出对应的音频特征，再通过声学模型（声码器）将音频特征转化为人类的声音。整个工作流程包括训练流程和合成流程两个部分，关键技术有高质量语音声码器，以及基于上下文的决策树模型。</p>
+<p>·训练流程：将录制好的音库，提取出相应的语音参数，然后将标注数据和声学提取数据一同构建HMM的训练模型，通过上下文属性和问题集的决策树模型，构建训练后的HMM模型。</p>
+<p>·合成流程：输入文本的分析，来进行上下文相关HMM训练的序列决策，再将生成后的语音送入参数合成器中，最后输出合成之后的语音。</p>
+<p><img alt="dis" src="../../_images/a310.png" /></p>
+<p><strong>⑥基于深度学习的语音合成</strong></p>
+<p>随着AI技术不断发展，DNN/CNN/RNN等各种神经网络模型开始用来做语音合成系统的训练，也是当前主流的语音合成技术。深度学习算法可以更好地模拟人声变化规律，实现直接输入文本或者注音字符 ，中间为黑盒部分，然后输出合成音频，对复杂的语言分析部分得到了极大的简化。基于深度学习的语音合成技术大大降低了对语言学知识的要求，且可以实现多种语言的语音合成，不再受语言学知识的限制。Deepmind提出的波形点建模方法，在整个语音合成技术发展史上都是具有里程碑意义的。</p>
+<p><strong>3.语音合成技术API服务</strong></p>
+<p>现在我国各大AI企业都有对应的免费开放API为开发者提供应用服务。例如，百度2108年6月份就发布了百度语音识别无限量使用，下表2.1.3.1列举了部分我国提供语音合成技术API的企业和语音合成技术优势。</p>
+<p><img alt="dis" src="../../_images/a45.png" /></p>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="id6">
+<h1>四、语音合成实现<a class="headerlink" href="#id6" title="Permalink to this headline">#</a></h1>
+<p>    下面我们使用任务2.1.2中已经申请的百度账号调用百度api实现语音合成功能，在进行以下操作之前请先领取语音合成的免费资源额度。</p>
+<p>**步骤1：**与任务2.1.2中一样，导入AipSpeech，再利用百度应用账号创建一个client对象。代码参考图2.1.3.34,其中APP_ID、API_KEY 和SECRET_KEY的值为任务2创建的应用中的信息。</p>
+<p><img alt="dis" src="../../_images/a51.png" /></p>
+<p>**步骤2:**定义变量text，用来存储从键盘输入的文本内容，也就是我们需要转换为语音的文本内容。代码如图2.1.3.5。</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">text</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">&#39;请输入：&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>步骤3:</strong> 参考官网技术文档中“接口说明”，调用synthesis方法将text转换成音频并以mp3文件保存到本地，代码编写可参考图2.1.3.6，将图中的‘你好百度’修改为text即可。Sysntheis()函数中的参数详见图2.1.3.7，“per”参数可以用来设置合成语音的不同声音模式，“spd”用来设置语速，“vol”用来设置语调，这些参数虽然是可选设置，但是可以根据不同内容设置多样化的语音表达，赶紧试试吧。</p>
+<p><img alt="dis" src="../../_images/a61.png" /></p>
+<p><strong>步骤4</strong> 利用playsound播报MP3音频文件。</p>
+<p>4-1：使用pip install命令安装playsound</p>
+<ul class="simple">
+<li><p>安装playsound</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">playsound</span>
+</pre></div>
+</div>
+<p>4-2： 导入playsound并调用playsound播放mp3声音文件，参考代码如下。这里的audio.mp3就是文本进行语音合成后的语音文件。</p>
+<ul class="simple">
+<li><p>使用playsound播放mp3的方法</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span>  <span class="nn">playsound</span> <span class="kn">import</span> <span class="n">playsound</span>
+<span class="n">playsound</span><span class="p">(</span><span class="s1">&#39;audio.mp3&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>    本任务中result存储的是文字合成语音的二进制代码，可以用在result  = client.synthesis（）之后增加一句print(result)语句，运行出现类似图2.1.3.10中的二进制码则表明文本合成语音成功了。</p>
+<p>调用百度api实现语音合成功能完整参考代码如图2.1.3.11：</p>
+<p><img alt="dis" src="../../_images/a71.png" /></p>
+<p><img alt="dis" src="../../_images/a81.png" /></p>
+<p><img alt="dis" src="../../_images/a91.png" /></p>
+<div class="section" id="id7">
+<h2>素质素养养成<a class="headerlink" href="#id7" title="Permalink to this headline">#</a></h2>
+<p>    （1）在完成朗读Word文档中了解服务三农的“有声书屋”的应用，培养学生技术服务人类的意识；</p>
+<p>    （2）在了解和总结语音合成技术应用场景中培养学生职业认同感；</p>
+<p>    （3）在调用百度api要设置合适的参数才能出现满意的语音合成效果中培养遵守规范的意识；</p>
+<p>    （4）通过将党史等内容融入学生实践项目中培养学生政治认同意识。</p>
+</div>
+<div class="section" id="id8">
+<h2>任务分组<a class="headerlink" href="#id8" title="Permalink to this headline">#</a></h2>
+<p>    <a class="reference external" href="https://docs.qq.com/sheet/DTU1DY0RlYUt3bWhx">学生任务分配表</a></p>
+</div>
+<div class="section" id="id9">
+<h2>任务实施<a class="headerlink" href="#id9" title="Permalink to this headline">#</a></h2>
+<div class="section" id="id10">
+<h3>任务工作单1：语音合成工作准备<a class="headerlink" href="#id10" title="Permalink to this headline">#</a></h3>
+<p>组号：__________           姓名：__________            学号：__________             检索号：__________</p>
+</div>
+<div class="section" id="id11">
+<h3>引导问题：<a class="headerlink" href="#id11" title="Permalink to this headline">#</a></h3>
+<p>（1）语音合成技术按照工作过程主要分为________和________两个部分。</p>
+<p>（2）百度语音合成技术用的什么技术？</p>
+<p>—————————————————————————————————————————————————————————</p>
+<p>（3）除了百度，你还知道哪些提供语音合成技术api服务的企业及其优势吗？</p>
+<p>—————————————————————————————————————————————————————————</p>
+<p>（4）请登录百度开发者账号，领取语音合成资源。</p>
+<p>—————————————————————————————————————————————————————————</p>
+</div>
+<div class="section" id="id12">
+<h3>任务工作单2：认识百度语音合成方法<a class="headerlink" href="#id12" title="Permalink to this headline">#</a></h3>
+<p>（1）组号：__________           姓名：__________            学号：__________             检索号：__________</p>
+</div>
+<div class="section" id="id13">
+<h3>引导问题：<a class="headerlink" href="#id13" title="Permalink to this headline">#</a></h3>
+<p>（2）创建一个你自己的百度语音应用AipSpeech对象，保存为client。</p>
+<p>—————————————————————————————————————————————————————————</p>
+<p>（3）认识百度语音合成方法是什么？</p>
+<p>—————————————————————————————————————————————————————————</p>
+<p>（4）百度语音合成方法中“per”、“spd”、“vol”分别具有什么功能？</p>
+<p>—————————————————————————————————————————————————————————</p>
+<p>（5）调用百度语音合成方法，试试将“强国有我，请党放心”这段文字进行语音合成并将返回的结果保存到result，输出result。将代码和运行结果截图。</p>
+<p>—————————————————————————————————————————————————————————
+####任务工作单3：语音合成结果保存和播放
+（1）组号：__________           姓名：__________            学号：__________             检索号：__________</p>
+<p>（1）将任务工作单2中的result保存为mp3。</p>
+<p>—————————————————————————————————————————————————————————<br />
+（2）播放你保存的mp3。</p>
+<p>—————————————————————————————————————————————————————————</p>
+<p>（3）请修改参数，试试将输入的文字合成一段方言语音并播放。
+—————————————————————————————————————————————————————————</p>
+</div>
+<div class="section" id="word">
+<h3>任务工作单3：朗读Word文档<a class="headerlink" href="#word" title="Permalink to this headline">#</a></h3>
+<p>组号：__________           姓名：__________            学号：__________             检索号：__________</p>
+</div>
+<div class="section" id="id14">
+<h3>引导问题：<a class="headerlink" href="#id14" title="Permalink to this headline">#</a></h3>
+<p>（1）python-docx库有什么功能？</p>
+<p>—————————————————————————————————————————————————————————</p>
+<p>（2）安装Python-docx，填写你安装的版本信息。</p>
+<p>—————————————————————————————————————————————————————————</p>
+<p>（3）下载“伟人故里中山.docx”文件保存到本地，编写python代码读取文档段落并保存到text。</p>
+<p>—————————————————————————————————————————————————————————
+（4）调用百度语音合成方法，设置参数，完成Word文档的朗读。将运行过程和效果录制
+视频。</p>
+<p>—————————————————————————————————————————————————————————</p>
+</div>
+<div class="section" id="id15">
+<h3>任务工作单4：语音合成操作过程优化（讨论）<a class="headerlink" href="#id15" title="Permalink to this headline">#</a></h3>
+<p>组号：__________           姓名：__________            学号：__________             检索号：__________</p>
+</div>
+<div class="section" id="id16">
+<h3>引导问题：<a class="headerlink" href="#id16" title="Permalink to this headline">#</a></h3>
+<p>（1）小组交流讨论，确定调用百度api进行语音合成的实现方法，合理设置参数的值。</p>
+<p>—————————————————————————————————————————————————————————</p>
+<p>（2）小组交流讨论，利用python打开和读取本地文档的操作流程和方法。</p>
+<p>—————————————————————————————————————————————————————————</p>
+<p>（4）请记录自己在进行语音合成实践过程的问题。</p>
+<p>—————————————————————————————————————————————————————————
+（5）请列举语音合成技术应用场景，最好将图文、视频等素材整理成PPT。你们小组有计划将语音合成技术应用到哪里？</p>
+<p>—————————————————————————————————————————————————————————</p>
+</div>
+<div class="section" id="id17">
+<h3>任务工作单5：语音合成技术应用优化（展示）<a class="headerlink" href="#id17" title="Permalink to this headline">#</a></h3>
+<p>组号：__________           姓名：__________            学号：__________             检索号：__________</p>
+</div>
+<div class="section" id="id18">
+<h3>引导问题：<a class="headerlink" href="#id18" title="Permalink to this headline">#</a></h3>
+<p>（1）每小组推荐一位小组长，汇报从键盘输入和文档获取文本进行语音合成并播报的实现过程，展示语音合成技术应用场景和本小组的规划。互相借鉴经验优化自己的实现步骤，激发语音合计技术应用创新思维。</p>
+<p>—————————————————————————————————————————————————————————</p>
+<p>（2）检查自己不足的地方。</p>
+<p>—————————————————————————————————————————————————————————</p>
+</div>
+<div class="section" id="id19">
+<h3>任务工作单6：语音合成应用实施<a class="headerlink" href="#id19" title="Permalink to this headline">#</a></h3>
+<p>组号：__________           姓名：__________            学号：__________             检索号：__________</p>
+</div>
+<div class="section" id="id20">
+<h3>引导问题：<a class="headerlink" href="#id20" title="Permalink to this headline">#</a></h3>
+<p>（1）根据优化后的步骤和方法，完成从键盘输入和文档获取文本进行语音合成并播报。</p>
+<p>—————————————————————————————————————————————————————————</p>
+<p>（2）自查语音合成技术应用过程中出错的原因。</p>
+<p>—————————————————————————————————————————————————————————</p>
+</div>
+</div>
+<div class="section" id="id21">
+<h2>个人评价表<a class="headerlink" href="#id21" title="Permalink to this headline">#</a></h2>
+<p>组号：__________           姓名：__________           学号：__________            检索号：__________</p>
+<p><a class="reference external" href="https://docs.qq.com/sheet/DTUthVHZPcnBmZmFD">个人评价表</a></p>
+<div class="section" id="id22">
+<h3>小组内互评表<a class="headerlink" href="#id22" title="Permalink to this headline">#</a></h3>
+<p>组号：__________           姓名：__________           学号：__________            检索号：__________</p>
+<p><a class="reference external" href="https://docs.qq.com/sheet/DTVVGaGhuT2lsZnJa">小组内互评表</a></p>
+</div>
+<div class="section" id="id23">
+<h3>小组间互评表<a class="headerlink" href="#id23" title="Permalink to this headline">#</a></h3>
+<p>组号：__________           姓名：__________           学号：__________            检索号：__________</p>
+<p><a class="reference external" href="https://docs.qq.com/sheet/DTVdwQWF4c1NXU2p2">小组间互评表</a></p>
+</div>
+<div class="section" id="id24">
+<h3>教师评价表-任务工作单4<a class="headerlink" href="#id24" title="Permalink to this headline">#</a></h3>
+<p>组号：__________           姓名：__________           学号：__________            检索号：__________</p>
+<p><a class="reference external" href="https://docs.qq.com/sheet/DTVNEYUREUnZjUURG">教师评价表</a></p>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "cosoff/zsptAI",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./part2\xm1"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="rw2.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">任务2.1.2 语音转文字</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="rw4.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">任务2.1.4 聊天机器人</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">任务2.1.3 语音合成-语音助手</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">任务描述</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">学习目标</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">任务分析</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">知识链接</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">四、语音合成实现</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">素质素养养成</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">任务分组</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">任务实施</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">任务工作单1：语音合成工作准备</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">引导问题：</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">任务工作单2：认识百度语音合成方法</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">引导问题：</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#word">任务工作单3：朗读Word文档</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">引导问题：</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id15">任务工作单4：语音合成操作过程优化（讨论）</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id16">引导问题：</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id17">任务工作单5：语音合成技术应用优化（展示）</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id18">引导问题：</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id19">任务工作单6：语音合成应用实施</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id20">引导问题：</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id21">个人评价表</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id22">小组内互评表</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id23">小组间互评表</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id24">教师评价表-任务工作单4</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+<<<<<<< Updated upstream
+By 中山职业技术学院人工智能技术应用
+=======
+By The Jupyter Book Community
+>>>>>>> Stashed changes
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
