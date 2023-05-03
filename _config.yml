@@ -1,8 +1,8 @@
 # Book settings
 # Learn more at https://jupyterbook.org/customize/config.html
 
-title: My sample book
-author: The Jupyter Book Community
+title: 人工智能技术应用基础
+author: 中山职业技术学院人工智能技术应用
 logo: logo.png
 
 # Force re-execution of notebooks on each build.
