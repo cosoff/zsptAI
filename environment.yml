@@ -1,6 +1,0 @@
-name: my-environment
-channels:
-  - conda-forge
-dependencies:
-  - portaudio
-  - PyAudio
