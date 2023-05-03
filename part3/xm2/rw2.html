@@ -1,0 +1,575 @@
+
+
+<!DOCTYPE html>
+
+
+<html >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<<<<<<< Updated upstream
+    <title>任务二 探究人工智能的伦理道德设计 &#8212; 人工智能技术应用基础</title>
+=======
+    <title>任务二 探究人工智能的伦理道德设计 &#8212; My sample book</title>
+>>>>>>> Stashed changes
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'part3/xm2/rw2';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="None"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../../intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+<<<<<<< Updated upstream
+                    目录
+=======
+                    Welcome to your Jupyter Book
+>>>>>>> Stashed changes
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">模块一 人工智能知识认知</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../part1/xm1/xm.html">项目1.1 人工智能寻古探今</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../part1/xm1/rw1.html">任务1.1.1 人工智能知识认知</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../part1/xm1/rw2.html">任务1.1.2 人工智能技术发展历程探究</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../part1/xm1/rw3.html">任务1.1.3 探究新职业-人工智能训练师</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../part1/xm2/xm.html">项目1.2 人工智能技术应用探究</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../part1/xm2/rw1.html">任务1.2.1人工智能应用支撑认知</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../part1/xm2/rw2.html">任务1.2.2人工智能应用行业探究</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">模块二 人工智能技术应用</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../part2/xm1/xm.html">项目2.1 语音识别技术应用-开发校园智能客服机器人</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../part2/xm1/rw1.html">任务2.1.1 语音数据采集</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../part2/xm1/rw2.html">任务2.1.2 语音转文字</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../part2/xm1/rw3.html">任务2.1.3 语音合成-语音助手</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../../part2/xm1/rw4.html">任务2.1.4 聊天机器人</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../part2/xm1/rw5.html">任务2.1.5 校园智能客服</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../part2/xm2/xm.html">项目2.2 图像识别技术应用—植物检测</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../part2/xm2/rw1.html">任务2.2.1 植物图像资源采集</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../part2/xm2/rw2.html">任务2.2.2 图像数据标注</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../../part2/xm2/rw3.html">任务2.2.3 搭建YOLO3环境</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../part2/xm2/rw4.html">任务2.2.4 测试keras-yolov3实例</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../part2/xm2/rw5.html">任务2.2.5 训练植物数据集</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../part2/xm3/xm.html">项目2.3 人脸识别技术应用-开发人脸识别考勤系统</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../part2/xm3/rw1.html">任务2.3.1 人脸检测</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../part2/xm3/rw2.html">任务二 人脸矫正</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../part2/xm3/rw3.html">任务2.3.3 人脸特征提取</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../part2/xm3/rw4.html">任务四 人脸识别</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../part2/xm3/rw5.html">任务2.3.5 简易人脸识别考勤系统</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">模块三 AI安全法律伦理</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../xm1/xm.html">项目 3.1  AI发展中的问题认知</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../xm1/rw1.html">任务3.1.1 人工智能安全威胁</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../xm1/rw2.html">任务3.1.2 人工智能伦理探究</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../xm1/rw3.html">任务3.1.3 人工智能法律探究</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/cosoff/zsptAI" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/cosoff/zsptAI/issues/new?title=Issue%20on%20page%20%2Fpart3/xm2/rw2.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/part3/xm2/rw2.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>任务二 探究人工智能的伦理道德设计</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">【任务描述】</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">【任务实施】</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">2.1 人工智能伦理道德设计</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">2.2 建构友好人工智能</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">【任务拓展】</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <div class="section" id="id1">
+<h1>任务二 探究人工智能的伦理道德设计<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h1>
+<div class="section" id="id2">
+<h2>【任务描述】<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h2>
+<p>    人工智能伦理从幕后走到前台，成为纠偏和矫正科技行业的狭隘的技术向度和利益局限的重要保障。正如华裔AI科学家李飞飞所言，要让伦理成为人工智能研究与发展的根本组成部分。在此背景下，从政府到行业再到学术界，全球掀起了一股探索制定人工智能伦理原则的热潮，欧盟、德国、英国、OECD、G20、IEEE、谷歌、微软等诸多主体从各自的角度提出了相应的人工智能伦理原则，共同促进AI知识的共享和可信AI的构建。要言之，各界已经基本达成共识，人工智能的发展离不开对伦理的思考和伦理保障。</p>
+<p><img alt="dis" src="../../_images/rw21.png" /></p>
+</div>
+<div class="section" id="id3">
+<h2>【任务实施】<a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h2>
+<div class="section" id="id4">
+<h3>2.1 人工智能伦理道德设计<a class="headerlink" href="#id4" title="Permalink to this headline">#</a></h3>
+<p>    当前，人工智能已经展现出巨大的变革力量，如何更好地解决人工智能的伦理道德问题，需要我们认真思考与提前布局。只有建立完善的人工智能伦理规范，处理好机器与人的新关系，我们才能更多地获得人工智能红利，让技术造福人类，进行合伦理的AI设计，要将人类社会的法律、道德等规范和价值嵌入AI系统；在AI研发中贯彻伦理原则。一方面，AI研发人员需要遵守一些基本的伦理准则，包括有益性、不作恶、包容性的设计、多样性、透明性，以及隐私的保护等。另一方面，需要建立AI伦理审查制度，伦理审查应当是跨学科的，多样性的，对AI技术和产品的伦理影响进行评估并提出建议；对算法进行必要的监管，避免算法作恶；针对算法决策和歧视，以及造成的人身财产损害，需要提供法律救济。国内外在人工智能伦理方面都有重大进展，首个由各国政府签署的AI原则，即“负责任地管理可信AI的原则”，成为人工智能治理方面的首个政府间国际共识，确立了以人为本的发展理念和敏捷灵活的治理方式。在“科技向善”理念之下，需要倡导面向人工智能的新的技术伦理观，包含三个层面：</p>
+<p>    **一 技术信任：**人工智能需要价值引导，做到可用、可靠、可知、可控（“四可”）就AI而言，虽然技术自身没有道德、伦理的品质，但是开发、使用技术的人会赋予其伦理价值，因为基于数据做决策的软件是人设计的，他们设计模型、选择数据并赋予数据意义，从而影响我们的行为。我们需要构建能够让社会公众信任人工智能等新技术的规制体系，让技术接受价值引导。</p>
+<p>    信任的建立，需要一套规则体系。在这些原则之下，人们可以探索制定标准、法律、国际公约等。对于人工智能需要采取包容审慎、敏捷灵活的治理方式，应避免严格、细致的法律要求，而是可以采取事后监管或者通过出台标准、行业公约、伦理框架、最佳实践、技术指南等调整人工智能等新技术的发展应用，支持行业自律。</p>
+<p>    **二 个体幸福：**在人机共生的智能社会，确保人人都有追求数字福祉、幸福工作的权利。各种智能机器正在成为人类社会不可或缺的一部分，和我们的生活和生产息息相关。这给人类与技术之间的关系提出了新的命题，需要深入思考智能社会如何实现人机共生。</p>
+<p>    **三 社会可持续：**践行“科技向善”，善用技术塑造健康包容可持续的智慧社会。技术创新是推动人类和人类社会发展的最主要因素。而这一轮技术革命具有巨大的“向善”潜力，将对人类生活与社会进步带来突破性的提升。在二十一世纪的今天，人类拥有的技术能力，以及这些技术所具有的“向善”潜力，是历史上任何时候都无法比拟的。换言之，这些技术本身是“向善”的工具，可以成为一股“向善”的力量，用于解决人类发展面临着的各种挑战，助力可持续发展目标。</p>
+<p><img alt="dis" src="../../_images/rw221.png" /></p>
+<p>    在新的发展阶段，我们提出新的技术伦理，探索AI、个人、社会三者之间的平衡。就AI技术自身而言，AI需要价值引导，应做到可用、可靠、可知、可控（“四可”），从而让人们可以信任AI，让AI可以给个人和社会创造价值；就AI与个人之关系而言，幸福是人生的终极目的，需要构建和谐共生的人机关系，保障个人的数字福祉和幸福工作权利,实现智能社会人机共生，让个体更自由、智慧、幸福地生活和发展；就AI与社会之关系而言，AI所具有的巨大的“向善”潜力是历史上任何时候都无法比拟的，可以成为一股“向善”的力量，助力经济社会健康包容可持续发展。</p>
+</div>
+<div class="section" id="id5">
+<h3>2.2 建构友好人工智能<a class="headerlink" href="#id5" title="Permalink to this headline">#</a></h3>
+<p>    **政府层面：**构建社会管理制度的人工智能伦理引论；协调人工智能发展与治理的关系，确保人工智能安全可控可靠，推动经济、社会及生态可持续发展，共建人类命运共同体。</p>
+<p><img alt="dis" src="../../_images/rw23.png" /></p>
+<p>    **技术层面：**技术本身的安全性、公正性与人性化；确保人工智能安全可控可靠，规避风险隐患。对更高级的人工智能潜在风险持续地开展研究和预判，确保人工智能健康稳健发展。积极促进绿色发展，符合环境友好、资源节约的要求，同时在发展中缩小地域差距，提升弱势群体的适应性，努力消除数字鸿沟。</p>
+<p>    **公众层面：**公众观念的调整与前瞻性准备；推动经济、社会及生态可持续发展，促进包容共享。在充分尊重各国人工智能治理原则和实践的前提下，推动形成具有广泛共识的国际人工智能治理框架和标准规范，才能增进人类共同福祉。</p>
+<p>    **关系层面：**人工智能将成为未来经济社会发展的关键力量，也将成为国际竞争的重要领域，应当在积极促进和保障人工智能的发展的同时，未雨绸缪地判明人工智能发展中面临的法律风险点，力争在抢抓战略机遇、保持先发优势的同时，化危为机，以法律促进科学的良性发展。重视法律与科技发展的辩证关系，秉承着科技引领、系统布局、市场主导、资源开放的原则，大力加强人工智能领域的立法研究，制定相应的法律法规，建立健全公开透明的人工智能监管体系，构建人工智能创新发展的良好法治环境。</p>
+<p>    人工智能等数字技术发展到今天，给个人和社会带来了诸多好处、便利和效率，未来还将持续推动经济发展和社会进步，我们需要呼吁以数据和算法为面向的新的技术伦理观，实现技术、人、社会之间的良性互动和发展。最终，我们希望以新的技术伦理观增进人类对于技术发展应用的信任，让人工智能等技术进步持续造福人类和人类社会发展进步，塑造更健康包容可持续的智慧社会。</p>
+</div>
+</div>
+<div class="section" id="id6">
+<h2>【任务拓展】<a class="headerlink" href="#id6" title="Permalink to this headline">#</a></h2>
+<p>    随着人工智能的发展趋势，人工智能伦理应如何与时俱进？</p>
+<p><strong>思政聚焦</strong></p>
+<p><img alt="dis" src="../../_images/szjj.png" /></p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "cosoff/zsptAI",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./part3\xm2"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">【任务描述】</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">【任务实施】</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">2.1 人工智能伦理道德设计</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">2.2 建构友好人工智能</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">【任务拓展】</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+<<<<<<< Updated upstream
+By 中山职业技术学院人工智能技术应用
+=======
+By The Jupyter Book Community
+>>>>>>> Stashed changes
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

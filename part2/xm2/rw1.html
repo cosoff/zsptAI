@@ -1,0 +1,773 @@
+
+
+<!DOCTYPE html>
+
+
+<html >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<<<<<<< Updated upstream
+    <title>任务2.2.1 植物图像资源采集 &#8212; 人工智能技术应用基础</title>
+=======
+    <title>任务2.2.1 植物图像资源采集 &#8212; My sample book</title>
+>>>>>>> Stashed changes
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'part2/xm2/rw1';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="任务2.2.2 图像数据标注" href="rw2.html" />
+    <link rel="prev" title="项目2.2 图像识别技术应用—植物检测" href="xm.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="None"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../../intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+<<<<<<< Updated upstream
+                    目录
+=======
+                    Welcome to your Jupyter Book
+>>>>>>> Stashed changes
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">模块一 人工智能知识认知</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../part1/xm1/xm.html">项目1.1 人工智能寻古探今</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../part1/xm1/rw1.html">任务1.1.1 人工智能知识认知</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../part1/xm1/rw2.html">任务1.1.2 人工智能技术发展历程探究</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../part1/xm1/rw3.html">任务1.1.3 探究新职业-人工智能训练师</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../part1/xm2/xm.html">项目1.2 人工智能技术应用探究</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../part1/xm2/rw1.html">任务1.2.1人工智能应用支撑认知</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../part1/xm2/rw2.html">任务1.2.2人工智能应用行业探究</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">模块二 人工智能技术应用</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../xm1/xm.html">项目2.1 语音识别技术应用-开发校园智能客服机器人</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../xm1/rw1.html">任务2.1.1 语音数据采集</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../xm1/rw2.html">任务2.1.2 语音转文字</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../xm1/rw3.html">任务2.1.3 语音合成-语音助手</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../xm1/rw4.html">任务2.1.4 聊天机器人</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../xm1/rw5.html">任务2.1.5 校园智能客服</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="xm.html">项目2.2 图像识别技术应用—植物检测</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">任务2.2.1 植物图像资源采集</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rw2.html">任务2.2.2 图像数据标注</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="rw3.html">任务2.2.3 搭建YOLO3环境</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rw4.html">任务2.2.4 测试keras-yolov3实例</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rw5.html">任务2.2.5 训练植物数据集</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../xm3/xm.html">项目2.3 人脸识别技术应用-开发人脸识别考勤系统</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../xm3/rw1.html">任务2.3.1 人脸检测</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../xm3/rw2.html">任务二 人脸矫正</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../xm3/rw3.html">任务2.3.3 人脸特征提取</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../xm3/rw4.html">任务四 人脸识别</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../xm3/rw5.html">任务2.3.5 简易人脸识别考勤系统</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">模块三 AI安全法律伦理</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../part3/xm1/xm.html">项目 3.1  AI发展中的问题认知</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../part3/xm1/rw1.html">任务3.1.1 人工智能安全威胁</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../part3/xm1/rw2.html">任务3.1.2 人工智能伦理探究</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../part3/xm1/rw3.html">任务3.1.3 人工智能法律探究</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/cosoff/zsptAI" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/cosoff/zsptAI/issues/new?title=Issue%20on%20page%20%2Fpart2/xm2/rw1.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/part2/xm2/rw1.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>任务2.2.1 植物图像资源采集</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">任务描述</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">学习目标</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">任务分析</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">知识链接</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#yolo">一、目标检测算法—YOLO</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#yolov1">1.YOLOV1</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#yolov2">2.YOLOV2</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#yolov3">3.YOLOV3</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#yolov4">4.YOLOV4</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">二、植物检测中的数据采集</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">素质素养养成</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">任务分组</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">学生任务分配表</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">任务实施</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">任务工作单1：图像数据采集方法探究</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">任务工作单2：制定植物图像数据采集方案</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">任务工作单3：植物图像数据采集方案（讨论）</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">任务工作单4：植物图像采集</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id15">评价反馈</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <div class="section" id="id1">
+<h1>任务2.2.1 植物图像资源采集<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h1>
+<div class="section" id="id2">
+<h2>任务描述<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h2>
+<p>    获取四类植物（上海青、生菜、色拉菜、苦棘菜）的图片（JPEG格式），每一类植物图片不少于1000张，图片中可以只含有一种植物，也可以含有多种植物。</p>
+<p><img alt="dis" src="../../_images/rwxt1.png" /><br />
+图2.2.1.1 采集的植物图像列表</p>
+</div>
+<div class="section" id="id3">
+<h2>学习目标<a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h2>
+<p>    1.知识目标<br />
+        （1）掌握常用数据采集的方法；<br />
+        （2）掌握数据采集的注意事项。<br />
+    2.能力目标<br />
+        （1）能根据项目需求采用合理方法进行数据采集；<br />
+        （2）会对采集后的数据进行简单处理。<br />
+    3.素质素养目标<br />
+        （1）培养耐性、细致的工作作风；<br />
+        （2）培养工程思维方式；<br />
+        （3）培养技术服务人类的意识；<br />
+        （4）培养学生开拓思维习惯。</p>
+</div>
+<div class="section" id="id4">
+<h2>任务分析<a class="headerlink" href="#id4" title="Permalink to this headline">#</a></h2>
+<p>    1.重点<br />
+    数据采集的方法。<br />
+    2.难点<br />
+    根据工程需求选择合理方法进行数据采集。</p>
+</div>
+<div class="section" id="id5">
+<h2>知识链接<a class="headerlink" href="#id5" title="Permalink to this headline">#</a></h2>
+<p>    随着现代化工业的不断发展，土地资源匮乏和环境污染已成为现代农业面临的重大问题。植物生长柜使用LED灯代替自然光，采用营养液栽培技术，对植物生长发育过程中所需的温度、湿度、光照等进行智能调控，图2.2.1.2就是这种LED智能植物生长柜，这是一种高效无污染的新型农业生产方式。</p>
+<p><img alt="dis" src="../../_images/rwxt2.png" /><br />
+<img alt="dis" src="../../_images/rwxt3.png" />
+<img alt="dis" src="../../_images/rwxt4.png" /><br />
+<img alt="dis" src="../../_images/rwxt5.png" /><br />
+图2.2.1.2 LED智能植物生长柜</p>
+<p>    目前，市场上常见的植物生长柜大多处于于人工现场检测阶段，无法实现对植物生长柜中植物实时检测，从而智能调节。因此给植物的监控与生长环境调节带来极大的不便。为了实现对生长柜的智能升级，实时检测植物种类，记录植物生长全周期，及时作出相应的处理。本章将带大家一起完成植物生长柜智能升级的其中一个重要环节—植物检测</p>
+<p><img alt="dis" src="../../_images/rwxt6.png" /></p>
+</div>
+<div class="section" id="yolo">
+<h2>一、目标检测算法—YOLO<a class="headerlink" href="#yolo" title="Permalink to this headline">#</a></h2>
+<p>    植物检测是属于目标检测范畴，它是属于机器学习中的监督学习。因此需要告诉机器有答案的数据，我们通过采集植物图片，进行数据标注，从而获得有答案的数据。目标检测有很多成熟的算法、框架，我们不需要自己搭建神经网络，可以选择目前效果比较好的YOLO实例，进行我们自己的植物种类学习，实现检测功能。<br />
+    YOLO 算法也是one-stage目标检测算法中的一员。它通过一个网络就可以输出类别、置信度、坐标位置等信息。目标检测是计算机视觉中比较简单的任务，目标检测不仅要求我们识别这些物体的种类，同时要求我们标出这些物体的位置。<br />
+    YOLO的全称是you only look once，指只需要浏览一次就可以识别出图中的物体的类别和位置。YOLO 的预测是基于整个图片的，并且它会一次性输出所有检测到的目标信息，包括类别和位置。YOLO在2016年被提出，陆续出了4个版本，每一个版本都是对上一版本的优化。它们分别为YOLOV1</p>
+</div>
+<div class="section" id="yolov1">
+<h2>1.YOLOV1<a class="headerlink" href="#yolov1" title="Permalink to this headline">#</a></h2>
+<p>    YOLOV1是YOLO系列的第一个版本，将图像resize到448x448作为输入，输出7x7x30，即将图片划分为7x7，每个单元格独立检测。这里需要注意，不是那种滑动窗口将每个单元格都输入到网络中进行预测，这里的划分只是物体中心点位置的划分之用（划分越多越准确），物体的中心落在哪个单元格，就由那个单元格负责预测。说完7x7我们再说下另一个维度30，30=（2*5=20），其中“2：每个单元格预测数量（box数量）”，“5：（x,y,w,h,score）”,“20：模型可以预测20个种类”。</p>
+<p><img alt="dis" src="../../_images/rwxt8.png" /></p>
+<p>    模型首先会将ImageNet作为训练集预训练模型，最终达到88%精度，然后使用迁移学习将预训练的模型应用到当前标注的训练集进行训练。模型输出5维信息（x,y,w,h,score），使用Leaky Relu作为激活函数，全连接层后添加Dropout层防止过拟合。在得到输出值之后，我们需要计算每个box与ground true的Iou值，然后通过非极大值抑制筛选box。</p>
+</div>
+<div class="section" id="yolov2">
+<h2>2.YOLOV2<a class="headerlink" href="#yolov2" title="Permalink to this headline">#</a></h2>
+<p>    YOLOV2是YOLO系列的第一个改进版本，它首次提出了以DarkNet19作为backbone,并使用全卷积代替了全连接，解决了V1全连接的问题。还使用了批量标准化替代了随机失活（dropout），提升模型的泛化能力。YOLOV2舍弃了直接预测BBOX的位置和大小，而是受faster-rcnn的启发，有了anchor的概念，直接预测BBOX相对于anchor boxes的偏移量。图2.2.1.4是YOLOV2的模型推到过程示意图。</p>
+<p><img alt="dis" src="../../_images/rwxt9.png" /></p>
+</div>
+<div class="section" id="yolov3">
+<h2>3.YOLOV3<a class="headerlink" href="#yolov3" title="Permalink to this headline">#</a></h2>
+<p>    YOLOV3是YOLO系列的第二个改进版本，它将V2中的DarkNet19改为特征提出能力更强的DarkNet53。YOLOV3开始使用多尺度输出来预测数据，这大大增强了YOLO检测小目标的性能。林外YOLOV3还使用特征金字塔结构，加强特征的提取。图2.2.1.5 是YOLOV3与YOLOV1模型结构对比图。</p>
+<p><img alt="dis" src="../../_images/rwxt10.png" /></p>
+</div>
+<div class="section" id="yolov4">
+<h2>4.YOLOV4<a class="headerlink" href="#yolov4" title="Permalink to this headline">#</a></h2>
+<p>    YOLOV4是YOLO系列的第三个改进版本,它将V3中的算法和目前主流的算法做了实验进行整合，例如：使用SPP增大感受野、引入注意力机制，使用Mosaics数据增强等。正是这些修改，使得YOLOV4号称最好用的目标检测框架，具体体现在“比它快的没它准，比他准的没它快”。图2.2.1.6是针对coco数据集下不同YOLO模型不同版本的目标检测效果对比图，从图中可以看出YOLOV4是目标检测效果最好的</p>
+<p><img alt="dis" src="../../_images/rwxt11.png" /></p>
+</div>
+<div class="section" id="id6">
+<h2>二、植物检测中的数据采集<a class="headerlink" href="#id6" title="Permalink to this headline">#</a></h2>
+<p>    我们要实现目标检测就需要有答案的目标图片进行学习。植物检测项目需要检测四类植物，分别是上海青、生菜、色拉菜和苦棘菜，因此我们需要大量采集这四类植物不同生长状态、不同角度的图像数据，为后续数据标注、机器学习做准备。<br />
+    目前图像数据采集的方式有很多种，比如有：<br />
+    （1）手机（相机）拍摄照片；<br />
+    （2）手机（相机）拍摄视频，然后转换为图像；<br />
+    （3）爬虫从网络上获取。<br />
+    基于工程思维的方式，我们数据采集的方式应该与产品使用方式一致，不仅可以提高目标检测的准确度，这样训练的模型也最符合应用场景，而且这样也大大减轻工作时间，提高工作效率。所以本项目通过在植物生物柜每一层放置网络摄像头，通过摄像头拍摄的图像进行实时目标检测。我们通过植物生长柜中安装的网络摄像头采集视频，然后把视频转换成图片的方式进行图像数据采集。</p>
+<p><img alt="dis" src="../../_images/rwxt12.png" /></p>
+<p>    把视频变成图片方式也有多样，我们可以用截图软件一张张的截图，也可以使用现成的一些视频转图片的软件，还可以利用opencv自行写python脚本进行按帧数截图。显然利用opencv自行写python脚本进行按帧数截图的方法是最方便快捷的，具体实现的参考代码如下：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">cv2</span>  
+<span class="n">cap</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">VideoCapture</span><span class="p">(</span><span class="s2">&quot;C:</span><span class="se">\\</span><span class="s2">video2img</span><span class="se">\\</span><span class="s2">veg.mp4&quot;</span><span class="p">)</span>  
+<span class="n">success</span><span class="p">,</span> <span class="n">frame</span> <span class="o">=</span> <span class="n">cap</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>  
+<span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>  
+<span class="k">while</span> <span class="n">success</span> <span class="p">:</span>  
+    <span class="n">i</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span>  
+    <span class="n">cv2</span><span class="o">.</span><span class="n">imwrite</span><span class="p">(</span><span class="s2">&quot;c:</span><span class="se">\\</span><span class="s2">test</span><span class="se">\\</span><span class="s2">frames</span><span class="si">%d</span><span class="s2">.jpg&quot;</span> <span class="o">%</span> <span class="n">i</span><span class="p">,</span> <span class="n">frame</span><span class="p">)</span>  
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;save image:&#39;</span><span class="p">,</span><span class="n">i</span><span class="p">)</span>  
+    <span class="n">success</span><span class="p">,</span> <span class="n">frame</span> <span class="o">=</span> <span class="n">cap</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>    最后我们需要重命名图片，因为数据集要求我们对图片进行规范命名。图片重命名为VOC数据集的“000001.jpg”形式。可以写python代码完成，参考代码如下：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>import os  
+path = r&quot;D:\VOC2007\JPEGImages&quot;#路径根据实际修改  
+filelist = os.listdir(path) #该文件夹下所有的文件（包括文件夹）  
+count=0  
+for file in filelist:  
+    print(file)  
+for file in filelist:   #遍历所有文件  
+    Olddir=os.path.join(path,file)   #原来的文件路径  
+    if os.path.isdir(Olddir):   #如果是文件夹则跳过  
+        continue  
+    filename=os.path.splitext(file)[0]   #文件名  
+    filetype=‘.jpg’   #文件扩展名  
+    Newdir=os.path.join(path,str(count).zfill(6)+filetype)  #  用字符串函数zfill 以0补全所需位数  
+    os.rename(Olddir,Newdir)#重命名  
+    count+=1  
+</pre></div>
+</div>
+<p>    此步骤结束后，应该所有图片的格式都为JPG，并且以“00000*.jpg”格式命名好放在同一个文件夹里。</p>
+<p><img alt="dis" src="../../_images/rwxt7.png" /></p>
+</div>
+<div class="section" id="id7">
+<h2>素质素养养成<a class="headerlink" href="#id7" title="Permalink to this headline">#</a></h2>
+<p>    1.在数据采集过程，引导学生充分利用网络资源，实用多种方法进行数据采集，并进行对比分析，开拓思维方式。<br />
+    2.在实践过程中，在重复采集数据的过程，养成有耐性、对待工作认真细致的工作作风。<br />
+    3.从智能植物生长系统应用价值，引导学生关注三农问题和智慧农业，培养技术服务人类的意识。<br />
+    4.在实践过程中，以项目需求为导向进行采集符合项目的图像数据，逐渐培养工程思维的职业素养。</p>
+</div>
+<div class="section" id="id8">
+<h2>任务分组<a class="headerlink" href="#id8" title="Permalink to this headline">#</a></h2>
+<div class="section" id="id9">
+<h3>学生任务分配表<a class="headerlink" href="#id9" title="Permalink to this headline">#</a></h3>
+<p><a class="reference external" href="https://docs.qq.com/doc/DTmp5T05BZE1CTUhH">学生任务分配表</a></p>
+</div>
+</div>
+<div class="section" id="id10">
+<h2>任务实施<a class="headerlink" href="#id10" title="Permalink to this headline">#</a></h2>
+<div class="section" id="id11">
+<h3>任务工作单1：图像数据采集方法探究<a class="headerlink" href="#id11" title="Permalink to this headline">#</a></h3>
+<p>组号:__________姓名：___________学号：<em><strong><strong><strong><strong><strong>检索号：</strong></strong></strong></strong></strong></em></p>
+<p><strong>引导问题</strong><br />
+（1）通过个人思考或者网上查阅，找出图片数据采集的三种或以上的方法，对比优缺点。</p>
+<p><a class="reference external" href="https://docs.qq.com/doc/DTmxadG5xclhTYXRP">表</a></p>
+<p>（2）针对本项目特点，在（1）中选取一种最优方案，并指出理由。</p>
+</div>
+<hr class="docutils" />
+<div class="section" id="id12">
+<h3>任务工作单2：制定植物图像数据采集方案<a class="headerlink" href="#id12" title="Permalink to this headline">#</a></h3>
+<p>组号:__________姓名：___________学号：<em><strong><strong><strong><strong><strong>检索号：</strong></strong></strong></strong></strong></em></p>
+<p><strong>引导问题：</strong><br />
+（1）根据2.2.1.7推荐的方法，制定出植物图片数据采集的具体方案步骤。<br />
+步骤一：__________________________________________________________</p>
+<p>步骤二：__________________________________________________________</p>
+<p>步骤三：</p>
+<hr class="docutils" />
+<p>步骤四：__________________________________________________________</p>
+<p>步骤五：__________________________________________________________</p>
+<p>步骤六：__________________________________________________________</p>
+</div>
+<div class="section" id="id13">
+<h3>任务工作单3：植物图像数据采集方案（讨论）<a class="headerlink" href="#id13" title="Permalink to this headline">#</a></h3>
+<p>组号:__________姓名：___________学号：<em><strong><strong><strong><strong><strong>检索号：</strong></strong></strong></strong></strong></em></p>
+<p><strong>引导问题：</strong><br />
+（1）小组交流讨论2.2.1.8的各种方案，教师参与，形成本项目最合适的图像数据采集方案。</p>
+<hr class="docutils" />
+<p>（2）小组讨论，得出上述方案的注意事项。</p>
+</div>
+<hr class="docutils" />
+<div class="section" id="id14">
+<h3>任务工作单4：植物图像采集<a class="headerlink" href="#id14" title="Permalink to this headline">#</a></h3>
+<p>组号:__________姓名：___________学号：<em><strong><strong><strong><strong><strong>检索号：</strong></strong></strong></strong></strong></em></p>
+<p><strong>引导问题：</strong><br />
+（1）分组完成四种植物的图片采集。</p>
+<hr class="docutils" />
+<p>（2）描述图片采集完成后的基本处理。</p>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="id15">
+<h2>评价反馈<a class="headerlink" href="#id15" title="Permalink to this headline">#</a></h2>
+<p>个人自评表<br />
+组号:__________姓名：___________学号：<em><strong><strong><strong><strong><strong>检索号：</strong></strong></strong></strong></strong></em></p>
+<p><a class="reference external" href="https://docs.qq.com/doc/DTmtYWktYWW1GQXZU">个人自评表</a></p>
+<p>小组内互评表<br />
+组号:__________姓名：___________学号：<em><strong><strong><strong><strong><strong>检索号：</strong></strong></strong></strong></strong></em></p>
+<p><a class="reference external" href="https://docs.qq.com/doc/DTmdJcEpySGROV1Zh">小组内互评表</a></p>
+<p>小组间互评表
+被评组号：___________ 检索号：___________</p>
+<p><a class="reference external" href="https://docs.qq.com/doc/DTk9UWG1JUWNJelVu">小组间互评表</a></p>
+<p>教师评价表
+组号:__________姓名：___________学号：<em><strong><strong><strong><strong><strong>检索号：</strong></strong></strong></strong></strong></em></p>
+<p><a class="reference external" href="https://docs.qq.com/doc/DTkdrZERYdnZuVFd2">教师评价表</a></p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "cosoff/zsptAI",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./part2\xm2"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="xm.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">项目2.2 图像识别技术应用—植物检测</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="rw2.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">任务2.2.2 图像数据标注</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">任务描述</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">学习目标</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">任务分析</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">知识链接</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#yolo">一、目标检测算法—YOLO</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#yolov1">1.YOLOV1</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#yolov2">2.YOLOV2</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#yolov3">3.YOLOV3</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#yolov4">4.YOLOV4</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">二、植物检测中的数据采集</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">素质素养养成</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">任务分组</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">学生任务分配表</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">任务实施</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">任务工作单1：图像数据采集方法探究</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">任务工作单2：制定植物图像数据采集方案</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">任务工作单3：植物图像数据采集方案（讨论）</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">任务工作单4：植物图像采集</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id15">评价反馈</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+<<<<<<< Updated upstream
+By 中山职业技术学院人工智能技术应用
+=======
+By The Jupyter Book Community
+>>>>>>> Stashed changes
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
