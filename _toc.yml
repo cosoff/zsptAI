@@ -1,0 +1,47 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: intro
+parts:
+  - caption: 模块一 人工智能知识认知
+    chapters:
+    - file: part1/xm1/xm.md
+      sections:
+      - file: part1/xm1/rw1.md
+      - file: part1/xm1/rw2.md
+      - file: part1/xm1/rw3.md
+    - file: part1/xm2/xm.md
+      sections:
+      - file: part1/xm2/rw1.md
+      - file: part1/xm2/rw2.md
+  - caption: 模块二 人工智能技术应用
+    chapters:
+    - file: part2/xm1/xm.md
+      sections:
+      - file: part2/xm1/rw1.md
+      - file: part2/xm1/rw2.md
+      - file: part2/xm1/rw3.md
+      - file: part2/xm1/rw4.md
+      - file: part2/xm1/rw5.md
+    - file: part2/xm2/xm.md
+      sections:
+      - file: part2/xm2/rw1.md
+      - file: part2/xm2/rw2.md
+      - file: part2/xm2/rw3.md
+      - file: part2/xm2/rw4.md
+      - file: part2/xm2/rw5.md
+    - file: part2/xm3/xm.md
+      sections:
+      - file: part2/xm3/rw1.md
+      - file: part2/xm3/rw2.md
+      - file: part2/xm3/rw3.md
+      - file: part2/xm3/rw4.md
+      - file: part2/xm3/rw5.md
+  - caption: 模块三 AI安全法律伦理
+    chapters:
+    - file: part3/xm1/xm.md
+      sections:
+      - file: part3/xm1/rw1.md
+      - file: part3/xm1/rw2.md
+      - file: part3/xm1/rw3.md
