@@ -1,6 +1,15 @@
 name: my-environment
 channels:
   - conda-forge
+  - defaults
 dependencies:
+  - jupyter-book
+  - matplotlib
   - portaudio
-  - PyAudio
+  - numpy
+  - pip
+  - pip:
+    - pyaudio
+    - playsound
+    - wave
+
