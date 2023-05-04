@@ -1,0 +1,11 @@
+name: my-environment
+channels:
+  - conda-forge
+dependencies:
+  - jupyter-book
+  - matplotlib
+  - portaudio
+  - numpy
+  - pyaudio
+  - wave
+  - playsound
