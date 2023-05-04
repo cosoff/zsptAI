@@ -508,21 +508,6 @@ document.write(`
 <h3>四、语音数据采集实现<a class="headerlink" href="#id7" title="Permalink to this headline">#</a></h3>
 <p>在了解了语音数据的相关知识后，我们使用Python语音识别库中的pyaudio和即插即用的PC端麦克风来采集一段10秒的语音并以WAV格式保存到本地。</p>
 <p><strong>步骤1</strong>: 安装pyaudion、wave依赖库。我们采用pip install命令方式，参考如下：</p>
-<!-- Configure and load Thebe !-->
-<script type="text/x-thebe-config">
-  {
-      requestKernel: true,
-      mountActivateWidget: true,
-      mountStatusWidget: true,
-      binderOptions: {
-      repo: "cosoff/zsptAI",
-      ref: "gh-pages"
-      },
-  }
-</script>
-<script src="https://unpkg.com/thebe@latest/lib/index.js"></script>
-<div class="thebe-activate"></div>
-<div class="thebe-status"></div>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pip install PyAudio 
 pip install wave 
 </pre></div>
@@ -572,7 +557,7 @@ pip install wave
 <p><img alt="dis" src="../../_images/rw11.png" />
 <img alt="dis" src="../../_images/rw12.png" />
     经过以上5个步骤，运行程序，当出现提示后开始录音，10秒后录音自动结束，程序文件所在目录下新增“audio1.wav”文件。播放audio1.wav，听听看是不是刚刚录制的声音吧。</p>
-<p><strong>步骤6</strong> :完整代码如下：</p>
+<p><strong>步骤6</strong> :完整代码如下（本代码无法在这里运行，请复制出来单独运行）：</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pyaudio</span>
 <span class="kn">import</span> <span class="nn">wave</span>
 

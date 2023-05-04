@@ -68,24 +68,6 @@
 
  **步骤1**: 安装pyaudion、wave依赖库。我们采用pip install命令方式，参考如下：
 
-<!-- Configure and load Thebe !-->
-<script type="text/x-thebe-config">
-  {
-      requestKernel: true,
-      mountActivateWidget: true,
-      mountStatusWidget: true,
-      binderOptions: {
-      repo: "cosoff/zsptAI",
-      ref: "gh-pages"
-      },
-  }
-</script>
-
-<script src="https://unpkg.com/thebe@latest/lib/index.js"></script>
-
-<div class="thebe-activate"></div>
-<div class="thebe-status"></div>
-
 ```shell
 pip install PyAudio 
 pip install wave 
@@ -146,7 +128,7 @@ pa.terminate()          # 终止pyaudio
 ![dis](../../images/second/xm1/rw12.png)
 &nbsp;&nbsp;&nbsp;&nbsp;经过以上5个步骤，运行程序，当出现提示后开始录音，10秒后录音自动结束，程序文件所在目录下新增“audio1.wav”文件。播放audio1.wav，听听看是不是刚刚录制的声音吧。
 
-**步骤6** :完整代码如下：
+**步骤6** :完整代码如下（本代码无法在这里运行，请复制出来单独运行）：
 ```python
 import pyaudio
 import wave
