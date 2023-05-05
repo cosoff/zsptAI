@@ -1,0 +1,843 @@
+
+
+<!DOCTYPE html>
+
+
+<html >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>任务2.1.4 聊天机器人 &#8212; 人工智能技术应用基础</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'part2/xm1/rw4';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="任务2.1.5 校园智能客服" href="rw5.html" />
+    <link rel="prev" title="任务2.1.3 语音合成-语音助手" href="rw3.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="None"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../../intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    目录
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">模块一 人工智能知识认知</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../part1/xm1/xm.html">项目1.1 人工智能寻古探今</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../part1/xm1/rw1.html">任务1.1.1 人工智能知识认知</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../part1/xm1/rw2.html">任务1.1.2 人工智能技术发展历程探究</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../part1/xm1/rw3.html">任务1.1.3 探究新职业-人工智能训练师</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../part1/xm2/xm.html">项目1.2 人工智能技术应用探究</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../part1/xm2/rw1.html">任务1.2.1人工智能应用支撑认知</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../part1/xm2/rw2.html">任务1.2.2人工智能应用行业探究</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">模块二 人工智能技术应用</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="xm.html">项目2.1 语音识别技术应用-开发校园智能客服机器人</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="rw1.html">任务2.1.1 语音数据采集</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rw2.html">任务2.1.2 语音转文字</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rw3.html">任务2.1.3 语音合成-语音助手</a></li>
+
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">任务2.1.4 聊天机器人</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rw5.html">任务2.1.5 校园智能客服</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../xm2/xm.html">项目2.2 图像识别技术应用—植物检测</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../xm2/rw1.html">任务2.2.1 植物图像资源采集</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../xm2/rw2.html">任务2.2.2 图像数据标注</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../xm2/rw3.html">任务2.2.3 搭建YOLO3环境</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../xm2/rw4.html">任务2.2.4 测试keras-yolov3实例</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../xm2/rw5.html">任务2.2.5 训练植物数据集</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../xm3/xm.html">项目2.3 人脸识别技术应用-开发人脸识别考勤系统</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../xm3/rw1.html">任务2.3.1 人脸检测</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../xm3/rw2.html">任务二 人脸矫正</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../xm3/rw3.html">任务2.3.3 人脸特征提取</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../xm3/rw4.html">任务四 人脸识别</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../xm3/rw5.html">任务2.3.5 简易人脸识别考勤系统</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">模块三 AI安全法律伦理</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../part3/xm1/xm.html">项目 3.1  AI发展中的问题认知</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../part3/xm1/rw1.html">任务3.1.1 人工智能安全威胁</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../part3/xm1/rw2.html">任务3.1.2 人工智能伦理探究</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../part3/xm1/rw3.html">任务3.1.3 人工智能法律探究</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/cosoff/zsptAI" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/cosoff/zsptAI/issues/new?title=Issue%20on%20page%20%2Fpart2/xm1/rw4.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/part2/xm1/rw4.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>任务2.1.4 聊天机器人</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">任务描述</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">学习目标</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">任务分析</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">知识链接</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#api">三、使用API开发聊天机器人</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">素质素养养成</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">任务分组</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">任务实施</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">任务工作单1：认知聊天机器人</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">引导问题：</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">任务工作单2：认知聊天机器人api</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">引导问题：</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">任务工作单3：聊天机器人api调用实践</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">引导问题：</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id15">任务工作单4：聊天机器人认知和应用（展示）</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id16">引导问题：</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id17">任务工作单5：聊天机器人开发实践</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id18">引导问题：</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id19">评价反馈</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id20">个人评价表</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id21">小组内互评表</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id22">小组间互评表</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id23">教师评价表-任务工作单4</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <div class="section" id="id1">
+<h1>任务2.1.4 聊天机器人<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h1>
+<div class="section" id="id2">
+<h2>任务描述<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h2>
+<p>    聊天机器人以自然语言处理为主，自然语言处理在聊天机器人中的作用是对输入的语句进行分析，提取出实体、意图等关键信息。自然语言处理同样是一个需要大量算力的算法，我们可以通过图灵、百度等API实现。这里，我们使用YunGe API编写一个对话机器人。</p>
+</div>
+<div class="section" id="id3">
+<h2>学习目标<a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h2>
+<p><strong>1.知识目标</strong></p>
+<p>    （1）掌握调用API设计聊天机器人的方法；</p>
+<p>    （2）理解API参数列表的含义。</p>
+<p><strong>2.能力目标</strong></p>
+<p>    （1）能传递正确的参数；</p>
+<p>    （2）能根据需要获取所需要的数据。</p>
+<p><strong>3.素质素养目标</strong></p>
+<p>    （1）培养学生关注产品质量的职业素养；</p>
+<p>    （2）培养用词文明意识；</p>
+<p>    （3）培养遵守规范的意识；</p>
+<p>    （4）培养热爱劳动的意识。</p>
+</div>
+<div class="section" id="id4">
+<h2>任务分析<a class="headerlink" href="#id4" title="Permalink to this headline">#</a></h2>
+<p><strong>1.重点</strong></p>
+<p>    掌握调用API开发聊天机器人的方法。</p>
+<p><strong>2.难点</strong></p>
+<p>    能根据需要获取所需要的数据。</p>
+</div>
+<div class="section" id="id5">
+<h2>知识链接<a class="headerlink" href="#id5" title="Permalink to this headline">#</a></h2>
+<p><strong>一、聊天机器人</strong></p>
+<p>    聊天机器人是通过口头人类语音或书面文字进行交谈的计算机程序。聊天机器人很有实用价值而且成本低又能高效持续工作，通常用来解决客户问题的智能数字化助手，如客户服务或资讯获取。有些聊天机器人会搭载自然语言处理系统，但很多简单的系统是通过提取输入的关键字然后从数据库中找寻最合适的应答来完成交流聊天的。工业界和学术界都十分关注聊天系统的研发，主要原因在于，一方面，聊天技术应用能够极大地缩减人力资源；另一方面，聊天技术代表了自然语言处理的最高水平之一，是许多科学家向往突破的难题。根据聊天系统目的及功能的不同，可分成三大类型：闲聊式机器人，较有代表性的有微软小冰、微软小娜、苹果的Siri、小i机器人等，主要用于娱乐；知识问答型机器人，比如watson 系统最早在2011年的问答节目Jeopardy上击败了所有人类选手，赢得百万美元奖金；任务型聊天机器人，以完成某一领域的具体任务为导向，在工业界应用较广泛，如订票系统、订餐系统等。聊天机器人目前在电商平台有最广泛的应用，最常用于客户服务领域，例如京东客服JIMI、阿里云小蜜等。很多基本的问题不需要联系人工客服来结局，通过智能客服可以排除大量的用户问题，比如商品质量投诉、商品的基本信查询、快递邮费问题等程序化或固定答案的问题，一些询问率比较高的问题机器人能准确高效的回复而且24小时在线，不仅提升服务质量还能节省大量的人工成本。</p>
+<p>    2014年，我国首个人工智能公司北京光年无限科技有限公司推出了图灵机器人，是中文语境下智能度较高的机器人大脑，具有全球领先的中文语义与认知计算平台。图灵机器人对中文语义的理解准确率高达90%，可为智能化软硬件产品提供中文语义分析、自然语言对话、深度问答等人工智能技术服务。图灵机器人根据应用场景可以分为智能客服、虚拟机器人、智能手表、智能车载和智能家居几类。其中虚拟机器人可接入微信、QQ等平台，搭建聊天机器人，与用户流畅交流。图灵机器人提供自然的中文对话能力，精准的中文语义分析能力，准确判断用户意图，同时还具有丰富的上下文场景及强大的自我学习能力。</p>
+<p>    除了应用于电商领域的智能客服机器人，还有很多应用于医疗、家庭生活、刑侦等领域的机器人。</p>
+<p><strong>1.Endurance：痴呆症患者的伴侣</strong></p>
+<p>许多患有阿尔茨海默病的人都会伴有短期记忆丧失，即时是简单的对话互动，对他们也非常困难—很难进行有意义的对话，但是他们聊天交流的能力和需求和正常人一样，这就造成了这些阿尔茨海默患者即时跟亲密的家人朋友进行日常交流经常因为前言不搭后语而感到非常沮丧和自卑。因此俄罗斯科技公司Endurance开发了伴侣聊天机器人，通过机器人采集聊天记录，医生和家人可以通过患者与机器人的聊天记录来判断患者识别记忆功能的潜在退化和患者病情恶化的交流障碍。Endurance可以帮助研究人员和护理团队更好地了解阿尔茨海默病如何影响大脑。目前俄罗斯版本的Endurance聊天机器人已经上市。</p>
+<p><strong>2.Casper：帮助失眠者度过漫漫长夜</strong></p>
+<p>这个世界上其他人都安静地休息，而失眠患者却辗转反侧无法入眠的那种痛苦，如果你也患有失眠症，一定知道这是一种几乎令人窒息的孤独感。Casper是一个旨在让失眠者与其他人交谈的网络聊天机器人，驱散失眠者的孤独，陪伴其渡过漫漫长夜。</p>
+<p><strong>3.Disney：用虚构人物解决犯罪问题</strong></p>
+<p>迪士尼使用聊天机器人扮演2016年动画家庭犯罪案件Zootopia的角色，邀请这部电影的粉丝与中尉朱迪霍普斯（Judy Hopps）一起解决犯罪问题。朱迪霍普斯是这部电影的顽强、长耳的主角。粉丝们可以通过与机器人交互来帮助Lt.Hopps调查电影中的谜团，在交谈中为Lt.Hopps的调查提出建议，聊天机器人对此做出回应并探究解谜。</p>
+<p><strong>4.联合国儿童基金会：帮助边缘化社区</strong></p>
+<p>国际儿童倡导非营利组织联合国儿童基金会开发了一个名叫U-Report聊天机器人，通过社区调查社会问题帮助生活在发展中国家人民。这款机器人专注于通过民意调查收集大规模数据，定期发布针对一系列紧急社会问题的民意调查，用户（即“U-Reporters”）可以回复他们的意见。然后，儿童基金会将这一反馈作为潜在政策建议的基础。U-Report曾向利比里亚的用户发送了一份民意调查，说明教师是否强迫学生进行性行为以换取更好的成绩。在接受调查的13,000名利比里亚儿童U-Report中，大约86％的人回答说，他们的教师正在从事这种卑鄙的做法，因此联合国儿童基金会立即决定结束与利比里亚教育部长之间的合作项目。</p>
+<p><strong>二、聊天机器人API</strong></p>
+<p>聊天机器人应用越来越普遍，主要原因是创建聊天机器人的技术门槛越来越低，开发者不需要掌握复杂的编程知识和其他高度专业化的技术技能就可以快速地开发一个聊天机器人。很多公司提供了开放的聊天机器人API接口供开发者使用。</p>
+<p><strong>1.图灵机器人API</strong></p>
+<p>图灵机器人具有智能对话、知识库、技能服务三种核心功能，它能准确地对中文语义进行理解，人们可以借助图灵机器人API接口，根据自己的需要创建聊天机器人，客服机器人，领域对话问答机器人，儿童陪伴机器人等在线服务，给人们的生活、工作、客户咨询和售后服务带来便利。图灵机器人提供了自动解析文字的API接口。创建一个机器人，就可以得到一个Key值，作为访问API的身份标识。图灵机器人官网: <a class="reference external" href="http://www.tuling123.com/%E3%80%82">http://www.tuling123.com/。</a>  图灵机器人提供了开放的API接口供开发者使用，但需要注册账号才能使用。提供了免费版和标准版，个人认证之后每天可以免费使用 100 条，但只有一些基本的语料库，可设置的选项也不多，标准版99元/月，可以自定义语料库，可设置的选项也更多。图灵机器人开放API接入文档参考官方网站的参数和方法:<a class="reference external" href="http://docs.turingos.cn/api/apiV2/%E3%80%82">http://docs.turingos.cn/api/apiV2/。</a></p>
+<p><img alt="dis" src="../../_images/b1.png" /></p>
+<p><strong>2.青云客API</strong></p>
+<p>    青云客提供了聊天机器人的调用接口，并提供了 API 文档，目前不需要注册，完全免费，官方网址为:<a class="reference external" href="http://api.qingyunke.com/%E3%80%82%E6%8E%A5%E5%85%A5API%E7%9A%84%E6%96%B9%E6%B3%95%E5%92%8C%E5%8F%82%E6%95%B0%E8%AE%BE%E7%BD%AE%E5%A6%82%E5%9B%BE2.1.4.2%E5%B7%A6%E4%BE%A7%E6%89%80%E7%A4%BA%E3%80%82%E5%AE%98%E7%BD%91%E6%8F%90%E4%BE%9B%E4%BA%86%E8%81%8A%E5%A4%A9%E6%9C%BA%E5%99%A8%E4%BA%BADEMO%EF%BC%8C%E5%8F%AF%E4%BB%A5%E9%97%B2%E8%81%8A%E3%80%81%E9%97%AE%E5%A4%A9%E6%B0%94%E3%80%81%E6%9F%A5%E6%AD%8C%E8%AF%8D%E3%80%81%E6%90%9C%E7%AC%91%E8%AF%9D%E7%AD%89%EF%BC%8C%E5%9B%BE2.1.4.2%E5%8F%B3%E4%BE%A7%E6%98%AF%E9%97%AE%E5%A4%A9%E6%B0%94%E7%9A%84%E7%A4%BA%E4%BE%8B">http://api.qingyunke.com/。接入API的方法和参数设置如图2.1.4.2左侧所示。官网提供了聊天机器人DEMO，可以闲聊、问天气、查歌词、搜笑话等，图2.1.4.2右侧是问天气的示例</a></p>
+<p><img alt="dis" src="../../_images/b2.png" /></p>
+<p><strong>3.腾讯闲聊机器人</strong></p>
+<p>    腾讯闲聊服务基于AI Lab领先的NLP引擎能力、数据运算能力和千亿级互联网语料数据的支持，同时集成了广泛的知识问答能力，可实现上百种自定义属性配置，以及男、女不同的语言风格及说话方式，从而让聊天变得更睿智、简单和有趣。腾讯闲聊机器人API需要注册和申请，还需要加密处理。</p>
+</div>
+<div class="section" id="api">
+<h2>三、使用API开发聊天机器人<a class="headerlink" href="#api" title="Permalink to this headline">#</a></h2>
+<p>    这里我们使用广州云歌科技有限公司提供的聊天机器人API完成开发简易聊天机器人。其中用到的地址url=’https:Lltestapi.smartyg.com/apilpost gossip’和keys=’5f15a18f3f03f7e88020acblc2f8c93c’。下面是完整的开发流程和相关参数的解释。</p>
+<blockquote>
+<div><p><strong>步骤1:</strong> 导入requests、json、time和random依赖库，参考代码。</p>
+</div></blockquote>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">random</span>
+</pre></div>
+</div>
+<blockquote>
+<div><p><strong>步骤2</strong> 利用random函数和time方法创建一个随机字符串，用来区分每一次对话的对象。</p>
+</div></blockquote>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">random_str</span>  <span class="o">=</span>  <span class="nb">str</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span><span class="o">+</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">100</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">random_str</span><span class="p">)</span>
+</pre></div>
+</div>
+<blockquote>
+<div><p><strong>步骤3</strong> 定义一个函数xiaoxin，调用Yunge API，发送text，获得回复.</p>
+</div></blockquote>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">xiaoxin</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
+    <span class="n">res</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://testapi.smartyg.com/api/post_gossip&quot;</span>
+    <span class="n">keys</span> <span class="o">=</span> <span class="s2">&quot;5f15a18f3f03f7e88020acb1c2f8c93c&quot;</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span>
+        <span class="p">{</span><span class="s2">&quot;keys&quot;</span><span class="p">:</span> <span class="n">keys</span><span class="p">,</span> 
+        <span class="s2">&quot;question&quot;</span><span class="p">:</span> <span class="n">text</span> <span class="p">,</span>
+        <span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;1&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;random_str&quot;</span><span class="p">:</span><span class="n">randomstr</span><span class="p">,</span><span class="s2">&quot;state&quot;</span><span class="p">:</span><span class="kc">True</span><span class="p">}))</span><span class="o">.</span><span class="n">text</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;flag&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;success&quot;</span><span class="p">:</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;answay&quot;</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">res</span>
+</pre></div>
+</div>
+<p>    requests中的参数含义如下：</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-left head"><p>参数</p></th>
+<th class="text-center head"><p>含义</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p>keys</p></td>
+<td class="text-center"><p>请求的keys</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>question</p></td>
+<td class="text-center"><p>传输的语句</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>id</p></td>
+<td class="text-center"><p>默认是1</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>random_str</p></td>
+<td class="text-center"><p>随机字符串（时间+随机数的组合）</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>state</p></td>
+<td class="text-center"><p>默认true</p></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<div><p><strong>步骤4</strong> 调用xiaoxin，创建闲聊机器人，为了不间断聊天，我们循环输入问题并调用xiaoxin，参考代码。</p>
+</div></blockquote>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="n">question</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">&#39;我：&#39;</span><span class="p">)</span>
+    <span class="n">answay</span> <span class="o">=</span> <span class="n">xiaoxing</span><span class="p">(</span><span class="n">question</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;robot:&#39;</span><span class="n">answay</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>    本次任务通过调用Yunge API创建聊天机器人的完整参考代码:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">random</span>
+
+<span class="n">random_str</span>  <span class="o">=</span>  <span class="nb">str</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span><span class="o">+</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">100</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">random_str</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">xiaoxin</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
+    <span class="n">res</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://testapi.smartyg.com/api/post_gossip&quot;</span>
+    <span class="n">keys</span> <span class="o">=</span> <span class="s2">&quot;5f15a18f3f03f7e88020acb1c2f8c93c&quot;</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span>
+        <span class="p">{</span><span class="s2">&quot;keys&quot;</span><span class="p">:</span> <span class="n">keys</span><span class="p">,</span> 
+        <span class="s2">&quot;question&quot;</span><span class="p">:</span> <span class="n">text</span> <span class="p">,</span>
+        <span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;1&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;random_str&quot;</span><span class="p">:</span><span class="n">randomstr</span><span class="p">,</span><span class="s2">&quot;state&quot;</span><span class="p">:</span><span class="kc">True</span><span class="p">}))</span><span class="o">.</span><span class="n">text</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;flag&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;success&quot;</span><span class="p">:</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;answay&quot;</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">res</span>
+
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="n">question</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">&#39;我：&#39;</span><span class="p">)</span>
+    <span class="n">answay</span> <span class="o">=</span> <span class="n">xiaoxing</span><span class="p">(</span><span class="n">question</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;robot:&#39;</span><span class="n">answay</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id6">
+<h2>素质素养养成<a class="headerlink" href="#id6" title="Permalink to this headline">#</a></h2>
+<p>    （1）在总结聊天机器人的应用中了解聊天机器人节省人工、帮助痴呆失眠患者、帮助发展中国家等培养学生技术服务人类的意识；</p>
+<p>    （2）通过API调用的基本流程和参数设置培养学生遵守规则和流程的职业素养；</p>
+<p>    （3）在调用百度api要设置合适的参数才能出现满意的语音合成效果中培养遵守规范的意识；</p>
+<p>    （4）通过图灵机器人在中文聊天机器人中文语境中的领先优势，树立学生国家意识和民族归属；</p>
+<p>    （5）通过实验记录和统计准确率引导学生关注产品质量和开发效率，提升职业素养。</p>
+</div>
+<div class="section" id="id7">
+<h2>任务分组<a class="headerlink" href="#id7" title="Permalink to this headline">#</a></h2>
+<p><strong>学生任务分配表</strong></p>
+<p>    <a class="reference external" href="https://docs.qq.com/sheet/DTU1DY0RlYUt3bWhx">学生任务分配表</a></p>
+</div>
+<div class="section" id="id8">
+<h2>任务实施<a class="headerlink" href="#id8" title="Permalink to this headline">#</a></h2>
+<div class="section" id="id9">
+<h3>任务工作单1：认知聊天机器人<a class="headerlink" href="#id9" title="Permalink to this headline">#</a></h3>
+<p>组号：__________           姓名：__________            学号：__________             检索号：__________</p>
+</div>
+<div class="section" id="id10">
+<h3>引导问题：<a class="headerlink" href="#id10" title="Permalink to this headline">#</a></h3>
+<p>（1）什么叫聊天机器人？</p>
+<p>—————————————————————————————————————————————————————————</p>
+<p>（2）聊天机器人按照功能可以分为哪几类？每个类别请至少列举一个典型代表及其应用情况。</p>
+<p>—————————————————————————————————————————————————————————</p>
+<p>（3）你觉得聊天机器人有哪些应用价值？结合具体的应用案例说明。</p>
+<p>—————————————————————————————————————————————————————————</p>
+<p>（4）将以上三个回答制作成展示汇报PPT。</p>
+<p>—————————————————————————————————————————————————————————</p>
+</div>
+<div class="section" id="id11">
+<h3>任务工作单2：认知聊天机器人api<a class="headerlink" href="#id11" title="Permalink to this headline">#</a></h3>
+<p>组号：__________           姓名：__________            学号：__________             检索号：__________</p>
+</div>
+<div class="section" id="id12">
+<h3>引导问题：<a class="headerlink" href="#id12" title="Permalink to this headline">#</a></h3>
+<p>（1）请列举3个以上为开发者提供聊天机器人api接口的平台名称和网址。</p>
+<p>—————————————————————————————————————————————————————————</p>
+<p>（2）写出任一个开放的聊天机器人api接口调用的地址、请求方法、编码方式、请求参数说明。</p>
+<p>—————————————————————————————————————————————————————————</p>
+</div>
+<div class="section" id="id13">
+<h3>任务工作单3：聊天机器人api调用实践<a class="headerlink" href="#id13" title="Permalink to this headline">#</a></h3>
+<p>组号：__________           姓名：__________            学号：__________             检索号：__________</p>
+</div>
+<div class="section" id="id14">
+<h3>引导问题：<a class="headerlink" href="#id14" title="Permalink to this headline">#</a></h3>
+<p>（1）YunGe聊天机器人API的url和key分别是什么？</p>
+<p>—————————————————————————————————————————————————————————</p>
+<p>（2）定义一个函数，通过参数输入问题（question），调用YunGe聊天机器人API，返回与问题对应的回答(answer)。提交代码和至少三次问答的测试截图。</p>
+<p>—————————————————————————————————————————————————————————</p>
+</div>
+<div class="section" id="id15">
+<h3>任务工作单4：聊天机器人认知和应用（展示）<a class="headerlink" href="#id15" title="Permalink to this headline">#</a></h3>
+<p>组号：__________           姓名：__________            学号：__________             检索号：__________</p>
+</div>
+<div class="section" id="id16">
+<h3>引导问题：<a class="headerlink" href="#id16" title="Permalink to this headline">#</a></h3>
+<p>（1）每小组推荐一位小组长，展示汇报聊天机器人和聊天机器api的总结，互相分享学习成果。展示汇报调用YunGe聊天机器人开发流程和经验总结。</p>
+<p>—————————————————————————————————————————————————————————</p>
+<p>（2）查漏补缺，检查自己不足的地方。</p>
+<p>—————————————————————————————————————————————————————————</p>
+</div>
+<div class="section" id="id17">
+<h3>任务工作单5：聊天机器人开发实践<a class="headerlink" href="#id17" title="Permalink to this headline">#</a></h3>
+<p>组号：__________           姓名：__________            学号：__________             检索号：__________</p>
+</div>
+<div class="section" id="id18">
+<h3>引导问题：<a class="headerlink" href="#id18" title="Permalink to this headline">#</a></h3>
+<p>（1）使用Python按照正确的流程和方法，调用API创建一个聊天机器人。</p>
+<p>—————————————————————————————————————————————————————————</p>
+<p>（2）调试聊天机器人，和机器人对话20次以上，记录问题和回答，计算一下机器人的正确率，分析误差的原因。</p>
+<p>—————————————————————————————————————————————————————————</p>
+<p>（3）拓展：试试将聊天机器人文字输入升级为语音输入。</p>
+<p>—————————————————————————————————————————————————————————
+（4）拓展：试试将聊天机器人的回答升级为语音回答。</p>
+<p>—————————————————————————————————————————————————————————</p>
+</div>
+<div class="section" id="id19">
+<h3>评价反馈<a class="headerlink" href="#id19" title="Permalink to this headline">#</a></h3>
+</div>
+</div>
+<div class="section" id="id20">
+<h2>个人评价表<a class="headerlink" href="#id20" title="Permalink to this headline">#</a></h2>
+<p>组号：__________           姓名：__________           学号：__________            检索号：__________</p>
+<p><a class="reference external" href="https://docs.qq.com/sheet/DTUthVHZPcnBmZmFD">个人评价表</a></p>
+<div class="section" id="id21">
+<h3>小组内互评表<a class="headerlink" href="#id21" title="Permalink to this headline">#</a></h3>
+<p>组号：__________           姓名：__________           学号：__________            检索号：__________</p>
+<p><a class="reference external" href="https://docs.qq.com/sheet/DTUdpdVVmaUtoWHhBP">小组内互评表</a></p>
+</div>
+<div class="section" id="id22">
+<h3>小组间互评表<a class="headerlink" href="#id22" title="Permalink to this headline">#</a></h3>
+<p>被评组号：__________            检索号：__________</p>
+<p><a class="reference external" href="https://docs.qq.com/sheet/DTXhNWlhjQ05vQUxD">小组间互评表</a></p>
+</div>
+<div class="section" id="id23">
+<h3>教师评价表-任务工作单4<a class="headerlink" href="#id23" title="Permalink to this headline">#</a></h3>
+<p>组号：__________           姓名：__________           学号：__________            检索号：__________</p>
+<p><a class="reference external" href="https://docs.qq.com/sheet/DTVNEYUREUnZjUURG">教师评价表</a></p>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "cosoff/zsptAI",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./part2\xm1"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="rw3.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">任务2.1.3 语音合成-语音助手</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="rw5.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">任务2.1.5 校园智能客服</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">任务描述</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">学习目标</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">任务分析</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">知识链接</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#api">三、使用API开发聊天机器人</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">素质素养养成</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">任务分组</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">任务实施</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">任务工作单1：认知聊天机器人</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">引导问题：</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">任务工作单2：认知聊天机器人api</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">引导问题：</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">任务工作单3：聊天机器人api调用实践</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">引导问题：</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id15">任务工作单4：聊天机器人认知和应用（展示）</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id16">引导问题：</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id17">任务工作单5：聊天机器人开发实践</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id18">引导问题：</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id19">评价反馈</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id20">个人评价表</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id21">小组内互评表</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id22">小组间互评表</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id23">教师评价表-任务工作单4</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By 中山职业技术学院人工智能技术应用
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
