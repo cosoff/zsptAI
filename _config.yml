@@ -1,0 +1,34 @@
+# Book settings
+# Learn more at https://jupyterbook.org/customize/config.html
+
+title: 人工智能技术应用基础
+author: 中山职业技术学院人工智能技术应用
+logo: logo.png
+
+# Force re-execution of notebooks on each build.
+# See https://jupyterbook.org/content/execute.html
+execute:
+  execute_notebooks: auto
+  run_in_temp: true
+
+# Define the name of the latex output file for PDF builds
+latex:
+  latex_documents:
+    targetname: book.tex
+
+# Add a bibtex file so that we can create citations
+bibtex_bibfiles:
+  - references.bib
+repository:
+  url: https://github.com/cosoff/zsptAI
+# Add GitHub buttons to your book
+# See https://jupyterbook.org/customize/config.html#add-a-link-to-your-repository
+html:
+  use_issues_button: true
+  use_repository_button: true
+launch_buttons:
+  colab_url: https://colab.research.google.com
+  thebe: true  # Add a thebe button to pages (requires the repository to run on Binder)
+thebe:
+  url: http://localhost:8888
+  token: 7daf0dac28ca9258ad26e9221f08eac0e6803ffa345b71de
