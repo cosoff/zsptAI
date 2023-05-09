@@ -1,0 +1,12 @@
+name: my-environment
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - jupyter-book
+  - matplotlib
+  - chardet
+  - numpy
+  - pip
+  - pip:
+    - baidu-aip
